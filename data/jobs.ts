@@ -62,6 +62,105 @@ export interface Job {
 
 export const jobs: Job[] = [
   {
+    slug: "google-data-center-technician-germany",
+    title: "Google Careers 2026: What It's Actually Like to Get Hired as a Data Center Technician in Germany",
+    category: "Job Guide",
+    excerpt:
+      "Google's Frankfurt data center technician roles offer a hands-on way into a global tech employer for candidates who can handle hardware, networking and shift-based operations.",
+    coverImage: "/Google Careers 2026.png",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "5 min",
+    author: {
+      name: "Rina Sato",
+      role: "Career Editor",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+    },
+    intro:
+      "There's a specific kind of satisfaction in knowing the servers behind half the internet's daily traffic are running because you kept them alive. For anyone considering a career move to Germany in 2026, Google's data center operations team is one of the more overlooked entry points into one of the world's biggest tech employers — and Frankfurt is currently hiring.",
+    ctaButtons: [
+      { label: "Browse Available Positions", href: "/jobs/germany-jobs-2026" },
+      { label: "Learn How to Apply", href: "/jobs/job-advice-career-tips-2026" },
+      { label: "Review Job Requirements", href: "/jobs/google-data-center-technician-germany" },
+    ],
+    sections: [
+      {
+        heading: "The Company Behind the Infrastructure",
+        paragraphs: [
+          "Google has one of the largest engineering footprints of any US company in Europe, with core product and infrastructure work spread across Zurich, London, Munich, Dublin, and increasingly Frankfurt. The Frankfurt site sits inside Germany's largest data center hub — a region chosen for its dense fiber connectivity and proximity to the DE-CIX internet exchange, one of the busiest in the world.",
+          "Behind the polished consumer products, it's technicians on the floor who keep the physical hardware running. It is a role where the work is tangible: racks, cables, and machines you can put your hands on, in service of infrastructure that runs at a genuinely massive scale.",
+        ],
+      },
+      {
+        heading: "Where the Jobs Actually Are",
+        paragraphs: [
+          "This isn't a desk-and-laptop role — it's hands-on, shift-based, physical work inside a live data center environment.",
+        ],
+        list: [
+          "Data center deployment and infrastructure operations",
+          "Hardware diagnostics and component-level repair",
+          "Server and networking equipment maintenance",
+          "End-of-life equipment teardown and decommissioning",
+        ],
+      },
+      {
+        heading: "What Google Is Actually Looking For",
+        paragraphs: [
+          "There's no single background that gets hired into this role, but the posting is fairly specific about the baseline: hands-on repair experience, comfort with hardware and networking troubleshooting, and the physical stamina the job actually requires.",
+        ],
+        list: [
+          "Experience with component-level repair and troubleshooting on technical equipment",
+          "Ability to diagnose issues across operating systems, server hardware, or networking protocols",
+          "Physical capability to lift/move 50lb (23kg) equipment over extended periods",
+          "Flexibility for non-standard hours, including nights, weekends, and holidays",
+          "Nice to have: a bachelor's degree or equivalent experience, 2 years diagnosing OS/hardware/networking issues, Unix/Linux familiarity, prior data center or NOC experience, and the ability to work well within a team under shifting priorities.",
+        ],
+      },
+      {
+        heading: "What Working There Actually Feels Like",
+        paragraphs: [
+          "Like most large-scale tech employers, Google's data center roles come with a compensation structure and benefits package built for retention, not just base pay.",
+        ],
+        list: [
+          "Base salary in the €70,000–€72,000 range",
+          "15% bonus target on top of base",
+          "Equity opportunities",
+          "Standard Google benefits package",
+        ],
+      },
+      {
+        heading: "How to Actually Get Hired",
+        paragraphs: [
+          "The application path is the same one Google uses across its infrastructure roles: apply online, get screened for the technical and physical requirements, and move through interviews focused on hands-on troubleshooting scenarios rather than whiteboard coding.",
+        ],
+        list: [
+          "Visit Google's careers page and search for Data Center Technician roles in Frankfurt.",
+          "Submit your application and resume through the online portal.",
+          "Complete a recruiter screen focused on hands-on hardware and troubleshooting experience.",
+          "Go through technical and physical-requirement assessments if selected.",
+          "Prepare visa or relocation paperwork if moving to Germany from abroad.",
+          "Complete onboarding and site-specific safety training before starting shifts.",
+        ],
+      },
+    ],
+    salaryTable: [
+      { role: "Data Center Technician", pay: "€70,000–€72,000 per year" },
+      { role: "Data Center Technician (+ 15% bonus target)", pay: "~€80,500–€82,800 total target comp" },
+    ],
+    applySteps: [
+      "Visit Google's careers page and search for Data Center Technician roles in Frankfurt.",
+      "Submit your application and resume through the online portal.",
+      "Complete a recruiter screen focused on hands-on hardware and troubleshooting experience.",
+      "Go through technical and physical-requirement assessments if selected.",
+      "Prepare visa or relocation paperwork if moving to Germany from abroad.",
+      "Complete onboarding and site-specific safety training before starting shifts.",
+    ],
+    careersPageLink:
+      "https://www.google.com/about/careers/applications/jobs/results/97466935221854918-data-center-technician",
+  },
+  {
     slug: "powerco-careers-germany",
     title: "PowerCo Careers 2026: Battery Cell Jobs in Germany's 'Battery Valley'",
     category: "Job Guide",
