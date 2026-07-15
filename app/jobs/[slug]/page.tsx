@@ -30,7 +30,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
   const isLandingTemplate = job.template === "landing";
   const related = jobs.filter((j) => j.slug !== job.slug);
   const relatedTopThree = related.slice(0, 3);
-  const relatedJobs = related.slice(0, isLandingTemplate ? 10 : 3);
+  const relatedJobs = related.slice(0, 8);
 
   return (
     <div className="mx-auto max-w-content px-5 py-10">
@@ -123,8 +123,8 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
               ))}
 
               <h2>Salary range</h2>
-              <div className="mb-6 overflow-hidden rounded-md border border-navy-800/10">
-                <table className="w-full text-left text-sm">
+              <div className="mb-6 overflow-x-auto rounded-md border border-navy-800/10">
+                <table className="min-w-[540px] w-full text-left text-sm">
                   <thead className="bg-navy-800 text-white">
                     <tr>
                       <th className="px-4 py-3 font-semibold">Role</th>

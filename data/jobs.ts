@@ -67,8 +67,7 @@ export const jobs: Job[] = [
     category: "Job Guide",
     excerpt:
       "PowerCo is Volkswagen Group's battery cell company in Salzgitter, and it is hiring across R&D, engineering, operations, and project management as it builds Germany's next major battery cluster.",
-    coverImage:
-      "/ChatGPT Image Jul 14, 2026, 05_12_56 PM.png",
+    coverImage: "/PowerCo Careers 2026.png",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
     readTime: "9 min",
@@ -425,7 +424,7 @@ export const jobs: Job[] = [
       role: "Career Editor",
       avatar:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato is a career writer at Nippon Career. She specializes in hospitality and service industry job guides, drawing on hands-on experience to create practical articles.",
+      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
     },
     intro:
       "Convenience stores are one of Japan's largest employers, with branches nationwide. These roles offer flexible scheduling and many stores actively hire international staff.",
@@ -435,6 +434,12 @@ export const jobs: Job[] = [
       { label: "See salary and benefits", href: "/jobs/retail-sales-recruitment" },
     ],
     sections: [
+      {
+        heading: "About Us",
+        paragraphs: [
+          "This guide is published by careergen.online to support international job seekers exploring part-time retail work in Japan. We focus on practical advice that helps you understand the hiring process, shift expectations, and how to succeed in convenience store roles.",
+        ],
+      },
       {
         heading: "Key Job Responsibilities",
         paragraphs: [
@@ -506,7 +511,7 @@ export const jobs: Job[] = [
       role: "Career Editor",
       avatar:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato is a career writer at Nippon Career. She specializes in hospitality and service industry job guides, drawing on hands-on experience to create practical articles.",
+      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
     },
     intro:
       "Cleaning work is sought across hotels, offices, and commercial facilities. This role requires no special qualifications and appeals to both Japanese and international job seekers.",
@@ -587,7 +592,7 @@ export const jobs: Job[] = [
       role: "Career Editor",
       avatar:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato is a career writer at Nippon Career. She specializes in hospitality and service industry job guides, drawing on hands-on experience to create practical articles.",
+      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
     },
     intro:
       "In retail environments, product knowledge matters, but creating a welcoming store atmosphere and connecting with customers is equally important. This role suits people who want to grow at their own pace while gaining practical experience.",
@@ -806,8 +811,7 @@ export const jobs: Job[] = [
     category: "Job Guide",
     excerpt:
       "Learn about SAP careers in Germany in 2026, including in-demand tech roles, salary ranges, application steps, benefits, and tips for international applicants.",
-    coverImage:
-      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/SAP Careers 2026.png",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
     readTime: "8–9 min",
@@ -1223,8 +1227,7 @@ export const jobs: Job[] = [
     category: "Job Guide",
     excerpt:
       "Explore Deutsche Bank careers in Germany for 2026, including finance roles, risk and compliance jobs, technology positions, salary expectations, and how to apply.",
-    coverImage:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/Deutsche Bank Careers 2026.png",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
     readTime: "8 min",
@@ -1331,8 +1334,7 @@ export const jobs: Job[] = [
     category: "Job Guide",
     excerpt:
       "Explore Allianz careers in Germany for 2026, including underwriting, claims, data, technology, finance, and compliance roles.",
-    coverImage:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/Allianz Careers 2026.png",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
     readTime: "8 min",
@@ -1547,8 +1549,7 @@ export const jobs: Job[] = [
     category: "Job Guide",
     excerpt:
       "Explore Deutsche Telekom careers in Germany for 2026, including telecom and tech roles, salary ranges, requirements, application steps, and international applicant guidance.",
-    coverImage:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/Deutsche Telekom Careers.png",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
     readTime: "8 min",
@@ -1785,8 +1786,7 @@ export const jobs: Job[] = [
     category: "Job Guide",
     excerpt:
       "BASF is the world's largest chemical company, offering thousands of career opportunities in engineering, IT, manufacturing, and business roles across Germany. Learn about salaries, benefits, and the application process.",
-    coverImage:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/BASF Careers 2026.png",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
     readTime: "7–9 min",
@@ -2082,8 +2082,7 @@ export const jobs: Job[] = [
     category: "Hospitality Tips",
     excerpt:
       "Learn hospitality career tips, hotel job advice, customer service skills, interview preparation, and career development guides for hotels, restaurants, tourism, and food service jobs.",
-    coverImage:
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/Hospitality Career.png",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
     readTime: "4 min",
