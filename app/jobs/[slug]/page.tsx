@@ -33,10 +33,10 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
   const relatedJobs = related.slice(0, 8);
 
   return (
-    <div className="mx-auto max-w-content px-5 py-10">
+    <div className="mx-auto w-full max-w-content px-5 py-10 sm:px-6">
       <div className="grid gap-10 md:grid-cols-3">
         {/* Main article */}
-        <article className="md:col-span-2">
+        <article className="w-full md:col-span-2">
           <nav className="mb-4 text-xs text-navy-800/50">
             <Link href="/" className="hover:text-gold-500">
               Home
@@ -64,7 +64,15 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
           <RelatedPostsMini jobs={relatedTopThree} />
 
           <div className="relative mb-8 h-64 w-full overflow-hidden rounded-md md:h-96">
-            <Image src={job.coverImage} alt={job.title} fill priority className="object-cover" />
+            <Image
+              src={job.coverImage}
+              alt={job.title}
+              fill
+              sizes="100vw"
+              priority
+              unoptimized={job.coverImage.startsWith("http")}
+              className="object-cover"
+            />
           </div>
 
           {isLandingTemplate ? (
@@ -116,7 +124,14 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                   )}
                   {section.image && (
                     <div className="relative mb-6 h-56 w-full overflow-hidden rounded-md md:h-80">
-                      <Image src={section.image} alt={section.heading} fill className="object-cover" />
+                      <Image
+                        src={section.image}
+                        alt={section.heading}
+                        fill
+                        sizes="100vw"
+                        unoptimized={section.image?.startsWith("http")}
+                        className="object-cover"
+                      />
                     </div>
                   )}
                 </div>
@@ -124,7 +139,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
 
               <h2>Salary range</h2>
               <div className="mb-6 overflow-x-auto rounded-md border border-navy-800/10">
-                <table className="min-w-[540px] w-full text-left text-sm">
+                <table className="w-full text-left text-sm">
                   <thead className="bg-navy-800 text-white">
                     <tr>
                       <th className="px-4 py-3 font-semibold">Role</th>
@@ -159,7 +174,14 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
           {/* Author bio */}
           <div className="mt-10 flex gap-4 rounded-md border border-navy-800/10 bg-white p-5">
             <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
-              <Image src={job.author.avatar} alt={job.author.name} fill className="object-cover" />
+              <Image
+                src={job.author.avatar}
+                alt={job.author.name}
+                fill
+                sizes="64px"
+                unoptimized={job.author.avatar.startsWith("http")}
+                className="object-cover"
+              />
             </div>
             <div>
               <p className="font-serif font-bold text-navy-900">{job.author.name}</p>
@@ -197,7 +219,14 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                   className="group flex items-center gap-3 rounded-md border border-navy-800/10 bg-white p-3 transition hover:shadow-md"
                 >
                   <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm">
-                    <Image src={r.coverImage} alt={r.title} fill className="object-cover" />
+                    <Image
+                      src={r.coverImage}
+                      alt={r.title}
+                      fill
+                      sizes="56px"
+                      unoptimized={r.coverImage.startsWith("http")}
+                      className="object-cover"
+                    />
                   </div>
                   <span className="text-sm font-medium leading-5 text-navy-800/80 transition group-hover:text-gold-500">
                     {r.title}

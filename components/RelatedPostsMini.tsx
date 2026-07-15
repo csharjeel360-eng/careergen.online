@@ -24,7 +24,14 @@ export default function RelatedPostsMini({ jobs }: RelatedPostsMiniProps) {
           >
             <div className="flex min-w-0 items-center gap-3">
               <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm">
-                <Image src={job.coverImage} alt={job.title} fill className="object-cover" />
+                <Image
+                  src={job.coverImage}
+                  alt={job.title}
+                  fill
+                  sizes="56px"
+                  unoptimized={job.coverImage.startsWith("http")}
+                  className="object-cover"
+                />
               </div>
               <span className="line-clamp-2 text-sm font-semibold leading-5 text-navy-800">
                 {job.title}

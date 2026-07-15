@@ -10,6 +10,8 @@ export default function JobCard({ job }: { job: Job }) {
           src={job.coverImage}
           alt={job.title}
           fill
+          sizes="(max-width: 640px) 100vw, 50vw"
+          unoptimized={job.coverImage.startsWith("http")}
           className="object-cover transition duration-500 group-hover:scale-105"
         />
         <span className="absolute left-3 top-3 rounded-sm bg-navy-900/85 px-2.5 py-1 text-xs font-semibold text-gold-400">

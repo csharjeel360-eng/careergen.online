@@ -1,21 +1,30 @@
 import Link from "next/link";
 import { jobs, Job } from "@/data/jobs";
 
-export default function Sidebar({ excludeSlug }: { excludeSlug?: string }) {
+type SidebarProps = {
+  excludeSlug?: string;
+  searchQuery?: string;
+};
+
+export default function Sidebar({ excludeSlug, searchQuery }: SidebarProps) {
   const items: Job[] = jobs.filter((j) => j.slug !== excludeSlug);
 
   return (
     <aside className="space-y-8">
       <div className="rounded-md border border-navy-800/10 bg-white p-5">
         <h3 className="mb-4 font-serif text-base font-bold text-navy-900">Search</h3>
-        <div className="flex overflow-hidden rounded-sm border border-navy-800/15">
+        <form method="get" action="/" className="flex overflow-hidden rounded-sm border border-navy-800/15">
           <input
             type="text"
+            name="query"
+            defaultValue={searchQuery}
             placeholder="Search jobs..."
             className="w-full px-3 py-2 text-sm outline-none"
           />
-          <button className="bg-navy-800 px-4 text-sm font-semibold text-white">Search</button>
-        </div>
+          <button type="submit" className="bg-navy-800 px-4 text-sm font-semibold text-white">
+            Search
+          </button>
+        </form>
       </div>
 
       <div className="rounded-md border border-navy-800/10 bg-white p-5">
