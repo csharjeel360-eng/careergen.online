@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     icon: '/careergen-logo.svg',
     apple: '/careergen-logo.svg',
   },
+  verification: {
+    google: "o-DyFEMmO4OOaVdy40HqbVSr_5IIPLfYhPk7S8bHIDo",
+  },
 };
 
 export default function RootLayout({
