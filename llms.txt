@@ -1,2 +1,92 @@
-careergen.online
-A career guidance site for international candidates, with jobs, application tips, salary insights, and Germany/Japan career market guides.
+# careergen | Jobs, career guides, and application tips  
+
+> careergen helps international job seekers find trusted opportunities, career advice, and market insights for Japan and Germany.
+
+**Website:** [https://careergen.online](https://careergen.online)
+**Content Type:** saas
+**Language:** ja
+
+## AI Readiness Score
+
+**Score:** 47/100 | **Grade:** F  
+⚠️ Critical - immediate action required
+
+### Scoring Breakdown
+
+- **Sitemap:** 0/10 (10%)
+- **Robots:** 0/10 (10%)
+- **Classification:** 7/10 (20%)
+- **Policy:** 10/10 (25%)
+- **Metadata:** 4/10 (15%)
+- **Legal:** 0/10 (10%)
+- **Formatting:** 2/10 (10%)
+
+## Site Overview
+
+**Content Summary:**
+- Primary Content: 4 pages
+- Company Information: 1 pages
+
+**Website Attributes:**
+- Primary Language: ja
+- Content Type: saas
+- Schema Markup: Detected but incomplete/invalid
+
+## AI Usage Guidelines
+
+This website provides the following permissions and restrictions for AI systems:
+
+- **Content Summarization:** Yes
+- **Direct Quotations:** Yes
+- **Training Usage:** No
+- **Embeddings:** Yes
+- **Attribution Required:** Yes
+
+**Attribution Format:** Please provide source URL
+**Policy Updated:** 2026-07-15
+
+**Risk Classification:** High (90%)
+**Require Attribution:** Yes
+**Allow Training:** No
+**Allow Embedding:** No
+
+**Permissions Rationale:**
+- Missing privacy policy → training and embedding disabled
+- Missing terms page → legal score and risk impacted
+
+## Primary Content
+
+- [Home](https://careergen.online/)
+- [Job Advice Career Tips 2026](https://careergen.online/jobs/job-advice-career-tips-2026)
+- [Hospitality Career Tips 2026](https://careergen.online/jobs/hospitality-career-tips-2026)
+- [Interview Tips 2026](https://careergen.online/jobs/interview-tips-2026)
+
+## Company Information
+
+- [Powerco Careers Germany](https://careergen.online/jobs/powerco-careers-germany)
+
+<!-- AI COMPLIANCE METADATA
+
+Generated: 2026-07-15T09:50:52.789Z
+Version: llms.txt 1.0
+
+AI Readiness Score: 47/100
+Total Pages Analyzed: 5
+
+Authorization:
+- Allow-Summary: Yes
+- Allow-Quotation: Yes
+- Allow-Training: No
+- Allow-Embedding: Yes
+- Require-Attribution: Yes
+
+Detection:
+- Sitemap: Not found
+- Robots.txt: Not found
+- Schema Markup: Not found
+- HTTPS: OK
+- Canonical Coverage: 0%
+- Meta Description Coverage: 0%
+- Formatting Score: 2/10
+
+-->
