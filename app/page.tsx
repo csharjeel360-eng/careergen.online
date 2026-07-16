@@ -37,7 +37,7 @@ export default function HomePage({
     : jobs;
   const pageNumber = Number(Array.isArray(pageParam) ? pageParam[0] : pageParam || "1");
   const currentPage = Number.isNaN(pageNumber) || pageNumber < 1 ? 1 : pageNumber;
-  const perPage = 12;
+  const perPage = 11;
   const totalArticles = filteredJobs.length;
   const totalPages = Math.max(1, Math.ceil(totalArticles / perPage));
   const safePage = Math.min(currentPage, totalPages);

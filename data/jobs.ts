@@ -62,6 +62,103 @@ export interface Job {
 
 export const jobs: Job[] = [
   {
+    slug: "nvidia-careers-2026-relational-foundation-model-engineer-munich",
+    title: "NVIDIA Careers 2026: What It's Actually Like to Get Hired as a Relational Foundation Model Engineer in Munich",
+    category: "Job Guide",
+    excerpt:
+      "NVIDIA's Munich-based Modern Data Stack team is hiring researchers to build relational foundation models that generalize across enterprise data and multiple use cases.",
+    coverImage: "/NVIDIA Careers 2026.png",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "6 min",
+    author: {
+      name: "Rina Sato",
+      role: "Career Editor",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+    },
+    intro:
+      "There's a particular kind of appeal in research roles that don't ask you to specialize into a corner. NVIDIA's Munich-based Modern Data Stack team is offering something different: a single foundation model built to handle relational data across dozens of use cases at once, and they're currently hiring the researchers who will build the next version of it.",
+    ctaButtons: [
+      { label: "Apply Now", href: "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Germany-Munich/Relational-Foundation-Model-Engineer--Modern-Data-Stack_JR2020224" },
+      { label: "Review Hiring Steps", href: "/jobs/nvidia-careers-2026-relational-foundation-model-engineer-munich#application-steps" },
+      { label: "Explore More Roles", href: "/#jobs" },
+    ],
+    sections: [
+      {
+        heading: "The Company Behind the Model",
+        paragraphs: [
+          "NVIDIA does not need much of an introduction as a hardware company, but its research organization has quietly become one of the more interesting places to work if you're on the applied ML side rather than the chip side. The Munich team sits within this research arm, and its focus is narrower than 'AI research' as a catch-all — it's specifically about relational foundation models, meaning architectures designed to generalize across arbitrary database schemas and heterogeneous graphs instead of being rebuilt from scratch for every new dataset.",
+          "That's a meaningfully different problem than most foundation model work, which tends to center on text, images, or code. Relational data — the kind sitting in enterprise databases, customer records, and transaction logs — has its own structure, and building a model that can reason over that structure without task-specific retraining is still an open research problem. This is the problem the team is working on.",
+        ],
+      },
+      {
+        heading: "Where the Jobs Actually Are",
+        paragraphs: [
+          "This isn't a role where you're handed a fixed spec and asked to implement it. It's closer to an open research mandate, spanning several connected areas:",
+        ],
+        list: [
+          "Extending Transformer and GNN-based architectures to work across any relational schema",
+          "Applying the resulting foundation model to forecasting, entity matching, customer retention, and fraud detection",
+          "Owning pieces of the full ML lifecycle — architecture design, training, post-training optimization, and inference acceleration",
+          "Contributing directly to the next generation of the company's Relational Foundation Model",
+        ],
+      },
+      {
+        heading: "What NVIDIA Is Actually Looking For",
+        paragraphs: [
+          "The requirements are steep, which tracks with the seniority the role implies. There isn't one specific academic path that gets you in, but the baseline expectations are laid out clearly:",
+        ],
+        list: [
+          "An MS or PhD in Machine Learning, Computer Science, or an equivalent field",
+          "Solid proficiency in Python and deep learning frameworks, particularly PyTorch",
+          "At least 8 years of research experience designing ML algorithm solutions",
+          "Hands-on experience deploying predictive models in real-world, production settings — not just academic benchmarks",
+          "Nice to have: familiarity with graph-based machine learning and a publication record at top-tier venues such as NeurIPS, ICLR, or ICML",
+        ],
+      },
+      {
+        heading: "What Working There Actually Feels Like",
+        paragraphs: [
+          "The posting itself leans more on culture and mission than on hard numbers — there is no published salary range for this particular role, which is fairly common for senior research positions where compensation gets negotiated individually based on background and publication record. What the listing emphasizes is the caliber of the team and the degree of autonomy on offer.",
+        ],
+        list: [
+          "Positioned as one of the more sought-after employers in tech, largely on reputation",
+          "Framed as a chance to work alongside some of the field's more driven and forward-thinking researchers",
+          "An explicit pitch toward creative, self-directed contributors — the posting all but says if you need a lot of structure, this may not be the right fit",
+        ],
+      },
+      {
+        heading: "How to Actually Get Hired",
+        paragraphs: [
+          "The application process follows NVIDIA's standard path for research and engineering roles, run through their Workday careers portal rather than a separate research hiring pipeline.",
+        ],
+        list: [
+          "Visit NVIDIA's careers page and search for 'Relational Foundation Model Engineer, Modern Data Stack' in Munich, Germany",
+          "Submit your application and CV, ideally with your publication list clearly referenced",
+          "Complete a recruiter screen focused on your research background, prior applied ML work, and publication history",
+          "Go through technical interviews centered on ML architecture decisions, deep learning framework fluency, and how you've handled predictive models in production",
+          "If relocating from outside Germany, begin visa and relocation paperwork early — this tends to be the longest part of the timeline for international candidates",
+          "Complete onboarding once an offer is finalized",
+        ],
+      },
+    ],
+    salaryTable: [
+      { role: "Relational Foundation Model Engineer", pay: "Not publicly disclosed; compensation is typically negotiated for senior research roles" },
+    ],
+    applySteps: [
+      "Visit NVIDIA's careers page and search for 'Relational Foundation Model Engineer, Modern Data Stack' in Munich, Germany.",
+      "Submit your application and CV, ideally with your publication list clearly referenced.",
+      "Complete a recruiter screen focused on your research background, prior applied ML work, and publication history.",
+      "Go through technical interviews centered on ML architecture decisions, deep learning framework fluency, and how you've handled predictive models in production.",
+      "If relocating from outside Germany, begin visa and relocation paperwork early.",
+      "Complete onboarding once an offer is finalized.",
+    ],
+    careersPageLink:
+      "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Germany-Munich/Relational-Foundation-Model-Engineer--Modern-Data-Stack_JR2020224",
+  },
+  {
     slug: "google-data-center-technician-germany",
     title: "Google Careers 2026: What It's Actually Like to Get Hired as a Data Center Technician in Germany",
     category: "Job Guide",
