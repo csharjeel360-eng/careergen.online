@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://careergen.online"),
   title: "careergen.online | 日本の求人情報とキャリアガイド",
   description:
     "careergen.online で日本国内の求人情報、応募のコツ、給与相場をわかりやすく解説するキャリアメディアです。",

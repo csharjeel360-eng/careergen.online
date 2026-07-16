@@ -9,6 +9,16 @@ html {
 body {
   background-color: #faf9f5;
   color: #1c1c1c;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .prose-content h2 {

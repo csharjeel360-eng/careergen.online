@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -14,12 +15,28 @@ export function generateStaticParams() {
   return jobs.map((job) => ({ slug: job.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const job = getJobBySlug(params.slug);
   if (!job) return {};
+
+  const imageUrl = new URL(job.coverImage, "https://careergen.online").toString();
+
   return {
     title: `${job.title} | careergen`,
     description: job.excerpt,
+    openGraph: {
+      title: job.title,
+      description: job.excerpt,
+      type: "article",
+      url: `https://careergen.online/jobs/${job.slug}`,
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: job.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: job.title,
+      description: job.excerpt,
+      images: [imageUrl],
+    },
   };
 }
 
@@ -33,11 +50,11 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
   const relatedJobs = related.slice(0, 8);
 
   return (
-    <div className="mx-auto w-full max-w-content px-5 py-10 sm:px-6">
-      <div className="grid gap-10 md:grid-cols-3">
+    <div className="mx-auto w-full max-w-content px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
+      <div className="grid gap-8 md:grid-cols-3 md:gap-10">
         {/* Main article */}
         <article className="w-full md:col-span-2">
-          <nav className="mb-4 text-xs text-navy-800/50">
+          <nav className="mb-4 flex flex-wrap items-center gap-1 text-xs text-navy-800/50">
             <Link href="/" className="hover:text-gold-500">
               Home
             </Link>{" "}
@@ -48,11 +65,11 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
             {job.category}
           </span>
 
-          <h1 className="mb-3 font-serif text-2xl font-bold leading-snug text-navy-900 md:text-4xl">
+          <h1 className="mb-3 font-serif text-2xl font-bold leading-snug text-navy-900 sm:text-3xl md:text-4xl">
             {job.title}
           </h1>
 
-          <p className="mb-6 text-xs text-navy-800/50">
+          <p className="mb-6 text-xs leading-6 text-navy-800/50 sm:text-sm">
             Published {job.publishedDate} • Updated {job.updatedDate} • by{" "}
             <span className="font-medium text-navy-800/70">{job.author.name}</span> ・{" "}
             {job.readTime} read
@@ -62,18 +79,6 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
 
           <CtaButtons buttons={job.ctaButtons ?? []} />
           <RelatedPostsMini jobs={relatedTopThree} />
-
-          <div className="relative mb-8 h-64 w-full overflow-hidden rounded-md md:h-96">
-            <Image
-              src={job.coverImage}
-              alt={job.title}
-              fill
-              sizes="100vw"
-              priority
-              unoptimized={job.coverImage.startsWith("http")}
-              className="object-cover"
-            />
-          </div>
 
           {isLandingTemplate ? (
             <div>
@@ -172,7 +177,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
           )}
 
           {/* Author bio */}
-          <div className="mt-10 flex gap-4 rounded-md border border-navy-800/10 bg-white p-5">
+          <div className="mt-10 flex flex-col gap-4 rounded-md border border-navy-800/10 bg-white p-5 sm:flex-row">
             <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
               <Image
                 src={job.author.avatar}
@@ -238,7 +243,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
         </article>
 
         {/* Sidebar */}
-        <div>
+        <div className="w-full">
           <Sidebar excludeSlug={job.slug} />
         </div>
       </div>

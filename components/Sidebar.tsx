@@ -13,15 +13,15 @@ export default function Sidebar({ excludeSlug, searchQuery }: SidebarProps) {
     <aside className="space-y-8">
       <div className="rounded-md border border-navy-800/10 bg-white p-5">
         <h3 className="mb-4 font-serif text-base font-bold text-navy-900">Search</h3>
-        <form method="get" action="/" className="flex overflow-hidden rounded-sm border border-navy-800/15">
+        <form method="get" action="/" className="flex flex-col gap-2 overflow-hidden rounded-sm border border-navy-800/15 p-1 sm:flex-row sm:gap-0 sm:p-0">
           <input
             type="text"
             name="query"
             defaultValue={searchQuery}
             placeholder="Search jobs..."
-            className="w-full px-3 py-2 text-sm outline-none"
+            className="w-full min-w-0 px-3 py-2 text-sm outline-none"
           />
-          <button type="submit" className="bg-navy-800 px-4 text-sm font-semibold text-white">
+          <button type="submit" className="min-h-[44px] bg-navy-800 px-4 text-sm font-semibold text-white sm:min-h-0">
             Search
           </button>
         </form>

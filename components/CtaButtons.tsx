@@ -20,12 +20,12 @@ const genericButtonLabels = [
 
 export default function CtaButtons({ buttons }: CtaButtonsProps) {
   return (
-    <div className="mb-6 mt-2 space-y-3">
+    <div className="mb-6 mt-2 flex flex-col gap-3">
       {buttons.map((button, index) => (
         <Link
           key={`${button.href}-${index}`}
           href={button.href}
-          className="flex items-center justify-center rounded-sm bg-green-600 px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-green-700"
+          className="flex min-h-[44px] items-center justify-center rounded-sm bg-green-600 px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-green-700 sm:text-base"
         >
           {genericButtonLabels[index] ?? button.label}
         </Link>
