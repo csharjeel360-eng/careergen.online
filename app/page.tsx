@@ -4,12 +4,15 @@ import Link from "next/link";
 import { jobs } from "@/data/jobs";
 import JobCard from "@/components/JobCard";
 import Sidebar from "@/components/Sidebar";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "careergen | Jobs, career guides, and application tips",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Jobs, career guides, and application tips",
   description:
-    "careergen helps international job seekers find trusted opportunities, career advice, and market insights for Japan and Germany.",
-};
+    "Explore the latest Germany job openings, career guides, salary insights, and application tips for international professionals.",
+  path: "/",
+  keywords: ["latest jobs", "Germany job openings", "career advice"],
+});
 
 export default function HomePage({
   searchParams,
@@ -76,7 +79,7 @@ export default function HomePage({
             <div className="relative h-64 md:h-full">
               <Image
                 src={featuredArticle.coverImage}
-                alt={featuredArticle.title}
+                alt={`Cover image for ${featuredArticle.title}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority

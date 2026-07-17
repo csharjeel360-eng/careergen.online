@@ -10,6 +10,25 @@ import StepsSection from "@/components/StepsSection";
 import FeatureGrid from "@/components/FeatureGrid";
 import CtaButtons from "@/components/CtaButtons";
 import RelatedPostsMini from "@/components/RelatedPostsMini";
+import { buildPageMetadata, siteUrl } from "@/lib/seo";
+
+const socialLinks = [
+  {
+    label: "Facebook",
+    href: "https://web.facebook.com/profile.php?id=61591903173398",
+    icon: "f",
+  },
+  {
+    label: "Threads",
+    href: "https://www.threads.com/@sharjeelcoder82",
+    icon: "T",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/sharjeelcoder82/?hl=en",
+    icon: "I",
+  },
+];
 
 export function generateStaticParams() {
   return jobs.map((job) => ({ slug: job.slug }));
@@ -19,25 +38,14 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const job = getJobBySlug(params.slug);
   if (!job) return {};
 
-  const imageUrl = new URL(job.coverImage, "https://careergen.online").toString();
-
-  return {
-    title: `${job.title} | careergen`,
+  return buildPageMetadata({
+    title: job.title,
     description: job.excerpt,
-    openGraph: {
-      title: job.title,
-      description: job.excerpt,
-      type: "article",
-      url: `https://careergen.online/jobs/${job.slug}`,
-      images: [{ url: imageUrl, width: 1200, height: 630, alt: job.title }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: job.title,
-      description: job.excerpt,
-      images: [imageUrl],
-    },
-  };
+    path: `/jobs/${job.slug}`,
+    keywords: [job.category, job.title, "job guide", "career advice"],
+    image: job.coverImage,
+    type: "article",
+  });
 }
 
 export default function JobDetailPage({ params }: { params: { slug: string } }) {
@@ -48,9 +56,68 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
   const related = jobs.filter((j) => j.slug !== job.slug);
   const relatedTopThree = related.slice(0, 3);
   const relatedJobs = related.slice(0, 8);
+  const sourceUrl = job.sourceUrl ?? job.careersPageLink;
+  const lastVerified = job.lastVerified ?? job.updatedDate;
+  const companyName =
+    job.companyName ||
+    job.title
+      .replace(/:.*$/, "")
+      .replace(/\s*(Careers|Career|Jobs|Guide|Role).*/i, "")
+      .trim() ||
+    "Employer listed in this guide";
+  const jobLocation = /munich/i.test(job.title)
+    ? "Munich, Germany"
+    : /germany/i.test(job.title)
+      ? "Germany"
+      : "Remote / Germany";
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: job.title,
+    description: job.excerpt,
+    image: new URL(job.coverImage, siteUrl).toString(),
+    author: {
+      "@type": "Person",
+      name: job.author.name,
+      jobTitle: job.author.role,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "careergen.online",
+      logo: `${siteUrl}/careergen-logo.svg`,
+    },
+    datePublished: job.publishedDate,
+    dateModified: job.updatedDate,
+    mainEntityOfPage: `${siteUrl}/jobs/${job.slug}`,
+    articleSection: job.category,
+  };
+
+  const jobPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: job.title,
+    description: job.excerpt,
+    hiringOrganization: {
+      "@type": "Organization",
+      name: companyName,
+    },
+    jobLocation: {
+      "@type": "Place",
+      name: jobLocation,
+    },
+    datePosted: job.publishedDate,
+    validThrough: lastVerified || "2026-12-31",
+    employmentType: "FULL_TIME",
+    url: sourceUrl || `${siteUrl}/jobs/${job.slug}`,
+  };
 
   return (
     <div className="mx-auto w-full max-w-content px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      {sourceUrl ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
+      ) : null}
       <div className="grid gap-8 md:grid-cols-3 md:gap-10">
         {/* Main article */}
         <article className="w-full md:col-span-2">
@@ -76,6 +143,49 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
           </p>
 
           <p className="mb-6 text-[15px] font-medium leading-8 text-gray-700">{job.intro}</p>
+
+          {job.editorialNote ? (
+            <div className="mb-8 rounded-md border border-navy-800/10 bg-white p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold-500">Editorial note</p>
+              <p className="mt-2 text-sm leading-7 text-gray-700">{job.editorialNote}</p>
+              {job.keyTakeaways?.length ? (
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+                  {job.keyTakeaways.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          ) : null}
+
+          {sourceUrl ? (
+            <div className="mb-8 rounded-md border border-gold-500/20 bg-gold-50 p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold-600">Source & verification</p>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                This article references the official employer listing or company page and was last verified on {lastVerified}.
+              </p>
+              <a
+                href={sourceUrl}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="mt-3 inline-flex text-sm font-semibold text-navy-900 underline decoration-gold-500 underline-offset-4"
+              >
+                View the original source
+              </a>
+            </div>
+          ) : null}
+
+          <div className="relative mb-6 h-64 w-full overflow-hidden rounded-lg md:h-80">
+            <Image
+              src={job.coverImage}
+              alt={`Cover image for ${job.title}`}
+              fill
+              sizes="(max-width: 768px) 100vw, 75vw"
+              priority
+              unoptimized={job.coverImage.startsWith("http")}
+              className="object-cover"
+            />
+          </div>
 
           <CtaButtons buttons={job.ctaButtons ?? []} />
           <RelatedPostsMini jobs={relatedTopThree} />
@@ -131,7 +241,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                     <div className="relative mb-6 h-56 w-full overflow-hidden rounded-md md:h-80">
                       <Image
                         src={section.image}
-                        alt={section.heading}
+                        alt={`Illustration for ${section.heading}`}
                         fill
                         sizes="100vw"
                         unoptimized={section.image?.startsWith("http")}
@@ -181,7 +291,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
             <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
               <Image
                 src={job.author.avatar}
-                alt={job.author.name}
+                alt={`Portrait for ${job.author.name}`}
                 fill
                 sizes="64px"
                 unoptimized={job.author.avatar.startsWith("http")}
@@ -192,6 +302,23 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
               <p className="font-serif font-bold text-navy-900">{job.author.name}</p>
               <p className="mb-1 text-xs text-gold-500">{job.author.role}</p>
               <p className="text-sm leading-6 text-gray-600">{job.author.bio}</p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-navy-800/10 bg-gray-50 px-3 py-2 text-sm text-navy-800/80 transition hover:border-gold-500 hover:text-gold-500"
+                  >
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gold-500/15 text-xs font-bold text-gold-500">
+                      {link.icon}
+                    </span>
+                    <span>{link.label}</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -205,7 +332,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
               <a
                 href={job.careersPageLink}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-block rounded-md bg-gold-500 px-6 py-3 font-semibold text-navy-900 transition hover:bg-gold-400"
               >
                 Apply Now →
@@ -226,7 +353,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                   <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm">
                     <Image
                       src={r.coverImage}
-                      alt={r.title}
+                      alt={`Cover image for ${r.title}`}
                       fill
                       sizes="56px"
                       unoptimized={r.coverImage.startsWith("http")}

@@ -26,7 +26,7 @@ export default function RelatedPostsMini({ jobs }: RelatedPostsMiniProps) {
               <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm">
                 <Image
                   src={job.coverImage}
-                  alt={job.title}
+                  alt={`Cover image for ${job.title}`}
                   fill
                   sizes="56px"
                   unoptimized={job.coverImage.startsWith("http")}

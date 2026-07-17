@@ -8,7 +8,7 @@ export default function JobCard({ job }: { job: Job }) {
       <Link href={`/jobs/${job.slug}`} className="relative block h-52 w-full overflow-hidden">
         <Image
           src={job.coverImage}
-          alt={job.title}
+          alt={`Cover image for ${job.title}`}
           fill
           sizes="(max-width: 640px) 100vw, 50vw"
           unoptimized={job.coverImage.startsWith("http")}

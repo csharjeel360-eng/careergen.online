@@ -1,4 +1,4 @@
-export interface JobSection {
+﻿export interface JobSection {
   heading: string;
   paragraphs: string[];
   list?: string[];
@@ -58,9 +58,113 @@ export interface Job {
   salaryTable: { role: string; pay: string }[];
   applySteps: string[];
   careersPageLink?: string;
+  sourceUrl?: string;
+  lastVerified?: string;
+  companyName?: string;
+  editorialNote?: string;
+  keyTakeaways?: string[];
 }
 
 export const jobs: Job[] = [
+  {
+    slug: "grafana-labs-careers-2026-staff-ai-engineer-remote-germany",
+    title: "Grafana Labs Careers 2026: What It's Actually Like to Get Hired as a Staff AI Engineer (Remote, Germany)",
+    category: "Job Guide",
+    excerpt:
+      "Grafana Labs is hiring remote Staff AI Engineers in Germany, combining observability, AI product work, and strong compensation in a fully distributed environment.",
+    coverImage: "/grafana lab career.png",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "6 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar:
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "Remote AI engineering roles that actually pay six figures and let you work from Germany without relocating to Silicon Valley are still rare enough to be worth writing about. Grafana Labs is currently hiring for exactly that kind of role, and the details of what the job involves are worth breaking down before you apply.",
+    ctaButtons: [
+      { label: "Browse Available Positions", href: "/jobs/remote-tech-jobs-germany-2026" },
+      { label: "Learn How to Apply", href: "/jobs/germany-jobs-2026" },
+      { label: "Review Job Requirements", href: "/jobs/grafana-labs-careers-2026-staff-ai-engineer-remote-germany" },
+    ],
+    sections: [
+      {
+        heading: "The Company Behind the Job",
+        paragraphs: [
+          "Grafana Labs built its reputation on open source, and that ethos still runs through everything the company does. Its flagship product, Grafana Cloud, gives organizations a way to make sense of scattered operational data â€” logs, metrics, traces â€” so teams can catch problems before they escalate. The client list backs up the scale: companies like Bloomberg, NVIDIA, Microsoft, and Salesforce all rely on Grafana to keep their systems running smoothly.",
+          "What makes Grafana Labs stand out in the current hiring market isn't just the product, though â€” it's the structure of the company itself. It runs as a fully distributed, remote-first operation with well over a thousand employees spread across dozens of countries, so 'remote' here isn't a pandemic-era leftover policy. It's the actual operating model.",
+        ],
+      },
+      {
+        heading: "Where the Job Actually Sits",
+        paragraphs: [
+          "This particular opening lives inside a newer, smaller unit at Grafana â€” internally described as a skunkworks-style team building AI-driven analytics tools that extend well beyond the company's core observability product. The team blends veteran employees with newer hires, and the working style leans heavily on autonomy rather than layers of process.",
+        ],
+        list: [
+          "Designing and shipping AI-powered features that help users navigate and act on large, messy datasets",
+          "Building and refining LLM- and agent-based workflows for data analysis tasks",
+          "Integrating AI features with tools teams already use, like Slack and alerting systems",
+          "Running a fast prototype-test-iterate loop with real users rather than long planning cycles",
+          "Taking ownership of a feature from first draft through to something scalable and stable in production",
+        ],
+      },
+      {
+        heading: "What Grafana Is Actually Looking For",
+        paragraphs: [
+          "The listing is fairly upfront that this isn't an entry-level search, but it also doesn't demand a rigid checklist of credentials.",
+        ],
+        list: [
+          "A solid background building production software that real users actually rely on",
+          "Hands-on experience with LLMs and applications built around generative AI",
+          "Comfort working in cloud environments like AWS, GCP, or Azure",
+          "Some familiarity with observability tooling for diagnosing system behavior",
+          "A track record of shipping fast, gathering feedback, and adjusting course without needing detailed direction",
+        ],
+      },
+      {
+        heading: "What Working There Actually Feels Like",
+        paragraphs: [
+          "Grafana leans into a message of trust over oversight, and the compensation backs up the 'staff-level' framing.",
+        ],
+        list: [
+          "Base salary for this role in Germany ranges from â‚¬109,000 to â‚¬137,000",
+          "Equity and bonus eligibility on top of base pay",
+          "30 days of annual leave, with company-wide shutdown periods",
+          "A short in-person onboarding stretch at the start, even though the role is fully remote afterwards",
+          "A culture that emphasizes low ego, high trust, and valuing outcomes over visibility",
+        ],
+      },
+      {
+        heading: "How to Actually Get Hired",
+        paragraphs: [
+          "The process runs through Grafana's own Greenhouse-hosted careers page rather than a third-party recruiter pipeline.",
+        ],
+        list: [
+          "Find the 'Staff AI Engineer - 2nd Horizon' listing on Grafana Labs' careers page and confirm you're applying from an eligible location",
+          "Submit your application with a resume that highlights production systems you've actually shipped",
+          "Expect an initial recruiter conversation focused on your engineering background and comfort with ambiguity",
+          "Move into technical interviews centered on LLM application design, production engineering judgment, and cloud-native systems",
+          "Ask your recruiter directly about market-specific pay during early conversations",
+          "Plan for a short in-person onboarding period once an offer is signed",
+        ],
+      },
+    ],
+    salaryTable: [
+      { role: "Staff AI Engineer, 2nd Horizon", pay: "â‚¬109,000 â€“ â‚¬137,000 base, plus equity and bonus" },
+    ],
+    applySteps: [
+      "Find the listing on Grafana Labs' careers page and confirm your location is eligible.",
+      "Submit your application with a resume emphasizing shipped production systems.",
+      "Complete an initial recruiter screen on your engineering background.",
+      "Go through technical interviews on LLM design, cloud systems, and production judgment.",
+      "Confirm market-specific pay with your recruiter if applying from outside the standard range.",
+      "Complete a short in-person onboarding once the offer is finalized.",
+    ],
+    careersPageLink: "https://job-boards.greenhouse.io/grafanalabs/jobs/6117334004",
+  },
   {
     slug: "nvidia-careers-2026-relational-foundation-model-engineer-munich",
     title: "NVIDIA Careers 2026: What It's Actually Like to Get Hired as a Relational Foundation Model Engineer in Munich",
@@ -72,11 +176,11 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "6 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "There's a particular kind of appeal in research roles that don't ask you to specialize into a corner. NVIDIA's Munich-based Modern Data Stack team is offering something different: a single foundation model built to handle relational data across dozens of use cases at once, and they're currently hiring the researchers who will build the next version of it.",
@@ -89,8 +193,8 @@ export const jobs: Job[] = [
       {
         heading: "The Company Behind the Model",
         paragraphs: [
-          "NVIDIA does not need much of an introduction as a hardware company, but its research organization has quietly become one of the more interesting places to work if you're on the applied ML side rather than the chip side. The Munich team sits within this research arm, and its focus is narrower than 'AI research' as a catch-all — it's specifically about relational foundation models, meaning architectures designed to generalize across arbitrary database schemas and heterogeneous graphs instead of being rebuilt from scratch for every new dataset.",
-          "That's a meaningfully different problem than most foundation model work, which tends to center on text, images, or code. Relational data — the kind sitting in enterprise databases, customer records, and transaction logs — has its own structure, and building a model that can reason over that structure without task-specific retraining is still an open research problem. This is the problem the team is working on.",
+          "NVIDIA does not need much of an introduction as a hardware company, but its research organization has quietly become one of the more interesting places to work if you're on the applied ML side rather than the chip side. The Munich team sits within this research arm, and its focus is narrower than 'AI research' as a catch-all â€” it's specifically about relational foundation models, meaning architectures designed to generalize across arbitrary database schemas and heterogeneous graphs instead of being rebuilt from scratch for every new dataset.",
+          "That's a meaningfully different problem than most foundation model work, which tends to center on text, images, or code. Relational data â€” the kind sitting in enterprise databases, customer records, and transaction logs â€” has its own structure, and building a model that can reason over that structure without task-specific retraining is still an open research problem. This is the problem the team is working on.",
         ],
       },
       {
@@ -101,7 +205,7 @@ export const jobs: Job[] = [
         list: [
           "Extending Transformer and GNN-based architectures to work across any relational schema",
           "Applying the resulting foundation model to forecasting, entity matching, customer retention, and fraud detection",
-          "Owning pieces of the full ML lifecycle — architecture design, training, post-training optimization, and inference acceleration",
+          "Owning pieces of the full ML lifecycle â€” architecture design, training, post-training optimization, and inference acceleration",
           "Contributing directly to the next generation of the company's Relational Foundation Model",
         ],
       },
@@ -114,19 +218,19 @@ export const jobs: Job[] = [
           "An MS or PhD in Machine Learning, Computer Science, or an equivalent field",
           "Solid proficiency in Python and deep learning frameworks, particularly PyTorch",
           "At least 8 years of research experience designing ML algorithm solutions",
-          "Hands-on experience deploying predictive models in real-world, production settings — not just academic benchmarks",
+          "Hands-on experience deploying predictive models in real-world, production settings â€” not just academic benchmarks",
           "Nice to have: familiarity with graph-based machine learning and a publication record at top-tier venues such as NeurIPS, ICLR, or ICML",
         ],
       },
       {
         heading: "What Working There Actually Feels Like",
         paragraphs: [
-          "The posting itself leans more on culture and mission than on hard numbers — there is no published salary range for this particular role, which is fairly common for senior research positions where compensation gets negotiated individually based on background and publication record. What the listing emphasizes is the caliber of the team and the degree of autonomy on offer.",
+          "The posting itself leans more on culture and mission than on hard numbers â€” there is no published salary range for this particular role, which is fairly common for senior research positions where compensation gets negotiated individually based on background and publication record. What the listing emphasizes is the caliber of the team and the degree of autonomy on offer.",
         ],
         list: [
           "Positioned as one of the more sought-after employers in tech, largely on reputation",
           "Framed as a chance to work alongside some of the field's more driven and forward-thinking researchers",
-          "An explicit pitch toward creative, self-directed contributors — the posting all but says if you need a lot of structure, this may not be the right fit",
+          "An explicit pitch toward creative, self-directed contributors â€” the posting all but says if you need a lot of structure, this may not be the right fit",
         ],
       },
       {
@@ -139,7 +243,7 @@ export const jobs: Job[] = [
           "Submit your application and CV, ideally with your publication list clearly referenced",
           "Complete a recruiter screen focused on your research background, prior applied ML work, and publication history",
           "Go through technical interviews centered on ML architecture decisions, deep learning framework fluency, and how you've handled predictive models in production",
-          "If relocating from outside Germany, begin visa and relocation paperwork early — this tends to be the longest part of the timeline for international candidates",
+          "If relocating from outside Germany, begin visa and relocation paperwork early â€” this tends to be the longest part of the timeline for international candidates",
           "Complete onboarding once an offer is finalized",
         ],
       },
@@ -169,14 +273,14 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "5 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
-      "There's a specific kind of satisfaction in knowing the servers behind half the internet's daily traffic are running because you kept them alive. For anyone considering a career move to Germany in 2026, Google's data center operations team is one of the more overlooked entry points into one of the world's biggest tech employers — and Frankfurt is currently hiring.",
+      "There's a specific kind of satisfaction in knowing the servers behind half the internet's daily traffic are running because you kept them alive. For anyone considering a career move to Germany in 2026, Google's data center operations team is one of the more overlooked entry points into one of the world's biggest tech employers â€” and Frankfurt is currently hiring.",
     ctaButtons: [
       { label: "Browse Available Positions", href: "/jobs/germany-jobs-2026" },
       { label: "Learn How to Apply", href: "/jobs/job-advice-career-tips-2026" },
@@ -186,14 +290,14 @@ export const jobs: Job[] = [
       {
         heading: "The Company Behind the Infrastructure",
         paragraphs: [
-          "Google has one of the largest engineering footprints of any US company in Europe, with core product and infrastructure work spread across Zurich, London, Munich, Dublin, and increasingly Frankfurt. The Frankfurt site sits inside Germany's largest data center hub — a region chosen for its dense fiber connectivity and proximity to the DE-CIX internet exchange, one of the busiest in the world.",
+          "Google has one of the largest engineering footprints of any US company in Europe, with core product and infrastructure work spread across Zurich, London, Munich, Dublin, and increasingly Frankfurt. The Frankfurt site sits inside Germany's largest data center hub â€” a region chosen for its dense fiber connectivity and proximity to the DE-CIX internet exchange, one of the busiest in the world.",
           "Behind the polished consumer products, it's technicians on the floor who keep the physical hardware running. It is a role where the work is tangible: racks, cables, and machines you can put your hands on, in service of infrastructure that runs at a genuinely massive scale.",
         ],
       },
       {
         heading: "Where the Jobs Actually Are",
         paragraphs: [
-          "This isn't a desk-and-laptop role — it's hands-on, shift-based, physical work inside a live data center environment.",
+          "This isn't a desk-and-laptop role â€” it's hands-on, shift-based, physical work inside a live data center environment.",
         ],
         list: [
           "Data center deployment and infrastructure operations",
@@ -221,7 +325,7 @@ export const jobs: Job[] = [
           "Like most large-scale tech employers, Google's data center roles come with a compensation structure and benefits package built for retention, not just base pay.",
         ],
         list: [
-          "Base salary in the €70,000–€72,000 range",
+          "Base salary in the â‚¬70,000â€“â‚¬72,000 range",
           "15% bonus target on top of base",
           "Equity opportunities",
           "Standard Google benefits package",
@@ -243,8 +347,8 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Data Center Technician", pay: "€70,000–€72,000 per year" },
-      { role: "Data Center Technician (+ 15% bonus target)", pay: "~€80,500–€82,800 total target comp" },
+      { role: "Data Center Technician", pay: "â‚¬70,000â€“â‚¬72,000 per year" },
+      { role: "Data Center Technician (+ 15% bonus target)", pay: "~â‚¬80,500â€“â‚¬82,800 total target comp" },
     ],
     applySteps: [
       "Visit Google's careers page and search for Data Center Technician roles in Frankfurt.",
@@ -268,14 +372,14 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "9 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
-      "There's a specific kind of energy around a company building something from the ground up. PowerCo is doing exactly that — standing up an entire battery cell industry in Salzgitter as part of Germany's ambitious 'Battery Valley'. If you're researching PowerCo careers in Germany for 2026, you're looking at one of the freshest and fastest-growing employers in the country's push toward electric vehicle manufacturing.",
+      "There's a specific kind of energy around a company building something from the ground up. PowerCo is doing exactly that â€” standing up an entire battery cell industry in Salzgitter as part of Germany's ambitious 'Battery Valley'. If you're researching PowerCo careers in Germany for 2026, you're looking at one of the freshest and fastest-growing employers in the country's push toward electric vehicle manufacturing.",
     ctaButtons: [
       { label: "Explore Germany job market", href: "/jobs/germany-jobs-2026" },
       { label: "See SAP careers", href: "/jobs/sap-careers-germany" },
@@ -286,7 +390,7 @@ export const jobs: Job[] = [
         heading: "Company Overview",
         paragraphs: [
           "PowerCo SE is Volkswagen Group's dedicated battery cell company, founded in 2022 with a singular mission: to become a global battery champion. Headquartered in Salzgitter, Germany, PowerCo is currently ramping up gigafactory capacity as part of a broader European battery strategy.",
-          "What makes PowerCo distinctive as an employer is that it is not simply slotting new hires into an existing structure — it is building both production capacity and a global headquarters function from scratch. Its work spans the full battery value chain, from materials research and predevelopment to series development, prototyping, testing, and eventually full-scale production.",
+          "What makes PowerCo distinctive as an employer is that it is not simply slotting new hires into an existing structure â€” it is building both production capacity and a global headquarters function from scratch. Its work spans the full battery value chain, from materials research and predevelopment to series development, prototyping, testing, and eventually full-scale production.",
         ],
       },
       {
@@ -356,9 +460,9 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Battery Cell R&D Scientist/Engineer", pay: "€55,000–€90,000 per year" },
-      { role: "Technical Project Manager", pay: "€65,000–€100,000 per year" },
-      { role: "Manufacturing/Process Engineer", pay: "€55,000–€85,000 per year" },
+      { role: "Battery Cell R&D Scientist/Engineer", pay: "â‚¬55,000â€“â‚¬90,000 per year" },
+      { role: "Technical Project Manager", pay: "â‚¬65,000â€“â‚¬100,000 per year" },
+      { role: "Manufacturing/Process Engineer", pay: "â‚¬55,000â€“â‚¬85,000 per year" },
     ],
     applySteps: [
       "Search current openings on PowerCo's official careers page or major job platforms.",
@@ -371,25 +475,312 @@ export const jobs: Job[] = [
     careersPageLink: "https://www.powerco.de/en/career.html",
   },
   {
+    slug: "amazon-warehouse-jobs-germany-2026",
+    title: "Amazon Warehouse Jobs in Germany 2026: What It's Actually Like to Get Hired as a Fulfillment Center Associate",
+    category: "Job Guide",
+    excerpt:
+      "Amazon's German fulfillment network is hiring at scale for warehouse and fulfillment center roles, making it one of the most accessible entry points into Germany's logistics sector in 2026.",
+    coverImage:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "5 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar:
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "Germany's warehouse sector is still hiring aggressively, and Amazon's fulfillment operation is one of the clearest entry points for applicants who want a practical, structured way into the country's logistics economy. For many people, these jobs are less about prestige and more about reliable work, a straightforward hiring process, and a path into the German labor market.",
+    ctaButtons: [
+      { label: "Browse Available Positions", href: "/jobs/germany-jobs-2026" },
+      { label: "Learn How to Apply", href: "/jobs/google-data-center-technician-germany" },
+      { label: "Review Job Requirements", href: "/jobs/powerco-careers-germany" },
+    ],
+    sections: [
+      {
+        heading: "The Company Behind the Jobs",
+        paragraphs: [
+          "Amazon needs little introduction, but its German fulfillment operation is larger than many applicants realize. The company runs multiple large distribution centers across cities such as Berlin, Hamburg, Frankfurt, and Leipzig, and each site operates on a near-constant hiring cycle to keep up with order volume.",
+          "Unlike many warehouse employers in Germany, Amazon is more explicit about accepting English in addition to German, which makes the roles more accessible to newcomers and non-native speakers who might otherwise be screened out by unclear language expectations.",
+        ],
+      },
+      {
+        heading: "Where the Jobs Actually Are",
+        paragraphs: [
+          "This is physical, shift-based work in a fast-moving logistics environment. The job is not an office role, and the day-to-day is built around execution rather than creativity.",
+        ],
+        list: [
+          "Loading, unloading, and staging deliveries for pickup",
+          "Scanning, sorting, and stocking packages as they move through the facility",
+          "Operating carts, dollies, hand trucks, and similar equipment to move inventory",
+          "Working as part of a team responsible for dispatching customer orders on schedule",
+        ],
+      },
+      {
+        heading: "What Amazon Is Actually Looking For",
+        paragraphs: [
+          "The hiring bar is intentionally lower than it is for office-track roles, which is exactly why these positions are so popular. The company is trying to fill entry-level jobs quickly and reliably rather than target highly specialized applicants.",
+        ],
+        list: [
+          "Must be 18 years or older",
+          "Proficiency in German and/or English",
+          "Ability to understand and follow job requirements and safety guidelines",
+          "Willingness to pass a background check and provide right-to-work documentation",
+          "No prior warehouse experience required for most entry positions",
+        ],
+      },
+      {
+        heading: "What Working There Actually Feels Like",
+        paragraphs: [
+          "The role is not glamorous, but it can be a strong fit for people who want stable work and a straightforward structure. The appeal is less about prestige and more about dependable pay, benefits, and a clear operational environment.",
+        ],
+        list: [
+          "Pay starts around â‚¬16.05 gross per hour for daytime shifts",
+          "Shift differentials are often available for nights and weekends",
+          "28 days of paid vacation based on a five-day work week",
+          "A workplace that explicitly promotes equal opportunity and non-discrimination",
+          "Positioned as a reliable way into the German labor market rather than a long-term career-defining role",
+        ],
+      },
+      {
+        heading: "How to Actually Get Hired",
+        paragraphs: [
+          "The hiring process is built for volume, so it moves faster than most corporate pipelines. Applicants are usually screened for availability, language ability, and right-to-work eligibility before onboarding begins.",
+        ],
+        list: [
+          "Visit Amazon's German jobs portal and search for fulfillment center or warehouse associate roles in your target city",
+          "Submit your application with basic availability and language details",
+          "Complete a short screening step covering language proficiency and shift availability",
+          "Provide right-to-work documentation and complete a background check",
+          "If relocating from outside the EU, begin visa paperwork as early as possible",
+          "Complete onboarding and safety training once an offer is confirmed",
+        ],
+      },
+    ],
+    salaryTable: [
+      { role: "Fulfillment Center Associate (day shift)", pay: "~â‚¬16.05 gross/hour" },
+      { role: "Fulfillment Center Associate (night/weekend shift)", pay: "Higher, with shift differential" },
+    ],
+    applySteps: [
+      "Visit Amazon's German jobs portal and search for fulfillment center or warehouse associate roles in your target city.",
+      "Submit your application, including basic availability and language details.",
+      "Complete a short screening step on language proficiency and shift availability.",
+      "Provide right-to-work documentation and complete a background check.",
+      "If relocating from outside the EU, begin visa paperwork early.",
+      "Complete onboarding and safety training once an offer is confirmed.",
+    ],
+    careersPageLink: "https://www.amazon.jobs/en-gb",
+  },
+  {
+    slug: "germany-remote-job-boom-2026",
+    title: "Germany's Remote Job Boom 2026: Why So Many Companies Are Hiring There Now",
+    category: "Job Market Guide",
+    excerpt:
+      "Germany's remote hiring boom is being driven by labor shortages, a slower general market, and a growing willingness from employers to hire skilled candidates beyond local borders.",
+    coverImage:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "7 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar:
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "If it feels like every other job listing lately mentions 'remote, Germany eligible,' that's not a coincidence. Behind the sudden wave of remote-friendly postings is a labor market going through one of its stranger stretches in years â€” part shortage, part slowdown, and increasingly comfortable hiring people who never set foot in a German office.",
+    ctaButtons: [
+      { label: "Browse Available Positions", href: "/jobs/germany-jobs-2026" },
+      { label: "Learn How to Apply", href: "/jobs/germany-jobs-2026" },
+      { label: "Review Job Requirements", href: "/jobs/germany-remote-job-boom-2026" },
+    ],
+    sections: [
+      {
+        heading: "The Shortage That Won't Go Away",
+        paragraphs: [
+          "Germany's skilled-worker shortage has been the headline story of its labor market for years, and 2026 hasn't broken that pattern. Well over a hundred occupations are still officially classified as shortage roles by the federal employment agency, spanning healthcare, skilled trades, and specialized technical work. Logistics and transport remain especially tight, with more than half of companies in that sector reporting they simply can't fill open positions. Construction isn't far behind.",
+          "What's changed is where the pressure is landing. A chunk of that shortage is demographic and structural â€” retiring workers aren't being replaced fast enough, and that gap won't close on its own. So while overall hiring volume has cooled compared to a couple of years ago, the roles that are still open are often the hardest ones to fill locally, which pushes employers toward two workarounds: relaxing language requirements, and opening the role up to remote candidates anywhere in the EU or beyond.",
+        ],
+      },
+      {
+        heading: "A Slower Market, But a More Open One",
+        paragraphs: [
+          "Here's the twist that a lot of headlines miss: Germany isn't purely in 'labor shortage' mode anymore. Broader hiring has actually slowed, and some white-collar, generalist office roles are harder to land today than they were two or three years ago. That's the 'freeze' side of the story.",
+          "But the shortage and the freeze are happening in different corners of the same market at the same time. Healthcare, electricians, grid and energy-transition roles, and specialized tech and AI positions are still difficult to hire for even while general hiring cools elsewhere. That's exactly the kind of imbalance that pushes companies toward remote-first hiring â€” when local supply for a specific skill set is thin no matter what, geography stops being a useful filter.",
+        ],
+      },
+      {
+        heading: "Where the Remote Boom Is Actually Concentrated",
+        paragraphs: [
+          "The surge isn't evenly spread across every industry. It's heavily weighted toward a few areas:",
+        ],
+        list: [
+          "Software and AI roles, where postings mentioning modern ML frameworks and NLP skills have climbed sharply over the past couple of years",
+          "Supply chain and logistics compliance work, driven partly by newer regulatory requirements around supply chain due diligence",
+          "Cybersecurity and infrastructure roles, where demand has stayed high even as general corporate hiring slowed",
+          "Remote-first companies by design â€” firms that were built distributed from day one and simply add Germany to their list of eligible countries as they scale",
+        ],
+      },
+      {
+        heading: "Why This Matters If You're Job Hunting",
+        paragraphs: [
+          "For candidates, the practical upshot is that 'based in Germany' no longer automatically means 'must speak fluent German' or 'must relocate to Berlin/Munich/Frankfurt.' A meaningful and growing slice of postings now explicitly welcome remote applicants, sometimes across several countries at once, especially in software, AI, and specialized technical fields.",
+          "That said, this isn't a blanket free-for-all. Companies hiring remotely for shortage-sector roles still tend to prefer candidates with directly relevant experience, and generalist or entry-level roles remain more competitive than the shortage narrative might suggest. The opportunity is real, but it's concentrated â€” knowing which lane you're in matters more than ever.",
+        ],
+      },
+      {
+        heading: "How to Actually Position Yourself for These Roles",
+        paragraphs: [
+          "Target shortage-adjacent skills specifically â€” AI/ML, cybersecurity, supply chain compliance, and specialized engineering are where remote flexibility is most common.",
+        ],
+        list: [
+          "Check eligibility country lists carefully â€” many remote postings only accept candidates from a specific set of countries",
+          "Lean on English-first employers â€” a growing number of postings explicitly accept English-only applicants",
+          "Move quickly on shortage-sector roles â€” these positions tend to sit open longer, but competition still picks up once a posting gains visibility",
+          "Keep an eye on remote-first companies as a category, not just individual job posts",
+        ],
+      },
+    ],
+    salaryTable: [
+      { role: "Remote Tech / AI / Specialized Roles", pay: "Varies by role; often above local market averages in shortage sectors" },
+    ],
+    applySteps: [
+      "Identify roles in shortage-adjacent fields such as AI, cybersecurity, supply chain compliance, and engineering.",
+      "Check the country eligibility list carefully before applying.",
+      "Prepare a resume that highlights directly relevant experience and remote-ready skills.",
+      "Apply early to shortage-sector roles that may remain open longer than expected.",
+      "Target remote-first companies that already operate across multiple countries.",
+    ],
+    careersPageLink: "/#jobs",
+  },
+  {
+    slug: "jetbrains-careers-2026-senior-software-developer-ai-agents-berlin",
+    title: "JetBrains Careers 2026: What It's Actually Like to Get Hired as a Senior Software Developer for AI Agents in Berlin",
+    category: "Job Guide",
+    excerpt:
+      "JetBrains is hiring senior developers to build AI agent integrations inside its IDE ecosystem, with Berlin among the listed locations and a strong emphasis on backend engineering and concurrency.",
+    coverImage: "/JetBrains Careers.png",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "6 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar:
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "Most 'AI engineering' job postings these days are really about training or fine-tuning models. This one isn't. JetBrains is hiring for something more specific: making AI coding agents actually behave reliably once they're wired into a real IDE, at scale, across millions of users.",
+    ctaButtons: [
+      { label: "Browse Available Positions", href: "/jobs/germany-jobs-2026" },
+      { label: "Learn How to Apply", href: "/jobs/germany-remote-job-boom-2026" },
+      { label: "Review Job Requirements", href: "/jobs/jetbrains-careers-2026-senior-software-developer-ai-agents-berlin" },
+    ],
+    sections: [
+      {
+        heading: "The Company Behind the Job",
+        paragraphs: [
+          "JetBrains has spent decades building tools developers actually like using, and its footprint reflects that â€” the company counts millions of individual users, hundreds of thousands of companies, and a large share of the world's biggest corporations among its customer base. It's the kind of company where 'developer experience' isn't a buzzword tacked onto a mission statement; it's the entire product philosophy.",
+          "This particular opening sits within a team focused on agent integration rather than model training â€” the group responsible for taking existing AI coding agents, including tools like Claude Code, Gemini, and JetBrains' own Junie, and weaving them properly into the company's Air ecosystem across desktop, web, and cloud.",
+        ],
+      },
+      {
+        heading: "Where the Job Actually Sits",
+        paragraphs: [
+          "This is a backend-heavy engineering role, not a prompt-engineering job, and the listing is fairly blunt about that distinction. The real challenge isn't getting an LLM to respond well once â€” it's making that response reliable, fast, and recoverable when things go wrong across a multi-step, concurrent workflow.",
+        ],
+        list: [
+          "Designing and building the underlying business logic that connects AI agent capabilities to everyday developer workflows",
+          "Creating deep integrations between product surfaces, external APIs, local command-line tools, and AI coding agents",
+          "Improving the full agent experience â€” setup, context handling, task execution, and graceful failure recovery",
+          "Writing highly concurrent, asynchronous code to manage multi-step agent interactions without breaking under unpredictable LLM behavior",
+          "Using AI agents directly in day-to-day development to understand their failure modes firsthand",
+        ],
+      },
+      {
+        heading: "What JetBrains Is Actually Looking For",
+        paragraphs: [
+          "This role skews senior, and the requirements reflect a team that wants engineering judgment more than familiarity with the latest AI buzzwords.",
+        ],
+        list: [
+          "Substantial professional software development experience at a senior level",
+          "Strong backend programming skills, with willingness to work primarily in Kotlin",
+          "A genuine, hands-on understanding of concurrent and asynchronous programming",
+          "A track record of shipping real integrations, workflows, or service-backed logic, not just prototypes",
+          "Practical experience with AI-assisted development tools and an understanding of task orchestration and context management",
+          "Solid fundamentals across data structures, debugging, observability, and test-driven development",
+          "Comfortable working and communicating in English across distributed teams",
+        ],
+      },
+      {
+        heading: "What Working There Actually Feels Like",
+        paragraphs: [
+          "JetBrains frames this less as 'come build a feature' and more as 'come own a problem space,' and the benefits package leans into flexibility as much as compensation.",
+        ],
+        list: [
+          "Competitive base salary tied to skills and experience",
+          "Flexible work location â€” home, office, or a mix",
+          "Up to 30 days a year of remote work from abroad",
+          "Extra paid time off on top of standard leave",
+          "Medical insurance allowance for the employee and family",
+          "Access to conferences, courses, and language classes",
+          "Relocation support for candidates moving for the role",
+        ],
+      },
+      {
+        heading: "How to Actually Get Hired",
+        paragraphs: [
+          "JetBrains runs its hiring directly rather than through a single centralized recruiter pipeline, and the listing spans eight cities across Europe, including Berlin.",
+        ],
+        list: [
+          "Confirm which of the listed locations â€” Berlin, Belgrade, Limassol, Madrid, Paphos, Prague, Warsaw, or Yerevan â€” works for you",
+          "Apply directly through JetBrains' careers page with a resume that emphasizes concurrent systems work and real shipped integrations",
+          "Expect early conversations to probe your experience with asynchronous programming specifically",
+          "Be ready to discuss how you've used AI coding tools yourself and what you've learned about where they break",
+          "Technical interviews likely center on system design, concurrency handling, and integration architecture",
+          "If relocating, ask about JetBrains' relocation support early in the process",
+        ],
+      },
+    ],
+    salaryTable: [
+      { role: "Senior Software Developer, AI Agents & Integrations", pay: "Not publicly disclosed; described as competitive and experience-based" },
+    ],
+    applySteps: [
+      "Confirm which of the listed cities works for you, including Berlin.",
+      "Apply through JetBrains' careers page with a resume highlighting concurrency and integration experience.",
+      "Expect early screening focused on asynchronous programming depth.",
+      "Go through technical interviews on system design and integration architecture.",
+      "Discuss relocation support early if you're moving for the role.",
+      "Finalize the offer and onboarding once terms are confirmed.",
+    ],
+    careersPageLink: "https://job-boards.eu.greenhouse.io/jetbrains/jobs/4927327101",
+  },
+  {
     slug: "germany-jobs-2026",
     title: "Germany Jobs 2026: What's Actually Open Right Now (And Where to Apply)",
     category: "Job Market Guide",
     excerpt:
-      "Germany's job market in 2026 is strong in specific fields — nursing, skilled trades, engineering, and IT remain desperate for people. This guide covers where the real openings are, visa pathways, and how to actually apply.",
+      "Germany's job market in 2026 is strong in specific fields â€” nursing, skilled trades, engineering, and IT remain desperate for people. This guide covers where the real openings are, visa pathways, and how to actually apply.",
     coverImage:
       "https://i.pinimg.com/originals/ee/74/f1/ee74f1975116f55b70da80c1cfe14c67.jpg",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
     readTime: "10 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
-      "Germany's job market in 2026 is a strange mix of headlines. On one hand, overall hiring has cooled compared to the peak years of 2022–2023. On the other, the country is sitting on hundreds of thousands of vacancies it simply can't fill — and in some fields, employers are dropping degree requirements altogether just to get people through the door. If you're wondering what's genuinely hiring in Germany right now, this guide walks through exactly where the openings are, which companies are actively hiring, and how to actually apply in 2026.",
+      "Germany's job market in 2026 is a strange mix of headlines. On one hand, overall hiring has cooled compared to the peak years of 2022â€“2023. On the other, the country is sitting on hundreds of thousands of vacancies it simply can't fill â€” and in some fields, employers are dropping degree requirements altogether just to get people through the door. If you're wondering what's genuinely hiring in Germany right now, this guide walks through exactly where the openings are, which companies are actively hiring, and how to actually apply in 2026.",
     ctaButtons: [
       { label: "Explore SAP tech jobs", href: "/jobs/sap-careers-germany" },
       { label: "See Siemens engineering roles", href: "/jobs/siemens-careers-germany" },
@@ -399,9 +790,9 @@ export const jobs: Job[] = [
       {
         heading: "The Big Picture: Germany's 2026 Job Market",
         paragraphs: [
-          "Germany enters the second half of 2026 with a labor market that's cooled from its post-pandemic hiring boom but is still structurally short on workers. According to the Federal Employment Agency (Bundesagentur für Arbeit), the country's official shortage occupation list — the Mangelberufsliste — currently covers 163 occupations where demand for qualified workers significantly outpaces supply.",
+          "Germany enters the second half of 2026 with a labor market that's cooled from its post-pandemic hiring boom but is still structurally short on workers. According to the Federal Employment Agency (Bundesagentur fÃ¼r Arbeit), the country's official shortage occupation list â€” the Mangelberufsliste â€” currently covers 163 occupations where demand for qualified workers significantly outpaces supply.",
           "The scale of the gap is hard to overstate. Estimates from the German Economic Institute (IW) put the number of unfilled skilled positions somewhere between 370,000 and 630,000 depending on methodology and time of year, with projections suggesting the shortfall could reach close to 768,000 positions by 2028 as more of the workforce retires than enters. The Institute for Employment Research (IAB) has forecasted a shortfall of roughly seven million workers by 2035 if current demographic trends continue.",
-          "At the same time, this isn't a story of jobs everywhere for everyone. Generalist and administrative roles are seeing far more competition. The opportunity is concentrated — heavily — in specific fields.",
+          "At the same time, this isn't a story of jobs everywhere for everyone. Generalist and administrative roles are seeing far more competition. The opportunity is concentrated â€” heavily â€” in specific fields.",
         ],
       },
       {
@@ -410,11 +801,11 @@ export const jobs: Job[] = [
           "A few sectors stand out clearly as of mid-2026:",
         ],
         list: [
-          "Healthcare and elder care — Germany needs thousands of new nurses and caregivers every year; physicians are in short supply, particularly in rural areas",
-          "Skilled trades and construction — Electricians, HVAC technicians, and industrial mechanics remain some of the hardest roles to fill; roughly 30% of construction firms report they cannot find needed staff",
-          "Engineering — Mechanical, electrical, civil, and industrial engineers remain in persistent demand; close to 45% of open electrical engineering positions went completely unfilled at points in 2024",
-          "IT and software development — Germany is still short roughly 109,000 IT professionals; around 85% of German companies report that these gaps are actively hurting their operations",
-          "Logistics and transport — Around 30% of transport and logistics firms still report unfilled positions; Deutsche Bahn is actively recruiting train drivers and traffic controllers",
+          "Healthcare and elder care â€” Germany needs thousands of new nurses and caregivers every year; physicians are in short supply, particularly in rural areas",
+          "Skilled trades and construction â€” Electricians, HVAC technicians, and industrial mechanics remain some of the hardest roles to fill; roughly 30% of construction firms report they cannot find needed staff",
+          "Engineering â€” Mechanical, electrical, civil, and industrial engineers remain in persistent demand; close to 45% of open electrical engineering positions went completely unfilled at points in 2024",
+          "IT and software development â€” Germany is still short roughly 109,000 IT professionals; around 85% of German companies report that these gaps are actively hurting their operations",
+          "Logistics and transport â€” Around 30% of transport and logistics firms still report unfilled positions; Deutsche Bahn is actively recruiting train drivers and traffic controllers",
         ],
       },
       {
@@ -435,11 +826,11 @@ export const jobs: Job[] = [
       {
         heading: "The Shortage Occupation List and Why It Matters",
         paragraphs: [
-          "If you're an international candidate, understanding Germany's shortage occupation list isn't optional — it's one of the biggest levers you have. The Federal Employment Agency updates this list annually using labor market data. An occupation qualifies as a 'bottleneck profession' when there are no more than three registered unemployed people available for every open vacancy in that field.",
+          "If you're an international candidate, understanding Germany's shortage occupation list isn't optional â€” it's one of the biggest levers you have. The Federal Employment Agency updates this list annually using labor market data. An occupation qualifies as a 'bottleneck profession' when there are no more than three registered unemployed people available for every open vacancy in that field.",
           "Being on this list unlocks real, practical advantages:",
         ],
         list: [
-          "A lower minimum salary threshold for the EU Blue Card — roughly €45,934 gross per year for shortage occupations in 2026",
+          "A lower minimum salary threshold for the EU Blue Card â€” roughly â‚¬45,934 gross per year for shortage occupations in 2026",
           "Skipping the priority check, where employers normally have to prove no suitable German or EU candidate was available before hiring internationally",
           "Faster visa processing overall, since shortage occupation roles are explicitly prioritized",
         ],
@@ -459,27 +850,27 @@ export const jobs: Job[] = [
         list: [
           "Identify your shortage-occupation status by checking Germany's official Mangelberufsliste",
           "Start credential recognition early through the relevant Chamber if your training was completed outside Germany",
-          "Build a targeted company list of 20–30 employers in your specific field and region",
+          "Build a targeted company list of 20â€“30 employers in your specific field and region",
           "Prepare a German-format CV, which typically includes a professional photo, structured layout, and factual tone",
-          "Get a baseline read on your German language level — even English-friendly roles benefit from A2 to B1 German",
+          "Get a baseline read on your German language level â€” even English-friendly roles benefit from A2 to B1 German",
           "Apply and budget realistically for the process, which commonly runs 6 to 12 months from application to relocation",
         ],
       },
       {
         heading: "Frequently Asked Questions",
         paragraphs: [
-          "Is 2026 actually a good time to look for a job in Germany? It depends heavily on your field. For shortage occupations — healthcare, skilled trades, and specialized IT roles in particular — 2026 remains a genuinely strong window, especially for candidates with B2-level German and location flexibility.",
+          "Is 2026 actually a good time to look for a job in Germany? It depends heavily on your field. For shortage occupations â€” healthcare, skilled trades, and specialized IT roles in particular â€” 2026 remains a genuinely strong window, especially for candidates with B2-level German and location flexibility.",
           "Do I need to speak German to get a job in Germany? Not always. Many IT and multinational-company roles operate primarily in English, but most employers still prefer at least A2 to B1 German, and healthcare and public-facing roles typically require B1 to B2.",
-          "How long does the whole process take, from application to actually working in Germany? For most international candidates, a realistic timeline runs 6 to 12 months, including credential recognition, visa processing, and job search or onboarding time — though shortage-occupation applicants may move somewhat faster.",
+          "How long does the whole process take, from application to actually working in Germany? For most international candidates, a realistic timeline runs 6 to 12 months, including credential recognition, visa processing, and job search or onboarding time â€” though shortage-occupation applicants may move somewhat faster.",
           "Which German cities have the strongest job markets right now? Berlin leads on volume and diversity, particularly in tech and startups. Munich offers the highest concentration of blue-chip employers in engineering, finance, and technology. Hamburg anchors logistics, shipping, and renewable energy hiring.",
         ],
       },
     ],
     salaryTable: [
-      { role: "Skilled trades (electricians, mechanics)", pay: "€3,000–€4,000 per month" },
-      { role: "Nursing and elder care", pay: "€2,800–€3,800 per month" },
-      { role: "Software development", pay: "€4,000–€6,500 per month" },
-      { role: "Engineering (mechanical, electrical, civil)", pay: "€4,200–€6,800 per month" },
+      { role: "Skilled trades (electricians, mechanics)", pay: "â‚¬3,000â€“â‚¬4,000 per month" },
+      { role: "Nursing and elder care", pay: "â‚¬2,800â€“â‚¬3,800 per month" },
+      { role: "Software development", pay: "â‚¬4,000â€“â‚¬6,500 per month" },
+      { role: "Engineering (mechanical, electrical, civil)", pay: "â‚¬4,200â€“â‚¬6,800 per month" },
     ],
     applySteps: [
       "Check Germany's official shortage occupation list to understand your visa advantages",
@@ -504,11 +895,11 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "9 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "Walk into almost any hotel lobby in Berlin, Munich, or Frankfurt these days and there's a decent chance the front desk is short-staffed. Germany's hospitality industry has been riding a strong wave of tourism recovery, and hotels across the country are actively recruiting front desk staff to keep up. If you're researching hotel front desk jobs in Germany for 2026, this guide covers everything you need to know: day-to-day responsibilities, what hotels are looking for, realistic salary expectations, required language skills, and the full step-by-step process of landing a role.",
@@ -521,9 +912,9 @@ export const jobs: Job[] = [
       {
         heading: "Industry Overview: Why Hotels Are Hiring in 2026",
         paragraphs: [
-          "Germany's hospitality sector has been one of the more consistently active hiring categories in the country's broader labor market. Tourism has rebounded strongly across major German cities, and with it has come renewed demand for front-of-house hospitality staff — the people who set the tone for a guest's entire stay before they've even reached their room.",
-          "Hospitality is one of the sectors that has historically struggled with staffing gaps in Germany, partly due to shift-based schedules and partly due to competition from other service-sector employers. That combination — strong demand plus a persistent staffing gap — makes hotel front desk jobs in Germany a genuinely accessible entry point into the workforce, including for candidates without a traditional four-year degree, since many roles are built around vocational training (Ausbildung) rather than university study.",
-          "Cities with the strongest current demand include Berlin, Munich, Frankfurt, and Hamburg — each with major concentrations of international chain hotels and independent boutique properties.",
+          "Germany's hospitality sector has been one of the more consistently active hiring categories in the country's broader labor market. Tourism has rebounded strongly across major German cities, and with it has come renewed demand for front-of-house hospitality staff â€” the people who set the tone for a guest's entire stay before they've even reached their room.",
+          "Hospitality is one of the sectors that has historically struggled with staffing gaps in Germany, partly due to shift-based schedules and partly due to competition from other service-sector employers. That combination â€” strong demand plus a persistent staffing gap â€” makes hotel front desk jobs in Germany a genuinely accessible entry point into the workforce, including for candidates without a traditional four-year degree, since many roles are built around vocational training (Ausbildung) rather than university study.",
+          "Cities with the strongest current demand include Berlin, Munich, Frankfurt, and Hamburg â€” each with major concentrations of international chain hotels and independent boutique properties.",
         ],
       },
       {
@@ -556,13 +947,13 @@ export const jobs: Job[] = [
         heading: "Language Requirements Explained",
         paragraphs: [
           "Language ability is one of the most consequential factors in hotel front desk hiring in Germany. German language proficiency, roughly B1 to B2 level, is expected at most hotels since operations and staff communication happen in German. English proficiency is increasingly treated as a baseline requirement, particularly in Berlin, Munich, and Frankfurt, given the volume of international travelers.",
-          "Additional languages — French, Spanish, or Mandarin — can be a meaningful differentiator for concierge-track roles. International chain hotels tend to be more flexible on German language requirements than smaller independent properties.",
+          "Additional languages â€” French, Spanish, or Mandarin â€” can be a meaningful differentiator for concierge-track roles. International chain hotels tend to be more flexible on German language requirements than smaller independent properties.",
         ],
       },
       {
         heading: "Work Schedule and Shifts",
         paragraphs: [
-          "Hotel front desks typically run on a three-shift system — early, late, and night shifts — to provide 24-hour coverage. Full-time staff generally work five days per week in line with German labor regulations, with schedules rotating across shift blocks.",
+          "Hotel front desks typically run on a three-shift system â€” early, late, and night shifts â€” to provide 24-hour coverage. Full-time staff generally work five days per week in line with German labor regulations, with schedules rotating across shift blocks.",
           "Part-time and seasonal arrangements commonly include two to three shifts per week, a popular option for students or those balancing other commitments. Night shift premiums are common and can meaningfully boost part-time or full-time earnings.",
         ],
       },
@@ -575,15 +966,15 @@ export const jobs: Job[] = [
       {
         heading: "Tips for International Applicants",
         paragraphs: [
-          "International hotel chains are generally more accessible than independent properties if your German is still developing, since larger chains often operate with more English-forward communication. A valid work visa or residence permit is non-negotiable — start researching Germany's relevant visa pathways early if you're coming from outside the EU.",
-          "Cities with strong tourism and business travel volume — Berlin, Munich, Frankfurt, and Hamburg — tend to have the most consistent hiring activity and English-friendly work environments. Building at least conversational German (B1 level) will significantly expand your options beyond the most internationally oriented properties.",
+          "International hotel chains are generally more accessible than independent properties if your German is still developing, since larger chains often operate with more English-forward communication. A valid work visa or residence permit is non-negotiable â€” start researching Germany's relevant visa pathways early if you're coming from outside the EU.",
+          "Cities with strong tourism and business travel volume â€” Berlin, Munich, Frankfurt, and Hamburg â€” tend to have the most consistent hiring activity and English-friendly work environments. Building at least conversational German (B1 level) will significantly expand your options beyond the most internationally oriented properties.",
         ],
       },
       {
         heading: "Frequently Asked Questions",
         paragraphs: [
-          "Do I need to speak German to work at a hotel front desk in Germany? In most cases, yes — B1 to B2 level German is a common baseline expectation, though international hotel chains in major cities are sometimes more flexible for candidates with strong English skills.",
-          "What is the typical salary for hotel front desk staff in Germany? Full-time front desk staff typically earn between €2,200 and €2,800 per month, while part-time roles generally pay between €12.50 and €15.00 per hour. Concierge roles, particularly those requiring strong English skills, tend to pay somewhat more.",
+          "Do I need to speak German to work at a hotel front desk in Germany? In most cases, yes â€” B1 to B2 level German is a common baseline expectation, though international hotel chains in major cities are sometimes more flexible for candidates with strong English skills.",
+          "What is the typical salary for hotel front desk staff in Germany? Full-time front desk staff typically earn between â‚¬2,200 and â‚¬2,800 per month, while part-time roles generally pay between â‚¬12.50 and â‚¬15.00 per hour. Concierge roles, particularly those requiring strong English skills, tend to pay somewhat more.",
           "Do I need a hospitality degree or formal qualification to apply? Not always. While a completed hospitality apprenticeship is preferred by many employers, plenty of entry-level and seasonal positions accept candidates without formal hospitality training if they have general customer service experience.",
           "Can international candidates apply for hotel front desk jobs in Germany? Yes, though non-EU citizens must hold a valid work visa or residence permit. International hotel chains tend to be more open to hiring international candidates, particularly those with strong English skills.",
           "Which German cities have the most hotel front desk job openings? Berlin, Munich, Frankfurt, and Hamburg consistently show the strongest hiring activity, driven by tourism, business travel, and conference and events traffic.",
@@ -591,16 +982,16 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Front Desk Staff (Full-time)", pay: "€2,200–€2,800 per month" },
-      { role: "Front Desk Staff (Part-time)", pay: "€12.50–€15.00 per hour" },
-      { role: "Concierge (English-speaking)", pay: "€2,600–€3,200 per month" },
+      { role: "Front Desk Staff (Full-time)", pay: "â‚¬2,200â€“â‚¬2,800 per month" },
+      { role: "Front Desk Staff (Part-time)", pay: "â‚¬12.50â€“â‚¬15.00 per hour" },
+      { role: "Concierge (English-speaking)", pay: "â‚¬2,600â€“â‚¬3,200 per month" },
     ],
     applySteps: [
       "Review job postings on hospitality-focused job boards or the hotel's official careers page.",
       "Prepare a resume (Lebenslauf) and cover letter (Anschreiben) in German following standard formatting conventions.",
-      "Submit your application through the specified method — online, email, or in person depending on the hotel.",
+      "Submit your application through the specified method â€” online, email, or in person depending on the hotel.",
       "After passing document screening, receive an interview appointment.",
-      "Attend the interview professionally dressed and on time — punctuality and presentation matter in hospitality.",
+      "Attend the interview professionally dressed and on time â€” punctuality and presentation matter in hospitality.",
       "Sign an employment contract and review onboarding and training schedules after receiving an offer.",
     ],
   },
@@ -616,11 +1007,11 @@ export const jobs: Job[] = [
     updatedDate: "June 5, 2026",
     readTime: "3 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "Convenience stores are one of Japan's largest employers, with branches nationwide. These roles offer flexible scheduling and many stores actively hire international staff.",
@@ -679,14 +1070,14 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Daytime Staff", pay: "¥1,050–¥1,150 per hour" },
-      { role: "Nighttime Staff", pay: "¥1,300–¥1,450 per hour" },
-      { role: "Assistant Manager", pay: "¥230,000–¥270,000 per month" },
+      { role: "Daytime Staff", pay: "Â¥1,050â€“Â¥1,150 per hour" },
+      { role: "Nighttime Staff", pay: "Â¥1,300â€“Â¥1,450 per hour" },
+      { role: "Assistant Manager", pay: "Â¥230,000â€“Â¥270,000 per month" },
     ],
     applySteps: [
       "Check job openings on job boards or in-store postings",
       "Call or submit an online application form",
-      "Interview with the store manager (15–30 minutes)",
+      "Interview with the store manager (15â€“30 minutes)",
       "Provide work permit and employment authorization documents if non-citizen",
       "Complete initial training on cash register operations and stocking after hiring",
     ],
@@ -703,11 +1094,11 @@ export const jobs: Job[] = [
     updatedDate: "May 30, 2026",
     readTime: "3 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "Cleaning work is sought across hotels, offices, and commercial facilities. This role requires no special qualifications and appeals to both Japanese and international job seekers.",
@@ -760,9 +1151,9 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Guest Room Cleaner", pay: "¥1,000–¥1,200 per hour" },
-      { role: "Office Cleaner", pay: "¥980–¥1,100 per hour" },
-      { role: "Cleaning Supervisor", pay: "¥210,000–¥250,000 per month" },
+      { role: "Guest Room Cleaner", pay: "Â¥1,000â€“Â¥1,200 per hour" },
+      { role: "Office Cleaner", pay: "Â¥980â€“Â¥1,100 per hour" },
+      { role: "Cleaning Supervisor", pay: "Â¥210,000â€“Â¥250,000 per month" },
     ],
     applySteps: [
       "Check job openings on job boards or staffing agency websites",
@@ -784,11 +1175,11 @@ export const jobs: Job[] = [
     updatedDate: "June 24, 2026",
     readTime: "4 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "In retail environments, product knowledge matters, but creating a welcoming store atmosphere and connecting with customers is equally important. This role suits people who want to grow at their own pace while gaining practical experience.",
@@ -825,7 +1216,7 @@ export const jobs: Job[] = [
         points: [
           "Flexible shift requests make it ideal for students and busy professionals",
           "Opportunities to expand beyond customer service into sales, merchandising, and inventory management",
-          "Each store has its own unique culture—find the one that matches your style",
+          "Each store has its own unique cultureâ€”find the one that matches your style",
         ],
       },
       prepareChecklist: {
@@ -852,7 +1243,7 @@ export const jobs: Job[] = [
         },
       ],
       expectationsNote:
-        "Many retailers prioritize soft skills during interviews—they focus on your enthusiasm for teamwork and customer interaction rather than prior experience.",
+        "Many retailers prioritize soft skills during interviewsâ€”they focus on your enthusiasm for teamwork and customer interaction rather than prior experience.",
       whatYoullLearn: [
         { title: "Customer Service Fundamentals", description: "Learn how to greet customers and guide them through the store with confidence." },
         { title: "Sales and Product Knowledge", description: "Develop skills in explaining product features and suggesting solutions at the point of sale." },
@@ -866,7 +1257,7 @@ export const jobs: Job[] = [
   },
   {
     slug: "siemens-careers-germany",
-    title: "Siemens Careers 2026: Engineering Jobs in Germany – Complete Application Guide",
+    title: "Siemens Careers 2026: Engineering Jobs in Germany â€“ Complete Application Guide",
     category: "Job Guide",
     excerpt:
       "Siemens is one of the world's leading technology companies, offering thousands of career opportunities in engineering, software development, automation, energy, healthcare, and digital industries across Germany and globally.",
@@ -874,13 +1265,13 @@ export const jobs: Job[] = [
       "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
-    readTime: "6–8 min",
+    readTime: "6â€“8 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "Siemens is one of the world's leading technology companies, offering thousands of career opportunities in engineering, software development, automation, energy, healthcare, and digital industries. With a strong presence in Germany and operations across more than 190 countries, Siemens continues to recruit talented professionals and graduates looking to build long-term international careers.",
@@ -978,48 +1369,48 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Automation Engineer", pay: "€55,000–€80,000 per year" },
-      { role: "Electrical Engineer", pay: "€58,000–€85,000 per year" },
-      { role: "Mechanical Engineer", pay: "€55,000–€82,000 per year" },
-      { role: "Software Developer", pay: "€60,000–€90,000 per year" },
-      { role: "Data Scientist", pay: "€65,000–€95,000 per year" },
-      { role: "AI Engineer", pay: "€70,000–€100,000 per year" },
-      { role: "Project Manager", pay: "€70,000–€100,000 per year" },
-      { role: "DevOps Engineer", pay: "€65,000–€95,000 per year" },
-      { role: "Cybersecurity Engineer", pay: "€68,000–€98,000 per year" },
-      { role: "Technical Sales Engineer", pay: "€55,000–€85,000 per year" },
+      { role: "Automation Engineer", pay: "â‚¬55,000â€“â‚¬80,000 per year" },
+      { role: "Electrical Engineer", pay: "â‚¬58,000â€“â‚¬85,000 per year" },
+      { role: "Mechanical Engineer", pay: "â‚¬55,000â€“â‚¬82,000 per year" },
+      { role: "Software Developer", pay: "â‚¬60,000â€“â‚¬90,000 per year" },
+      { role: "Data Scientist", pay: "â‚¬65,000â€“â‚¬95,000 per year" },
+      { role: "AI Engineer", pay: "â‚¬70,000â€“â‚¬100,000 per year" },
+      { role: "Project Manager", pay: "â‚¬70,000â€“â‚¬100,000 per year" },
+      { role: "DevOps Engineer", pay: "â‚¬65,000â€“â‚¬95,000 per year" },
+      { role: "Cybersecurity Engineer", pay: "â‚¬68,000â€“â‚¬98,000 per year" },
+      { role: "Technical Sales Engineer", pay: "â‚¬55,000â€“â‚¬85,000 per year" },
     ],
     applySteps: [
-      "Search for Open Positions – Visit the Siemens Careers portal and search for vacancies that match your skills, experience, and preferred location.",
-      "Create Your Online Profile – Register an account and complete your professional profile with accurate personal and career information.",
-      "Submit Your Application – Upload your resume, cover letter, educational documents, and any additional certifications required for the role.",
-      "Complete Online Assessments – Some positions may require aptitude tests, technical assessments, coding challenges, or personality evaluations.",
-      "HR Screening – Qualified applicants may be invited for an initial interview with a recruiter to discuss experience, skills, and career goals.",
-      "Technical Interview – Engineering and IT candidates often complete technical interviews or practical evaluations with hiring managers.",
-      "Final Interview – Senior managers or department leaders may conduct a final interview before making a hiring decision.",
-      "Prepare Documentation – For international applicants, prepare visa or relocation paperwork as needed for a move to Germany.",
-      "Complete Onboarding – Begin onboarding and training once you receive an offer.",
+      "Search for Open Positions â€“ Visit the Siemens Careers portal and search for vacancies that match your skills, experience, and preferred location.",
+      "Create Your Online Profile â€“ Register an account and complete your professional profile with accurate personal and career information.",
+      "Submit Your Application â€“ Upload your resume, cover letter, educational documents, and any additional certifications required for the role.",
+      "Complete Online Assessments â€“ Some positions may require aptitude tests, technical assessments, coding challenges, or personality evaluations.",
+      "HR Screening â€“ Qualified applicants may be invited for an initial interview with a recruiter to discuss experience, skills, and career goals.",
+      "Technical Interview â€“ Engineering and IT candidates often complete technical interviews or practical evaluations with hiring managers.",
+      "Final Interview â€“ Senior managers or department leaders may conduct a final interview before making a hiring decision.",
+      "Prepare Documentation â€“ For international applicants, prepare visa or relocation paperwork as needed for a move to Germany.",
+      "Complete Onboarding â€“ Begin onboarding and training once you receive an offer.",
     ],
   },
   {
     slug: "sap-careers-germany",
-    title: "SAP Careers 2026: Tech Jobs in Germany — Complete Guide to Roles, Salaries, and How to Apply",
+    title: "SAP Careers 2026: Tech Jobs in Germany â€” Complete Guide to Roles, Salaries, and How to Apply",
     category: "Job Guide",
     excerpt:
       "Learn about SAP careers in Germany in 2026, including in-demand tech roles, salary ranges, application steps, benefits, and tips for international applicants.",
     coverImage: "/SAP Careers 2026.png",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
-    readTime: "8–9 min",
+    readTime: "8â€“9 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
-      "Looking for SAP jobs in Germany in 2026? This guide covers everything you need to know about building a career at SAP — from the most in-demand roles and realistic salary ranges to the exact application steps, required qualifications, and insider tips for landing an offer at one of the world's largest enterprise software companies.",
+      "Looking for SAP jobs in Germany in 2026? This guide covers everything you need to know about building a career at SAP â€” from the most in-demand roles and realistic salary ranges to the exact application steps, required qualifications, and insider tips for landing an offer at one of the world's largest enterprise software companies.",
     ctaButtons: [
       { label: "Explore Siemens engineering jobs", href: "/jobs/siemens-careers-germany" },
       { label: "See Bosch hiring paths", href: "/jobs/bosch-careers-germany" },
@@ -1116,18 +1507,18 @@ export const jobs: Job[] = [
         heading: "Frequently Asked Questions",
         paragraphs: [
           "Does SAP hire non-German speakers? Yes. English is SAP's common internal working language, and many technical roles do not require German fluency.",
-          "What is the typical salary for a software engineer at SAP in Germany? Estimated salaries generally range from €60,000 to €95,000 per year, depending on experience and location.",
+          "What is the typical salary for a software engineer at SAP in Germany? Estimated salaries generally range from â‚¬60,000 to â‚¬95,000 per year, depending on experience and location.",
           "Does SAP offer visa sponsorship for international candidates? Many large German employers support visa sponsorship and relocation for qualified professionals, particularly in software engineering and cloud architecture.",
           "Where are SAP's main offices in Germany? SAP's headquarters is in Walldorf, with additional significant offices and development hubs in Berlin, Munich, and other locations.",
         ],
       },
     ],
     salaryTable: [
-      { role: "Software Engineer", pay: "€60,000–€95,000 per year" },
-      { role: "Cloud/Data Engineer", pay: "€65,000–€100,000 per year" },
-      { role: "Consultant", pay: "€70,000–€105,000 per year" },
-      { role: "Product Manager", pay: "€80,000–€115,000 per year" },
-      { role: "Senior Architect / Lead Roles", pay: "€95,000–€130,000+ per year" },
+      { role: "Software Engineer", pay: "â‚¬60,000â€“â‚¬95,000 per year" },
+      { role: "Cloud/Data Engineer", pay: "â‚¬65,000â€“â‚¬100,000 per year" },
+      { role: "Consultant", pay: "â‚¬70,000â€“â‚¬105,000 per year" },
+      { role: "Product Manager", pay: "â‚¬80,000â€“â‚¬115,000 per year" },
+      { role: "Senior Architect / Lead Roles", pay: "â‚¬95,000â€“â‚¬130,000+ per year" },
     ],
     applySteps: [
       "Register on the SAP careers site and select positions in Germany.",
@@ -1151,11 +1542,11 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "5 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "If you've ever driven a car with anti-lock brakes, used a power tool on a weekend project, or relied on a dishwasher that simply works, there's a strong chance Bosch engineering played a role. For engineers, technicians, and technical professionals eyeing a move to Germany in 2026, Bosch remains one of the country's most recognizable and stable employers.",
@@ -1218,9 +1609,9 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Mechanical Engineer", pay: "€50,000–€75,000 per year" },
-      { role: "Software Engineer", pay: "€60,000–€90,000 per year" },
-      { role: "Operations Manager", pay: "€70,000–€100,000 per year" },
+      { role: "Mechanical Engineer", pay: "â‚¬50,000â€“â‚¬75,000 per year" },
+      { role: "Software Engineer", pay: "â‚¬60,000â€“â‚¬90,000 per year" },
+      { role: "Operations Manager", pay: "â‚¬70,000â€“â‚¬100,000 per year" },
     ],
     applySteps: [
       "Search Bosch jobs in Germany on the corporate careers website.",
@@ -1244,11 +1635,11 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "5 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "There's a certain kind of pride that comes with saying you work on a BMW. For anyone thinking about a career move to Germany in 2026, BMW Group is one of those employers that shows up on almost everyone's shortlist, and for good reason.",
@@ -1261,7 +1652,7 @@ export const jobs: Job[] = [
       {
         heading: "The Company Behind the Badge",
         paragraphs: [
-          "Headquartered in Munich, BMW Group is one of the most recognizable automotive manufacturers on the planet, with a portfolio that stretches across premium vehicles, motorcycles, and an expanding set of mobility services. Behind the scenes, BMW's German operations run deep — from research labs and manufacturing plants to software teams and corporate functions that support a massive global business.",
+          "Headquartered in Munich, BMW Group is one of the most recognizable automotive manufacturers on the planet, with a portfolio that stretches across premium vehicles, motorcycles, and an expanding set of mobility services. Behind the scenes, BMW's German operations run deep â€” from research labs and manufacturing plants to software teams and corporate functions that support a massive global business.",
           "It is a company where a career can start on an assembly line and end up in a data science team, or vice versa.",
         ],
       },
@@ -1311,9 +1702,9 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Automotive Engineer", pay: "€55,000–€85,000 per year" },
-      { role: "Software Engineer", pay: "€65,000–€95,000 per year" },
-      { role: "Finance Analyst", pay: "€50,000–€75,000 per year" },
+      { role: "Automotive Engineer", pay: "â‚¬55,000â€“â‚¬85,000 per year" },
+      { role: "Software Engineer", pay: "â‚¬65,000â€“â‚¬95,000 per year" },
+      { role: "Finance Analyst", pay: "â‚¬50,000â€“â‚¬75,000 per year" },
     ],
     applySteps: [
       "Visit the BMW Group careers portal and search for German offices or manufacturing sites.",
@@ -1337,14 +1728,14 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "5 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
-      "Volkswagen is not just a car brand — it is a national institution and one of the largest industrial employers in Europe. For anyone weighing a move into automotive, engineering, or tech work in Germany in 2026, VW is one of the names worth taking seriously.",
+      "Volkswagen is not just a car brand â€” it is a national institution and one of the largest industrial employers in Europe. For anyone weighing a move into automotive, engineering, or tech work in Germany in 2026, VW is one of the names worth taking seriously.",
     ctaButtons: [
       { label: "Explore BMW Group careers", href: "/jobs/bmw-group-careers-germany" },
       { label: "See Mercedes-Benz Group jobs", href: "/jobs/mercedes-benz-group-careers-germany" },
@@ -1354,7 +1745,7 @@ export const jobs: Job[] = [
       {
         heading: "The Scale Behind the Name",
         paragraphs: [
-          "Volkswagen is one of the largest automotive companies in Europe, and that scale shows up everywhere — in its manufacturing footprint, supply chain, and the range of vehicle technology it develops. Its German business is not a single headquarters with a few departments; it is a network of production sites, engineering centers, and corporate teams supporting one of the biggest industrial operations in the country.",
+          "Volkswagen is one of the largest automotive companies in Europe, and that scale shows up everywhere â€” in its manufacturing footprint, supply chain, and the range of vehicle technology it develops. Its German business is not a single headquarters with a few departments; it is a network of production sites, engineering centers, and corporate teams supporting one of the biggest industrial operations in the country.",
           "That size cuts both ways for job seekers. It means Volkswagen hires constantly across a wide range of functions, but it can also feel less like a single workplace and more like an ecosystem.",
         ],
       },
@@ -1403,9 +1794,9 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Manufacturing Engineer", pay: "€50,000–€75,000 per year" },
-      { role: "Software Engineer", pay: "€60,000–€90,000 per year" },
-      { role: "Business Analyst", pay: "€50,000–€70,000 per year" },
+      { role: "Manufacturing Engineer", pay: "â‚¬50,000â€“â‚¬75,000 per year" },
+      { role: "Software Engineer", pay: "â‚¬60,000â€“â‚¬90,000 per year" },
+      { role: "Business Analyst", pay: "â‚¬50,000â€“â‚¬70,000 per year" },
     ],
     applySteps: [
       "Review Volkswagen career openings in Germany on the official site.",
@@ -1428,11 +1819,11 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "8 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "Frankfurt does not look like most people's idea of a financial capital, but it is home to the European Central Bank, a dense cluster of global banks, and Deutsche Bank, one of the most recognizable names in global finance. If you're considering Deutsche Bank careers in Germany for 2026, this guide breaks down the roles, pay, requirements, and hiring process without the recruiter-speak.",
@@ -1477,7 +1868,7 @@ export const jobs: Job[] = [
       {
         heading: "Requirements to Apply",
         paragraphs: [
-          "Most roles at Deutsche Bank share a common baseline, though specifics vary by function and seniority. A strong academic background, analytical and quantitative skills, relevant experience, strong English proficiency, and—in some cases—German language ability are all important.",
+          "Most roles at Deutsche Bank share a common baseline, though specifics vary by function and seniority. A strong academic background, analytical and quantitative skills, relevant experience, strong English proficiency, andâ€”in some casesâ€”German language ability are all important.",
         ],
         list: [
           "Strong academic background in finance, economics, business, mathematics, or computer science",
@@ -1504,15 +1895,15 @@ export const jobs: Job[] = [
         heading: "Frequently Asked Questions",
         paragraphs: [
           "Do I need to speak German to work at Deutsche Bank? Not necessarily, but it can help for some roles and for living in Germany.",
-          "What is the typical salary for a financial analyst at Deutsche Bank in Germany? Estimated base salaries generally range from €55,000 to €80,000 per year.",
+          "What is the typical salary for a financial analyst at Deutsche Bank in Germany? Estimated base salaries generally range from â‚¬55,000 to â‚¬80,000 per year.",
           "Does Deutsche Bank hire software engineers? Yes, the bank has a substantial technology function and actively hires software engineers and data specialists.",
         ],
       },
     ],
     salaryTable: [
-      { role: "Financial Analyst", pay: "€55,000–€80,000 per year" },
-      { role: "Software Engineer", pay: "€70,000–€100,000 per year" },
-      { role: "Risk Manager", pay: "€80,000–€120,000 per year" },
+      { role: "Financial Analyst", pay: "â‚¬55,000â€“â‚¬80,000 per year" },
+      { role: "Software Engineer", pay: "â‚¬70,000â€“â‚¬100,000 per year" },
+      { role: "Risk Manager", pay: "â‚¬80,000â€“â‚¬120,000 per year" },
     ],
     applySteps: [
       "Create a user profile on the Deutsche Bank careers portal.",
@@ -1535,11 +1926,11 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "8 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "Insurance does not usually make anyone's list of exciting career topics until you look at what actually sits behind it: massive data operations, global risk modeling, digital product teams reinventing how people buy and manage coverage, and some of the most stable, well-structured career paths in corporate Germany. Allianz sits right in the middle of all of it.",
@@ -1611,15 +2002,15 @@ export const jobs: Job[] = [
         heading: "Frequently Asked Questions",
         paragraphs: [
           "Do I need to speak German to work at Allianz? It depends on the role, but German helps a lot for customer-facing and local positions.",
-          "What is the typical salary for an insurance specialist at Allianz in Germany? Estimated salaries generally range from €45,000 to €70,000 per year.",
+          "What is the typical salary for an insurance specialist at Allianz in Germany? Estimated salaries generally range from â‚¬45,000 to â‚¬70,000 per year.",
           "Does Allianz hire for technology and data roles? Yes, Allianz actively hires data analysts, data scientists, and digital product specialists alongside traditional insurance roles.",
         ],
       },
     ],
     salaryTable: [
-      { role: "Insurance Specialist", pay: "€45,000–€70,000 per year" },
-      { role: "Data Analyst", pay: "€50,000–€75,000 per year" },
-      { role: "Claims Manager", pay: "€60,000–€90,000 per year" },
+      { role: "Insurance Specialist", pay: "â‚¬45,000â€“â‚¬70,000 per year" },
+      { role: "Data Analyst", pay: "â‚¬50,000â€“â‚¬75,000 per year" },
+      { role: "Claims Manager", pay: "â‚¬60,000â€“â‚¬90,000 per year" },
     ],
     applySteps: [
       "Create an account on the Allianz careers portal and search for Germany-based openings.",
@@ -1643,14 +2034,14 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "8 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
-      "Somewhere between a chemistry lab and a farmer's field sits Bayer — a company that is simultaneously one of the world's most established pharmaceutical names and a major force in agricultural science. Headquartered in Leverkusen, Germany, Bayer recruits heavily across research, manufacturing, regulatory affairs, and commercial functions.",
+      "Somewhere between a chemistry lab and a farmer's field sits Bayer â€” a company that is simultaneously one of the world's most established pharmaceutical names and a major force in agricultural science. Headquartered in Leverkusen, Germany, Bayer recruits heavily across research, manufacturing, regulatory affairs, and commercial functions.",
     ctaButtons: [
       { label: "Explore Allianz roles", href: "/jobs/allianz-careers-germany" },
       { label: "See Deutsche Bank jobs", href: "/jobs/deutsche-bank-careers-germany" },
@@ -1661,7 +2052,7 @@ export const jobs: Job[] = [
         heading: "Company Overview",
         paragraphs: [
           "Bayer is a major global healthcare and agriculture company with a history in Germany stretching back more than 150 years. Its business spans pharmaceuticals, crop science, and consumer health, giving it a footprint that touches everything from prescription medicines to the seeds and crop protection products used in farming around the world.",
-          "Bayer's German operations are extensive and multifaceted — research facilities pushing forward drug discovery and agricultural science, large-scale production sites manufacturing everything from medicines to crop treatments, and corporate teams coordinating a genuinely global business from its Leverkusen home base.",
+          "Bayer's German operations are extensive and multifaceted â€” research facilities pushing forward drug discovery and agricultural science, large-scale production sites manufacturing everything from medicines to crop treatments, and corporate teams coordinating a genuinely global business from its Leverkusen home base.",
         ],
       },
       {
@@ -1719,15 +2110,15 @@ export const jobs: Job[] = [
         heading: "Frequently Asked Questions",
         paragraphs: [
           "Do I need to speak German to work at Bayer? Not necessarily, though German helps in manufacturing and regulatory roles.",
-          "What is the typical salary for a research scientist at Bayer in Germany? Estimated salaries generally range from €60,000 to €90,000 per year.",
+          "What is the typical salary for a research scientist at Bayer in Germany? Estimated salaries generally range from â‚¬60,000 to â‚¬90,000 per year.",
           "Does Bayer only hire for pharmaceutical roles? No, it also hires across crop science, agriculture, commercial, and research functions.",
         ],
       },
     ],
     salaryTable: [
-      { role: "Research Scientist", pay: "€60,000–€90,000 per year" },
-      { role: "Manufacturing Engineer", pay: "€55,000–€80,000 per year" },
-      { role: "Regulatory Specialist", pay: "€50,000–€75,000 per year" },
+      { role: "Research Scientist", pay: "â‚¬60,000â€“â‚¬90,000 per year" },
+      { role: "Manufacturing Engineer", pay: "â‚¬55,000â€“â‚¬80,000 per year" },
+      { role: "Regulatory Specialist", pay: "â‚¬50,000â€“â‚¬75,000 per year" },
     ],
     applySteps: [
       "Search Bayer jobs in Germany on the official careers site.",
@@ -1750,11 +2141,11 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "8 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "Every text message that sends, every mobile call that connects, and every household streaming something on a Friday night depends on infrastructure that companies like Deutsche Telekom spend years building and maintaining. Headquartered in Bonn, Deutsche Telekom is one of Europe's largest telecommunications providers and one of Germany's biggest technology employers. If you are researching Deutsche Telekom careers in Germany for 2026, this guide breaks down what the company hires for, what it pays, what is required to get in, and how the application process works from start to finish.",
@@ -1835,7 +2226,7 @@ export const jobs: Job[] = [
         heading: "Frequently Asked Questions",
         paragraphs: [
           "Do I need to speak German to work at Deutsche Telekom? It depends on the role. Customer service and operations roles serving the German market typically require strong German language skills, while many network engineering and software development roles can be done comfortably in English, especially on international teams.",
-          "What is the typical salary for a network engineer at Deutsche Telekom in Germany? Estimated salaries generally range from €55,000 to €80,000 per year, though this varies with experience, specialization, and location.",
+          "What is the typical salary for a network engineer at Deutsche Telekom in Germany? Estimated salaries generally range from â‚¬55,000 to â‚¬80,000 per year, though this varies with experience, specialization, and location.",
           "Does Deutsche Telekom hire for software and digital roles, or is it purely a network infrastructure company? Deutsche Telekom has a substantial software and digital services organization alongside its core network infrastructure business, and actively hires software developers, IT specialists, and product managers.",
           "Does Deutsche Telekom offer visa sponsorship for international candidates? Many large technology and telecom employers in Germany, including Deutsche Telekom, support visa sponsorship for qualified candidates in roles facing skills shortages, particularly in network engineering and software development. Always confirm current sponsorship policies directly with recruiters.",
           "Is Bonn an expensive city to live in? Bonn is generally more affordable than Germany's largest cities like Munich or Frankfurt, making it an appealing option for candidates weighing salary against cost of living.",
@@ -1843,9 +2234,9 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Network Engineer", pay: "€55,000–€80,000 per year" },
-      { role: "Software Engineer", pay: "€60,000–€90,000 per year" },
-      { role: "Project Manager", pay: "€70,000–€100,000 per year" },
+      { role: "Network Engineer", pay: "â‚¬55,000â€“â‚¬80,000 per year" },
+      { role: "Software Engineer", pay: "â‚¬60,000â€“â‚¬90,000 per year" },
+      { role: "Project Manager", pay: "â‚¬70,000â€“â‚¬100,000 per year" },
     ],
     applySteps: [
       "Create a profile on Deutsche Telekom's careers page and filter for German locations.",
@@ -1869,14 +2260,14 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "8 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
-      "There's a reason the three-pointed star still carries weight more than a century after it first appeared on a vehicle. Mercedes-Benz has spent generations building a reputation around precision, luxury, and engineering discipline — and behind that reputation sits one of Germany's most significant automotive employers, still headquartered in the city where much of that legacy began. If you're researching Mercedes-Benz Group careers in Germany for 2026, this guide covers what the company actually hires for, what the roles pay, what it takes to get an offer, and the full step-by-step process of applying — whether you're an engineer, a software developer, or a corporate professional considering a move into the automotive industry.",
+      "There's a reason the three-pointed star still carries weight more than a century after it first appeared on a vehicle. Mercedes-Benz has spent generations building a reputation around precision, luxury, and engineering discipline â€” and behind that reputation sits one of Germany's most significant automotive employers, still headquartered in the city where much of that legacy began. If you're researching Mercedes-Benz Group careers in Germany for 2026, this guide covers what the company actually hires for, what the roles pay, what it takes to get an offer, and the full step-by-step process of applying â€” whether you're an engineer, a software developer, or a corporate professional considering a move into the automotive industry.",
     ctaButtons: [
       { label: "Explore BMW Group careers", href: "/jobs/bmw-group-careers-germany" },
       { label: "See Volkswagen hiring", href: "/jobs/volkswagen-careers-germany" },
@@ -1887,7 +2278,7 @@ export const jobs: Job[] = [
         heading: "Company Overview",
         paragraphs: [
           "Mercedes-Benz Group is a major German automotive manufacturer headquartered in Stuttgart, with operations spanning vehicle development, large-scale production, and an expanding set of digital and mobility services. Known globally for luxury vehicles and commercial vehicles alike, the company's German presence includes engineering hubs where new vehicle technology takes shape, manufacturing sites producing at serious scale, and business teams coordinating a genuinely global brand.",
-          "What makes Mercedes-Benz Group careers particularly interesting in 2026 is how much the business has evolved beyond traditional vehicle manufacturing. Software and digital product roles have grown substantially as vehicles have become more connected, electrified, and software-defined — meaning a career here increasingly looks as much like a technology company's as a classic automotive manufacturer's. At the same time, the company's engineering and manufacturing core remains as central as ever, giving job seekers a genuinely wide range of entry points depending on their background.",
+          "What makes Mercedes-Benz Group careers particularly interesting in 2026 is how much the business has evolved beyond traditional vehicle manufacturing. Software and digital product roles have grown substantially as vehicles have become more connected, electrified, and software-defined â€” meaning a career here increasingly looks as much like a technology company's as a classic automotive manufacturer's. At the same time, the company's engineering and manufacturing core remains as central as ever, giving job seekers a genuinely wide range of entry points depending on their background.",
         ],
       },
       {
@@ -1954,7 +2345,7 @@ export const jobs: Job[] = [
         heading: "Frequently Asked Questions",
         paragraphs: [
           "Do I need to speak German to work at Mercedes-Benz Group? It depends on the role and location. Software and international corporate roles can often be done comfortably in English, while manufacturing and procurement roles, especially those closer to the Stuttgart core, tend to benefit more from German language skills.",
-          "What is the typical salary for an automotive engineer at Mercedes-Benz Group in Germany? Estimated salaries generally range from €55,000 to €85,000 per year, though this varies with experience, specialization, and seniority level.",
+          "What is the typical salary for an automotive engineer at Mercedes-Benz Group in Germany? Estimated salaries generally range from â‚¬55,000 to â‚¬85,000 per year, though this varies with experience, specialization, and seniority level.",
           "Does Mercedes-Benz Group hire software engineers, or is it mainly a traditional automotive manufacturer? Mercedes-Benz Group has a substantial and growing software and digital product organization, reflecting the industry's shift toward connected, electrified, and software-defined vehicles, alongside its traditional engineering and manufacturing functions.",
           "Does Mercedes-Benz Group offer visa sponsorship for international candidates? Many large automotive employers in Germany, including Mercedes-Benz Group, support visa sponsorship for qualified candidates in roles facing skills shortages, particularly in engineering and software. Always confirm current sponsorship policies directly with recruiters, as these can change.",
           "Is Stuttgart an expensive city to live in? Stuttgart's cost of living is generally moderate compared to Germany's most expensive cities like Munich, though specific costs vary by neighborhood and are worth researching directly if you're planning a relocation.",
@@ -1962,9 +2353,9 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Automotive Engineer", pay: "€55,000–€85,000 per year" },
-      { role: "Software Engineer", pay: "€65,000–€95,000 per year" },
-      { role: "Procurement Specialist", pay: "€50,000–€75,000 per year" },
+      { role: "Automotive Engineer", pay: "â‚¬55,000â€“â‚¬85,000 per year" },
+      { role: "Software Engineer", pay: "â‚¬65,000â€“â‚¬95,000 per year" },
+      { role: "Procurement Specialist", pay: "â‚¬50,000â€“â‚¬75,000 per year" },
     ],
     applySteps: [
       "Search Mercedes-Benz Group openings on the official careers portal.",
@@ -1985,13 +2376,13 @@ export const jobs: Job[] = [
     coverImage: "/BASF Careers 2026.png",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
-    readTime: "7–9 min",
+    readTime: "7â€“9 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "BASF is the world's largest chemical company and one of Germany's most respected employers. Headquartered in Ludwigshafen, BASF operates in more than 90 countries and employs over 110,000 people worldwide. Whether you're an experienced engineer, an IT specialist, a chemical professional, or a recent graduate, BASF Careers 2026 offers exciting opportunities to build a rewarding international career in Germany.",
@@ -2097,13 +2488,13 @@ export const jobs: Job[] = [
       "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1200&q=80",
     publishedDate: "July 2026",
     updatedDate: "July 2026",
-    readTime: "5–7 min",
+    readTime: "5â€“7 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "BASF Careers 2026 offers excellent opportunities for professionals in engineering, chemistry, IT, manufacturing, and business. This guide explains salary expectations, eligibility requirements, and how to navigate the hiring process in Germany.",
@@ -2170,16 +2561,16 @@ export const jobs: Job[] = [
       },
     ],
     salaryTable: [
-      { role: "Chemical Engineer", pay: "€60,000–€90,000 per year" },
-      { role: "Process Engineer", pay: "€58,000–€88,000 per year" },
-      { role: "Mechanical Engineer", pay: "€55,000–€82,000 per year" },
-      { role: "Electrical Engineer", pay: "€58,000–€85,000 per year" },
-      { role: "Automation Engineer", pay: "€60,000–€90,000 per year" },
-      { role: "Software Developer", pay: "€65,000–€95,000 per year" },
-      { role: "Data Scientist", pay: "€70,000–€100,000 per year" },
-      { role: "Project Manager", pay: "€75,000–€110,000 per year" },
-      { role: "Supply Chain Specialist", pay: "€50,000–€75,000 per year" },
-      { role: "Finance Analyst", pay: "€55,000–€80,000 per year" },
+      { role: "Chemical Engineer", pay: "â‚¬60,000â€“â‚¬90,000 per year" },
+      { role: "Process Engineer", pay: "â‚¬58,000â€“â‚¬88,000 per year" },
+      { role: "Mechanical Engineer", pay: "â‚¬55,000â€“â‚¬82,000 per year" },
+      { role: "Electrical Engineer", pay: "â‚¬58,000â€“â‚¬85,000 per year" },
+      { role: "Automation Engineer", pay: "â‚¬60,000â€“â‚¬90,000 per year" },
+      { role: "Software Developer", pay: "â‚¬65,000â€“â‚¬95,000 per year" },
+      { role: "Data Scientist", pay: "â‚¬70,000â€“â‚¬100,000 per year" },
+      { role: "Project Manager", pay: "â‚¬75,000â€“â‚¬110,000 per year" },
+      { role: "Supply Chain Specialist", pay: "â‚¬50,000â€“â‚¬75,000 per year" },
+      { role: "Finance Analyst", pay: "â‚¬55,000â€“â‚¬80,000 per year" },
     ],
     applySteps: [
       "Search available positions on the BASF Careers portal.",
@@ -2205,11 +2596,11 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "5 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "Finding the right job requires more than simply submitting applications. Whether you're a recent graduate, changing careers, or looking for international opportunities, having the right strategy can significantly improve your chances of success.",
@@ -2283,11 +2674,11 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "4 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "The hospitality industry offers exciting opportunities for people who enjoy working with customers and delivering exceptional service. Hotels, restaurants, resorts, cruise lines, airports, and tourism companies continue to hire professionals across many departments.",
@@ -2369,11 +2760,11 @@ export const jobs: Job[] = [
     updatedDate: "July 2026",
     readTime: "4 min",
     author: {
-      name: "Rina Sato",
-      role: "Career Editor",
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-      bio: "Rina Sato writes practical career guides for international job seekers and helps readers understand hiring trends in Germany and beyond.",
+        "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
     },
     intro:
       "A successful interview begins long before you meet the recruiter. Preparation helps you communicate your skills clearly, answer questions confidently, and make a positive first impression.",
@@ -2457,3 +2848,7 @@ export const jobs: Job[] = [
 export function getJobBySlug(slug: string): Job | undefined {
   return jobs.find((job) => job.slug === slug);
 }
+
+
+
+

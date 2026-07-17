@@ -7,6 +7,25 @@ const footerLinks = [
   { label: "Contact", href: "/contact" },
   { label: "Privacy policy", href: "/privacy-policy" },
   { label: "Terms of use", href: "/terms-of-use" },
+  { label: "LLMs.txt", href: "/llms.txt" },
+];
+
+const socialLinks = [
+  {
+    label: "Facebook",
+    href: "https://web.facebook.com/profile.php?id=61591903173398",
+    icon: "f",
+  },
+  {
+    label: "Threads",
+    href: "https://www.threads.com/@sharjeelcoder82",
+    icon: "T",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/sharjeelcoder82/?hl=en",
+    icon: "I",
+  },
 ];
 
 export default function Footer() {
@@ -31,6 +50,28 @@ export default function Footer() {
           <p className="mt-3 text-sm leading-6 text-cream/60">
             Trusted job opportunities and career guidance for international candidates exploring work in Germany.
           </p>
+
+          <div className="mt-5">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-gold-400">
+              Follow us
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-cream/80 transition hover:border-gold-400 hover:text-gold-400"
+                >
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gold-500/15 text-xs font-bold text-gold-400">
+                    {link.icon}
+                  </span>
+                  <span>{link.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div>

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact careergen | Get in touch",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Contact careergen",
   description:
-    "Contact careergen for questions, feedback, or collaboration about job resources, job listings, and career guides.",
-};
+    "Contact careergen for questions, feedback, or collaboration about Germany job resources, career guides, and job listings.",
+  path: "/contact",
+  keywords: ["contact careergen", "career website contact"],
+});
 
 export default function ContactPage() {
   return (
