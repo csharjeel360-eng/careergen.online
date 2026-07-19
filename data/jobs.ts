@@ -61,11 +61,1039 @@ export interface Job {
   sourceUrl?: string;
   lastVerified?: string;
   companyName?: string;
+  careersPageLabel?: string;
+  relatedArticle?: { href: string; text: string };
+  coverImageAlt?: string;
   editorialNote?: string;
   keyTakeaways?: string[];
 }
 
 export const jobs: Job[] = [
+  {
+    slug: "chancenkarte-2026-germany-opportunity-card-points-explained",
+    title: "Chancenkarte 2026: Who Qualifies for Germany's Opportunity Card (Points Explained)",
+    category: "Immigration Guide",
+    excerpt:
+      "Germany's Chancenkarte lets you move without a job offer first. Here's the 6-point system explained simply, real examples, and what it actually costs to qualify.",
+    coverImage: "/Chancenkarte 2026.png",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "8 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "If you've been searching 'how to move to Germany without a job offer,' you've probably already stumbled on the word Chancenkarte. Good — that's the right rabbit hole.",
+    ctaButtons: [
+      { label: "Check the official portal", href: "https://www.make-it-in-germany.com/en/" },
+      { label: "Review the points system", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+      { label: "Compare with the old visa", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+    ],
+    sections: [
+      {
+        heading: "What the Chancenkarte Actually Is",
+        paragraphs: [
+          "The Chancenkarte, or Opportunity Card, is Germany's visa route for non-EU/EEA professionals who want to move first and look for work once they arrive. It was introduced under Section 20a of Germany's Residence Act and allows eligible applicants to stay for up to 12 months while they search for a job.",
+          "The biggest practical advantage is flexibility. You can work part-time up to 20 hours a week, take trial employment for up to two weeks with multiple employers, and convert to a full work permit or an EU Blue Card once you land a qualifying offer.",
+        ],
+        list: [
+          "Work part-time while you search",
+          "Take a short trial job without changing your status",
+          "Convert to a full permit once you secure a qualifying role",
+        ],
+      },
+      {
+        heading: "Two Ways to Qualify",
+        paragraphs: [
+          "There are two separate paths, and you only need one of them. The first is a fully recognized qualification. If your degree or vocational training is already recognized in Germany, especially if it has an ANABIN rating of H+ or H++, you can often skip the points system entirely as long as you meet the language and financial baseline.",
+          "The second path is the points system. If your qualification is not fully recognized yet, or you have not completed recognition, you need at least 6 points across five categories: qualification, professional experience, language ability, age, and connection to Germany.",
+        ],
+        list: [
+          "Recognized degree or vocational training can bypass the points threshold",
+          "A score of 6 or more is required under the points system",
+          "Experience and language can carry applicants even if they are not young",
+        ],
+      },
+      {
+        heading: "The Baseline Requirements",
+        paragraphs: [
+          "No matter which path you choose, you still need a few basic requirements. Most applicants must show a minimum level of German or English, provide proof of funds, and have valid health insurance for the planned stay.",
+          "As a practical baseline, many applicants are expected to show roughly €1,091 per month in support, or about €13,092 per year, depending on the proof method they use. A blocked account, a declaration of commitment, or a signed part-time contract can all be used in the right circumstances.",
+        ],
+        list: [
+          "German at A1 or English at B2, depending on what you can document",
+          "Financial proof of about €1,091 per month",
+          "Valid health insurance for your stay",
+        ],
+      },
+      {
+        heading: "What It Costs in Practice",
+        paragraphs: [
+          "The visa fee is only part of the picture. You should also budget for a blocked account if that is your preferred financial proof, health insurance, and the eventual permit conversion fee once you land a job. Conversion costs typically range from about €56 up to a few hundred euros, depending on the permit you move into.",
+          "The good news is that the part-time work allowance can help. Twenty hours a week at Germany's 2026 minimum wage of €13.90 per hour works out to about €1,112 per month before tax, which can materially reduce the pressure on your initial budget.",
+        ],
+      },
+      {
+        heading: "Chancenkarte vs the Old Job Seeker Visa",
+        paragraphs: [
+          "The old German job seeker visa was more restrictive and did not allow applicants to work while they searched. The Chancenkarte is more flexible, and that change matters a lot for people who need income during the first months of relocation.",
+          "That flexibility is the reason so many people now see the Chancenkarte as a more realistic path to Germany than the old model.",
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "If you are still comparing options, the short answers are fairly simple. You do not need a job offer to apply, you cannot work full-time at the start, and the permit can be extended in some circumstances if you have a concrete job offer but are still in transition.",
+        ],
+        list: [
+          "Do you need a job offer? No — the whole point is to let you move first and search once you arrive.",
+          "Can you work full-time? No — the initial permit is capped at 20 hours a week.",
+          "How long does it last? Up to 12 months initially, with possible follow-up options under certain circumstances.",
+          "Is the points score printed on the card? No — the rights are the same for all holders once the permit is granted.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "Chancenkarte residence permit", pay: "No fixed salary; you must show proof of funds of about €1,091/month" }],
+    applySteps: [
+      "Check whether your qualification is already recognized in Germany or whether you will need to use the points system.",
+      "Gather proof of your education, work history, language level, and financial support.",
+      "Prepare your visa documents through the official Make it in Germany portal or a licensed immigration advisor.",
+      "Apply for the permit and arrange health insurance before you travel.",
+      "Once you arrive, look for work, start part-time employment if needed, and convert to a full permit when you receive a qualifying offer.",
+    ],
+    editorialNote:
+      "This article is for general informational purposes and reflects publicly available German immigration rules as of 2026. Requirements change — always confirm current figures on the official Make it in Germany portal or with a licensed immigration advisor before applying.",
+    keyTakeaways: [
+      "No job offer is needed to apply for the Chancenkarte",
+      "You need at least 6 points under the points system or a recognized qualification",
+      "The permit allows part-time work while you search",
+      "You should budget for proof-of-funds, insurance, and eventual permit conversion costs",
+    ],
+  },
+  {
+    slug: "eu-blue-card-germany-2026-new-salary-thresholds-explained",
+    title: "EU Blue Card Germany 2026: New Salary Thresholds Explained",
+    category: "Immigration Guide",
+    excerpt:
+      "Germany raised Blue Card salary thresholds for 2026. Here's exactly what you need to earn, who qualifies for the lower threshold, and how to apply.",
+    coverImage: "/EU Blue Card Germany 2026.png",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "6 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "Germany quietly updates the minimum salary you need to earn for an EU Blue Card every January, and the 2026 numbers are worth reading before you negotiate an offer.",
+    ctaButtons: [
+      { label: "Check official requirements", href: "https://www.make-it-in-germany.com/en/" },
+      { label: "Review salary thresholds", href: "/jobs/eu-blue-card-germany-2026-new-salary-thresholds-explained" },
+      { label: "Compare visa options", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+    ],
+    sections: [
+      {
+        heading: "The 2026 Numbers",
+        paragraphs: [
+          "There are two thresholds, not one, and which applies to you depends on your occupation and background. The standard threshold is €50,700 gross per year, which is about €4,225 a month before tax. The reduced threshold for shortage occupations, recent graduates, and qualifying IT specialists is €45,934.20 gross per year, or about €3,827 a month before tax.",
+          "The increase is tied to Germany's pension insurance assessment ceiling, so the minimum moves higher almost every year as national wages rise.",
+        ],
+        list: [
+          "Standard occupations: €50,700 gross per year",
+          "Lower threshold: €45,934.20 gross per year",
+          "The lower threshold applies to specific occupation and background categories",
+        ],
+      },
+      {
+        heading: "Who Gets the Lower Threshold",
+        paragraphs: [
+          "The reduced figure is not a general discount. It applies to shortage occupations such as IT and communications technology, engineering, natural sciences, mathematics, medicine, pharmacy, and several skilled trades. It also applies to recent graduates who completed their most recent degree within the last three years, regardless of current field.",
+          "IT specialists without a university degree can qualify for the lower threshold if they can show at least three years of relevant professional experience within the last seven years.",
+        ],
+        list: [
+          "Shortage occupations",
+          "Recent graduates within three years of their latest degree",
+          "Experienced IT specialists without a degree",
+        ],
+      },
+      {
+        heading: "What Counts as Salary",
+        paragraphs: [
+          "This is where many offers go wrong. Immigration authorities usually look at the base gross salary written into the employment contract. Bonuses, commissions, and variable pay do not count toward the threshold unless they are guaranteed, fixed, and contractually guaranteed.",
+          "A guaranteed 13th-month payment or regular holiday payment can sometimes count if it is clearly written into the contract and calculated on a fixed basis.",
+        ],
+      },
+      {
+        heading: "Core Requirements Beyond Salary",
+        paragraphs: [
+          "Salary is the headline number, but it is not the only requirement. You still need a recognized university degree or a foreign degree comparable to a German one, a concrete job offer or signed contract matching your qualification, health insurance coverage, and the correct job category if you are claiming the lower threshold.",
+        ],
+        list: [
+          "Recognized degree or equivalent foreign qualification",
+          "Signed contract or concrete job offer",
+          "Health insurance coverage",
+          "Relevant occupation category for the lower threshold",
+        ],
+      },
+      {
+        heading: "Why This Matters Right Now",
+        paragraphs: [
+          "If you received an offer calculated against 2025 figures, it may now sit below the updated minimum. Contracts below the threshold can be rejected by the Ausländerbehörde, so it is worth asking HR to confirm that the offer has been checked against the 2026 figures before you commit.",
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "The short answers are simple. The standard threshold is €50,700, the lower threshold is €45,934.20 for eligible groups, bonuses only count if they are guaranteed and fixed, and the threshold moves because it is linked to national wage levels.",
+        ],
+        list: [
+          "What is the minimum salary for the EU Blue Card in Germany in 2026? €50,700 for standard occupations, or €45,934.20 for eligible shortage occupations, graduates, and IT specialists.",
+          "Do bonuses count toward the threshold? Only if they are guaranteed, fixed, and written into the contract.",
+          "Can I get a Blue Card without a university degree? Generally no, except through the IT specialist pathway with substantial professional experience.",
+          "Why did the threshold go up? It is linked to Germany's pension insurance ceiling, which rises with wage growth.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "EU Blue Card salary requirement", pay: "€50,700/year standard or €45,934.20/year eligible reduced threshold" }],
+    applySteps: [
+      "Confirm your degree is recognized or comparable to a German qualification.",
+      "Check whether your occupation qualifies for the lower salary threshold.",
+      "Make sure your contract shows a base gross salary that meets the relevant threshold.",
+      "Prepare proof of health insurance and your employment contract for the visa application.",
+      "Submit the application through the official immigration process once your documents are ready.",
+    ],
+    editorialNote:
+      "Figures reflect thresholds effective January 1, 2026, as confirmed by Germany's Federal Ministry of the Interior. Always verify current requirements through the official Make it in Germany portal before making decisions based on a specific salary figure.",
+    keyTakeaways: [
+      "The 2026 standard Blue Card salary threshold is €50,700 gross per year",
+      "Eligible shortage occupations, graduates, and IT specialists can use the lower threshold of €45,934.20",
+      "Bonuses only count if they are guaranteed and fixed in the contract",
+      "Salary is important, but a recognized degree and a matching job offer still matter",
+    ],
+  },
+  {
+    slug: "jobs-in-germany-without-speaking-german-2026",
+    title: "Jobs in Germany Without Speaking German: What's Actually Realistic in 2026",
+    category: "Career Advice",
+    excerpt:
+      "You can find work in Germany without German, but not everywhere and not in every field. Here's what's genuinely realistic, sector by sector.",
+    coverImage: "/Jobs in Germany Without Speaking German.png",
+    coverImageAlt: "Illustration of an international, English-speaking workplace in Germany",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "5 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "The honest answer is: it depends heavily on the job and the city. Anyone giving a flat yes or no is oversimplifying what the German market actually looks like.",
+    ctaButtons: [
+      { label: "Explore Germany jobs", href: "/#jobs" },
+      { label: "Review visa options", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+      { label: "Read Blue Card guide", href: "/jobs/eu-blue-card-germany-2026-new-salary-thresholds-explained" },
+    ],
+    sections: [
+      {
+        heading: "Where No German Genuinely Works",
+        paragraphs: [
+          "Tech and software roles in Berlin, Munich, and Hamburg are the clearest example. English is often the working language at German startups and international companies, especially those with foreign investors or distributed teams. Backend engineering, DevOps, data, and product roles are often the most forgiving.",
+          "Multinational corporate roles in finance, consulting, and other global business functions also often operate in English, especially at regional or European headquarters in Frankfurt or Munich.",
+        ],
+        list: [
+          "Tech and software roles",
+          "Multinational corporate teams",
+          "Warehouse and logistics work",
+          "International hospitality roles",
+          "Delivery and gig work",
+        ],
+      },
+      {
+        heading: "Where It Does Not Work So Well",
+        paragraphs: [
+          "Healthcare roles with patient contact almost always require at least B2 German, often verified through a formal language exam as part of professional recognition. Customer-facing retail, most public-sector jobs, teaching, and anything tied to German legal or regulatory documents also expect solid German, usually B1 or above.",
+        ],
+      },
+      {
+        heading: "The Honest Middle Ground",
+        paragraphs: [
+          "Many roles sit in the middle. You may be able to get hired without German, but you can still hit a ceiling fast. Promotions, internal politics, workplace culture, and daily social integration all lean heavily on the language even when the job itself is officially English-speaking.",
+        ],
+      },
+      {
+        heading: "Practical Steps If You Are Starting From Zero",
+        paragraphs: [
+          "Target the right sectors and companies, filter your job search by city, and start learning German even if the role does not require it. German employers generally appreciate directness, which means being clear about your current level and your plan to improve it.",
+        ],
+        list: [
+          "Target startups and multinationals with international leadership",
+          "Focus on Berlin, Munich, Hamburg, and Frankfurt first",
+          "Start A1 or A2 German early to make daily life easier",
+          "Be honest about your current language level in interviews",
+        ],
+      },
+      {
+        heading: "A Note on Visas",
+        paragraphs: [
+          "Language can affect your visa options indirectly. It can influence your points score under the Chancenkarte and your path to permanent residency under an EU Blue Card, even in jobs where the employer itself does not require German.",
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "The short answer is yes for some sectors, but not evenly across the whole economy. English-only working environments are most realistic in tech, finance, and some logistics and hospitality roles, especially in larger cities.",
+        ],
+        list: [
+          "Can I get an IT job without any German at all? Yes — this is realistically one of the easiest categories.",
+          "Will I need German eventually even in an English-only job? Most people eventually pick up some German for daily life and long-term integration.",
+          "Are there cities where English-only jobs are more common? Berlin, Munich, Hamburg, and Frankfurt have the deepest pool.",
+          "Does not speaking German limit my visa options? It can, especially under points-based routes and permanent residency timelines.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "Typical market reality", pay: "No fixed salary; depends on role, city, and experience" }],
+    applySteps: [
+      "Target English-friendly sectors such as tech, finance, logistics, and international hospitality.",
+      "Focus your search on major cities with stronger international job markets.",
+      "Start learning basic German early so you can handle daily life and visa-related paperwork.",
+      "Be transparent in interviews about your current language level and your improvement plan.",
+    ],
+    editorialNote:
+      "This overview reflects general hiring patterns in Germany's international job market as of 2026 and is not a guarantee of employment outcomes in any specific role or region.",
+    keyTakeaways: [
+      "English-friendly roles are most realistic in tech and multinational companies",
+      "Healthcare, retail, public sector, and regulated roles usually require stronger German",
+      "Bigger cities offer far more options than smaller towns",
+      "Learning basic German still matters even when your job does not require it",
+    ],
+  },
+  {
+    slug: "warehouse-jobs-in-germany-2026-pay-requirements-and-how-to-apply",
+    title: "Warehouse Jobs in Germany 2026: Pay, Requirements, and How to Apply",
+    category: "Career Advice",
+    excerpt:
+      "What warehouse work in Germany actually pays, what shifts look like, and how to apply as a foreigner — no German required for most entry-level roles.",
+    coverImage: "/Warehouse Jobs in Germany 2026.png",
+    coverImageAlt: "Illustration of a warehouse worker with a scanner in a modern logistics facility in Germany",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "5 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "Warehouse work is one of the most consistently open doors into the German job market for international candidates, and it does not get nearly the coverage that flashier tech and engineering roles do.",
+    ctaButtons: [
+      { label: "Browse Germany jobs", href: "/#jobs" },
+      { label: "Read visa guide", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+      { label: "See language guide", href: "/jobs/jobs-in-germany-without-speaking-german-2026" },
+    ],
+    sections: [
+      {
+        heading: "What the Work Actually Involves",
+        paragraphs: [
+          "Warehouse and fulfillment roles cover a range of day-to-day tasks: picking and packing orders, operating scanners, sorting inbound deliveries, loading and unloading trucks, and increasingly working alongside automated sorting systems and robotics in larger facilities. Shifts are typically organized in rotating patterns, including early, late, and night shifts, with premium pay for overnight and weekend work."
+        ],
+      },
+      {
+        heading: "Pay Expectations",
+        paragraphs: [
+          "Entry-level warehouse pay in Germany generally starts at or slightly above the national minimum wage, which stands at €13.90 per hour as of January 1, 2026. Large logistics employers often pay above minimum to stay competitive, and shift differentials can increase effective hourly pay significantly. Experienced operators, forklift drivers, team leads, and warehouse management assistants often earn in the €16–€22 per hour range depending on region and certification."
+        ],
+      },
+      {
+        heading: "Do You Need to Speak German?",
+        paragraphs: [
+          "For most entry-level picking, packing, and sorting roles, no. Training is typically delivered through scanners, visual instructions, and short verbal commands that are easy to pick up regardless of your starting language level. That said, basic safety vocabulary and simple instructions in German make the first weeks noticeably smoother, and any German at all improves your chances of moving into a team lead or supervisory role later on."
+        ],
+      },
+      {
+        heading: "What Employers Actually Look For",
+        paragraphs: [
+          "The most important traits are physical stamina, reliability, and shift flexibility. Employers also value basic safety awareness and the willingness to follow procedures closely. A forklift certification can be a major advantage if you are aiming for higher-paying operator roles."
+        ],
+        list: [
+          "Physical stamina and tolerance for repetitive lifting",
+          "Reliability and willingness to work nights or weekends",
+          "Basic safety awareness and procedure-following",
+          "Forklift certification for higher-paying operator jobs",
+        ],
+      },
+      {
+        heading: "The Application Process",
+        paragraphs: [
+          "Most large logistics employers recruit through online applications, and the process is often faster than office-track roles. A short online form, a brief phone or video screening, and sometimes a same-week start date for peak-season roles are common. Seasonal hiring spikes around major shopping periods create the highest volume of open roles, so timing your application around those windows can significantly improve your odds."
+        ],
+      },
+      {
+        heading: "Visa Considerations",
+        paragraphs: [
+          "If you are not an EU/EEA citizen, you will need a valid work permit to take on warehouse work. This is one of the categories where the Chancenkarte's part-time work allowance is genuinely useful, because many candidates use warehouse shifts as their financial proof and first income source while searching for a role that better matches their long-term qualifications."
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "The short answer is that most entry-level roles do not require fluency, but basic German helps and a valid work permit is still required for non-EU/EEA applicants."
+        ],
+        list: [
+          "Do warehouse jobs in Germany require German? Most entry-level roles do not require fluency, though basic German helps with day-to-day communication.",
+          "What does warehouse work pay in Germany in 2026? Entry-level roles typically start near the national minimum wage of €13.90/hour, with shift premiums and higher pay for certified operators and team leads.",
+          "Can I get a warehouse job in Germany without a work visa? No — non-EU/EEA nationals need a valid residence and work permit.",
+          "Is warehouse work seasonal in Germany? Hiring often spikes around major shopping seasons, which is a strong time to apply if you are flexible on start dates.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "Warehouse worker", pay: "About €13.90/hour entry-level, higher with shift premiums and certification" }],
+    applySteps: [
+      "Apply through online portals for large logistics employers and fulfillment centers.",
+      "Be ready for a quick phone or video screening and a fast-moving process.",
+      "Highlight flexibility for shifts, reliability, and any relevant lifting or forklift experience.",
+      "Prepare your work permit documents if you are not an EU/EEA citizen.",
+    ],
+    editorialNote:
+      "Pay figures reflect general market conditions and Germany's statutory minimum wage as of 2026. Actual compensation varies by employer, region, and role.",
+    keyTakeaways: [
+      "Entry-level warehouse pay usually starts near the minimum wage",
+      "Most entry-level roles do not require strong German",
+      "Shift premiums and certification can significantly increase earnings",
+      "A valid work permit is still required for non-EU/EEA applicants",
+    ],
+  },
+  {
+    slug: "average-salary-in-germany-2026-by-job-city-and-experience-level",
+    title: "Average Salary in Germany 2026: By Job, City, and Experience Level",
+    category: "Career Advice",
+    excerpt:
+      "What people actually earn in Germany in 2026 — broken down by profession, city, and experience — plus what counts as a 'good' salary where you're moving.",
+    coverImage: "/Average Salary in Germany 2026.png",
+    coverImageAlt: "Illustration comparing average salaries across German cities and experience levels",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "6 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "Is this a good salary in Germany? There is no single answer, because €45,000 stretches very differently in Leipzig than it does in Munich. Still, there are useful benchmarks worth knowing before you negotiate an offer or decide whether a job is worth relocating for.",
+    ctaButtons: [
+      { label: "Browse Germany jobs", href: "/#jobs" },
+      { label: "Read Blue Card guide", href: "/jobs/eu-blue-card-germany-2026-new-salary-thresholds-explained" },
+      { label: "Review visa options", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+    ],
+    sections: [
+      {
+        heading: "The National Baseline",
+        paragraphs: [
+          "Germany's statutory minimum wage sits at €13.90 per hour as of January 1, 2026. For a standard 40-hour week, that works out to roughly €2,410 gross per month, or about €28,900 a year, at the absolute floor. Most skilled roles pay considerably more than this baseline, which exists mainly to set a wage floor for entry-level and unskilled work."
+        ],
+      },
+      {
+        heading: "Salary by Broad Job Category",
+        paragraphs: [
+          "While exact figures shift by employer and region, general patterns hold fairly consistently across the market. Entry-level and unskilled roles often sit near minimum wage to roughly €16 per hour. Skilled trades typically land in the €35,000–€50,000 annual range, nursing and healthcare support around €30,000–€45,000, software engineering and IT often €50,000–€80,000 for mid-level roles, and engineering roles often €55,000–€75,000 for experienced professionals."
+        ],
+        list: [
+          "Entry-level and unskilled roles: minimum wage to roughly €16/hour",
+          "Skilled trades: often €35,000–€50,000/year",
+          "Nursing and healthcare support: generally €30,000–€45,000/year",
+          "Software engineering and IT: commonly €50,000–€80,000/year",
+          "Engineering: often €55,000–€75,000/year",
+        ],
+      },
+      {
+        heading: "Salary by City",
+        paragraphs: [
+          "Cost of living and average pay tend to move together, but not perfectly. Munich consistently has the highest average salaries in the country, particularly in finance, tech, and automotive engineering, but also the highest living costs. Frankfurt is strong in finance and corporate salaries, while Berlin offers a large tech market but has historically seen salaries trail Munich and Frankfurt somewhat despite high rents. Smaller cities and eastern Germany generally offer lower nominal wages but meaningfully lower costs of living."
+        ],
+      },
+      {
+        heading: "Gross vs Net",
+        paragraphs: [
+          "Salary figures quoted in job listings and visa documents are almost always gross, meaning before tax. Germany's tax and social security system takes a meaningful bite, typically reducing gross pay by around 30–45% depending on income bracket, tax class, and dependents. A €50,000 gross salary might land somewhere around €30,000–€33,000 net for a single person with no children, though your exact outcome depends on your situation."
+        ],
+      },
+      {
+        heading: "Why This Matters for Visa Applications",
+        paragraphs: [
+          "If you are applying for an EU Blue Card, the gross salary threshold is what matters legally. As of 2026, the standard threshold is €50,700 per year, while the lower threshold is €45,934.20 for eligible shortage occupations and recent graduates. Bonuses and variable pay generally do not count unless they are guaranteed and written into your contract."
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "The short answer is that a good salary depends heavily on city, household size, and lifestyle, but a single person earning roughly €45,000–€55,000 gross annually outside Munich generally has a comfortable baseline."
+        ],
+        list: [
+          "What is considered a good salary in Germany in 2026? Around €45,000–€55,000 gross for many single-person households outside Munich.",
+          "How much of my gross salary do I actually take home? Typically 55–70% after tax and social contributions, depending on tax class and circumstances.",
+          "Which city pays the highest average salaries? Munich, followed closely by Frankfurt.",
+          "Is minimum wage enough to live on in Germany? It covers basic living costs in smaller cities, but it is tight in expensive regions without shared housing or extra income.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "Representative salary benchmark", pay: "€13.90/hour minimum; €45k–€55k+ gross for many mid-level professionals outside Munich" }],
+    applySteps: [
+      "Compare offers using gross salary and expected net pay, not just headline numbers.",
+      "Adjust expectations by city because rent and daily costs vary quite a lot.",
+      "Check whether your role or visa pathway depends on a specific gross salary threshold.",
+      "Use the salary benchmark to negotiate more confidently once you understand the local market.",
+    ],
+    editorialNote:
+      "Salary figures are general market estimates for 2026 and vary by employer, experience, and negotiation. Always confirm specific thresholds relevant to visa applications through official government sources.",
+    keyTakeaways: [
+      "Minimum wage is a floor, not a typical skilled salary",
+      "Munich and Frankfurt pay more but cost more to live in",
+      "Net pay is usually much lower than gross pay",
+      "Visa thresholds are based on gross salary, not bonus-heavy compensation",
+    ],
+  },
+  {
+    slug: "german-cv-lebenslauf-guide-for-foreigners-2026",
+    title: "How to Write a German CV (Lebenslauf) as a Foreigner — Full Guide",
+    category: "Career Advice",
+    excerpt:
+      "German CVs follow different conventions than US or UK resumes. Here's exactly what to include, what to leave out, and how to format a Lebenslauf that gets read.",
+    coverImage: "/How to Write a German CV.png",
+    coverImageAlt: "Illustration of a structured German-style CV (Lebenslauf) with a photo placeholder",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "6 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "If you've applied for jobs in Germany using the same CV format you'd send to a US or UK employer, there's a decent chance it is quietly working against you.",
+    ctaButtons: [
+      { label: "Browse Germany jobs", href: "/#jobs" },
+      { label: "Read visa guide", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+      { label: "See salary guide", href: "/jobs/average-salary-in-germany-2026-by-job-city-and-experience-level" },
+    ],
+    sections: [
+      {
+        heading: "The Format Germans Actually Expect",
+        paragraphs: [
+          "Unlike the narrative, achievement-focused resumes common in the US, the German Lebenslauf is typically reverse chronological, tabular in structure, one to two pages long, and often includes a photo in the top corner. That photo point catches many foreign applicants off guard, but it remains common in traditional German hiring, especially outside large multinational firms."
+        ],
+        list: [
+          "Reverse chronological order",
+          "Clear dates in a left-hand column",
+          "One to two pages, rarely longer",
+          "A professional photo is still common",
+        ],
+      },
+      {
+        heading: "What Sections to Include",
+        paragraphs: [
+          "A standard Lebenslauf usually runs through personal details, a photo, work experience, education, language skills, technical skills, and additional qualifications. Each section should be simple and scannable rather than narrative."
+        ],
+        list: [
+          "Personal details: name, address, phone, email, date of birth, nationality",
+          "Work experience: company, title, dates, and 2–3 bullet points per role",
+          "Education: degree, institution, graduation dates",
+          "Language skills: rated by CEFR level",
+          "IT and technical skills: software, tools, certifications",
+        ],
+      },
+      {
+        heading: "Language: German or English?",
+        paragraphs: [
+          "If you are applying to a German company for a role that operates in German, submit your CV in German. If you are applying to an international company or a tech role known to operate in English, an English CV is usually fine, but check the job listing language itself as the best signal. Having both versions ready can show preparation."
+        ],
+      },
+      {
+        heading: "The Cover Letter Still Matters",
+        paragraphs: [
+          "Germany still treats the Anschreiben, or cover letter, as a genuinely important part of the application. A generic cover letter is one of the fastest ways to get filtered out. It should reference the company, the role, and why your background fits, rather than simply repeating your CV."
+        ],
+      },
+      {
+        heading: "Getting Your Qualifications Recognized",
+        paragraphs: [
+          "If your degree or vocational training was earned outside Germany, it is worth checking its status on the ANABIN database before you apply, especially for regulated professions like healthcare, engineering, or teaching. Even when formal recognition is not strictly required, noting recognition status on your CV signals that you have done your homework."
+        ],
+      },
+      {
+        heading: "Common Mistakes Foreign Applicants Make",
+        paragraphs: [
+          "The most common issues are submitting a narrative-style US-style resume instead of the tabular German format, leaving off the photo for traditional employers, using vague language descriptions, skipping the cover letter, and overstating German fluency."
+        ],
+        list: [
+          "Using a narrative US-style resume instead of a tabular German format",
+          "Leaving off the photo when applying to traditional German companies",
+          "Using vague language descriptions instead of CEFR levels",
+          "Skipping the cover letter or sending a generic one",
+          "Overstating German fluency",
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "The short answer is that German CVs are usually more structured, more concise, and more formal than the CVs common in the US and UK, and they are often paired with a tailored cover letter."
+        ],
+        list: [
+          "Do I need a photo on my German CV? It is not legally required, but it remains standard practice in many contexts.",
+          "Should my German CV be in English or German? Match the job listing's language where possible, and use German for traditional German employers.",
+          "How long should a German CV be? One to two pages is the norm.",
+          "Is a cover letter really necessary? Yes — a tailored cover letter is often what differentiates otherwise similar applications.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "Application format guidance", pay: "No salary; this article focuses on CV conventions and hiring expectations" }],
+    applySteps: [
+      "Format your CV in a reverse-chronological, tabular layout.",
+      "Add a professional photo if the employer or sector is traditional or German-speaking.",
+      "Use CEFR levels for language skills and keep your content concise.",
+      "Prepare a tailored cover letter for each application.",
+      "Check recognition status for degrees or vocational training if relevant.",
+    ],
+    editorialNote:
+      "This guide reflects general German hiring conventions as of 2026. Practices vary by industry and company size, particularly at international or startup-culture employers.",
+    keyTakeaways: [
+      "German CVs are typically reverse chronological and tabular",
+      "A professional photo is still common in many German applications",
+      "Cover letters matter more than in many other job markets",
+      "CEFR language levels and concise formatting help a lot",
+    ],
+  },
+  {
+    slug: "anerkennung-foreign-degree-recognition-germany-explained",
+    title: "Anerkennung Explained: Getting Your Foreign Degree Recognized in Germany",
+    category: "Career Advice",
+    excerpt:
+      "Anerkennung is the process that decides whether your foreign degree counts in Germany. Here's how it works, how long it takes, and when you actually need it.",
+    coverImage: "/Anerkennung Explained.png",
+    coverImageAlt: "Illustration representing the process of foreign degree recognition (Anerkennung) in Germany",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "6 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "Anerkennung is one of those words that shows up constantly in Germany-relocation forums, usually attached to confusion and dread. It does not have to be either.",
+    ctaButtons: [
+      { label: "Browse Germany jobs", href: "/#jobs" },
+      { label: "Read visa guide", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+      { label: "See CV guide", href: "/jobs/german-cv-lebenslauf-guide-for-foreigners-2026" },
+    ],
+    sections: [
+      {
+        heading: "What Anerkennung Actually Means",
+        paragraphs: [
+          "At its core, Anerkennung is the formal process of getting a foreign qualification assessed against its German equivalent. The outcome determines whether your qualification is treated as fully comparable, partially comparable, or not comparable under German standards."
+        ],
+      },
+      {
+        heading: "Do You Actually Need It?",
+        paragraphs: [
+          "The answer varies a lot by field. You almost certainly need formal recognition in medicine, nursing, most healthcare professions, law, teaching, and some engineering and skilled-trade roles with legal licensing requirements. In many IT, business, marketing, and startup roles, you generally do not need formal recognition, although it can still strengthen applications and affect your points score under the Chancenkarte."
+        ],
+        list: [
+          "Likely required: healthcare, law, teaching, regulated engineering, and some trades",
+          "Usually not required: many IT, corporate, business, and startup roles",
+          "Still helpful: can strengthen applications and support visa eligibility",
+        ],
+      },
+      {
+        heading: "Where to Check First",
+        paragraphs: [
+          "Before starting any formal application, check your university and degree against the ANABIN database. An H+ or H++ rating there means your institution is treated as broadly comparable to a German one, which can simplify or shorten the process. If your institution is not listed or receives a lower rating, you will likely need a more thorough individual assessment."
+        ],
+      },
+      {
+        heading: "The Recognition Process, Step by Step",
+        paragraphs: [
+          "The process usually starts with identifying the right authority, gathering and translating your documents, submitting your application, waiting for assessment, and then addressing any gaps if your qualification is only partially equivalent."
+        ],
+        list: [
+          "Identify the correct recognition body for your profession and state",
+          "Gather degree certificates, transcripts, and certified German translations",
+          "Submit the application along with any required fees",
+          "Wait for assessment, which can take a few months or longer",
+          "Complete bridging training, adaptation periods, or exams if required",
+        ],
+      },
+      {
+        heading: "What It Costs and How Long It Takes",
+        paragraphs: [
+          "Fees vary by profession and state but are typically a few hundred euros for the assessment itself, not counting translation or document costs. Processing time is often the bigger variable, with straightforward cases taking a few months while healthcare and legal professions can take considerably longer."
+        ],
+      },
+      {
+        heading: "A Preliminary Check Can Save You Time",
+        paragraphs: [
+          "For applicants using the Chancenkarte, a preliminary assessment through the Recognition Advisory Centre can give you an early read on your qualification's status before you commit to the full process. That is worth doing if you are weighing whether to apply through the points system or the fully recognized pathway."
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "The short answer is that Anerkennung is required in some professions and optional in others, but it can still matter for job applications and visa pathways even when it is not legally mandatory."
+        ],
+        list: [
+          "Do I need Anerkennung to work in Germany? It depends on your profession — regulated fields often require it, while many corporate and tech roles do not.",
+          "How long does the process take? It varies widely by profession and state, from a few months to significantly longer.",
+          "What is ANABIN and why does it matter? It is a database that compares foreign qualifications to German equivalents and helps you assess whether recognition is likely to be straightforward.",
+          "Does Anerkennung affect my visa application? Yes — a fully recognized qualification can help you skip the points system under the Chancenkarte, while a partially recognized qualification may require the points-based pathway.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "Recognition assessment", pay: "Fees are typically a few hundred euros, depending on profession and state" }],
+    applySteps: [
+      "Check your qualification in ANABIN before starting any formal process.",
+      "Identify the right recognition authority for your profession and state.",
+      "Gather and translate your documents with certified translations where needed.",
+      "Submit your application and budget for the assessment fee and document costs.",
+      "Prepare for bridging training or exams if your qualification is only partially equivalent.",
+    ],
+    editorialNote:
+      "This overview reflects general German qualification-recognition procedures as of 2026. Requirements, fees, and processing times vary by profession, state, and individual case — confirm specifics with the relevant recognizing authority.",
+    keyTakeaways: [
+      "Anerkennung is the formal recognition of foreign degrees and qualifications",
+      "It is often essential in healthcare, teaching, law, and regulated trades",
+      "ANABIN is a useful first check before starting the formal process",
+      "A recognized qualification can simplify both job applications and visa options",
+    ],
+  },
+  {
+    slug: "common-job-interview-questions-germany-2026-with-sample-answers",
+    title: "Common Job Interview Questions in Germany 2026 (With Sample Answers)",
+    category: "Career Advice",
+    excerpt:
+      "German job interviews follow a distinct style — direct, structured, and detail-focused. Here are the questions you'll actually get asked, with sample answers.",
+    coverImage: "/Common Job Interview Questions.png",
+    coverImageAlt: "Illustration of a professional job interview conversation in Germany",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "6 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "German interview culture has a reputation for being blunt, and honestly, that reputation is fairly earned — but blunt is not the same as hostile.",
+    ctaButtons: [
+      { label: "Browse Germany jobs", href: "/#jobs" },
+      { label: "Read CV guide", href: "/jobs/german-cv-lebenslauf-guide-for-foreigners-2026" },
+      { label: "See salary guide", href: "/jobs/average-salary-in-germany-2026-by-job-city-and-experience-level" },
+    ],
+    sections: [
+      {
+        heading: "The General Style, Before the Questions",
+        paragraphs: [
+          "German interviewers generally value directness, concrete detail, and modesty over self-promotion. Where a US-style interview might reward confident storytelling and big claims, German interviewers often respond better to specific, measured answers with real numbers and honest acknowledgment of limitations."
+        ],
+      },
+      {
+        heading: "Tell Me About Yourself",
+        paragraphs: [
+          "This opens almost every interview, but German interviewers typically want a tight professional summary — education, relevant experience, and why you are suited to the specific role — rather than a personal life story or extended narrative arc."
+        ],
+        list: [
+          "Keep it professional and concise",
+          "Mention education and relevant experience",
+          "Tie your background directly to the role",
+        ],
+      },
+      {
+        heading: "Why Do You Want to Work for Us Specifically?",
+        paragraphs: [
+          "Generic answers land poorly here. Interviewers expect you to have researched the company's products, market position, or recent developments and to connect them to your own experience or interests."
+        ],
+      },
+      {
+        heading: "What Are Your Weaknesses?",
+        paragraphs: [
+          "This question is asked just as often in Germany as elsewhere, but interviewers tend to respond better to a genuine weakness with a concrete example of how you are addressing it, rather than a disguised strength such as 'I work too hard.'"
+        ],
+      },
+      {
+        heading: "Where Do You See Yourself in Five Years?",
+        paragraphs: [
+          "The answer should be less about grand ambition and more about whether your goals plausibly align with a multi-year commitment to the employer. German companies often invest heavily in training and expect some retention in return."
+        ],
+      },
+      {
+        heading: "Why Did You Leave Your Last Position?",
+        paragraphs: [
+          "Answer factually and without excessive negativity about a former employer. German interviewers often view badmouthing a previous company as a red flag regardless of how justified it might be."
+        ],
+      },
+      {
+        heading: "Questions Specific to Foreign Applicants",
+        paragraphs: [
+          "You should expect at least one question about your visa status, German language level, and timeline for relocation if you are applying from abroad. Answer these directly and with specifics."
+        ],
+      },
+      {
+        heading: "Questions You Should Ask Them",
+        paragraphs: [
+          "German interviews generally leave room for your own questions, and asking thoughtful ones is expected, not optional. Good options include questions about team structure, onboarding for international hires, and how the company supports visa or relocation processes if relevant."
+        ],
+      },
+      {
+        heading: "A Few Cultural Notes Worth Knowing",
+        paragraphs: [
+          "Punctuality is taken seriously, handshakes and a degree of formality are still standard, and small talk before getting into substance is generally brief."
+        ],
+        list: [
+          "Arrive on time, not fashionably late or excessively early",
+          "A handshake and a degree of formality are still standard",
+          "Do not be thrown if the interviewer moves quickly to substance",
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "The short answer is that German interviews are usually more structured, more direct, and less small-talk-heavy than in some other markets, and they reward specificity over self-promotion."
+        ],
+        list: [
+          "Are German job interviews more formal than in other countries? Generally yes, particularly at traditional companies.",
+          "Will I be asked about my visa status in a German interview? Very likely if you are applying from abroad.",
+          "Should I bring printed documents to a German interview? Often appreciated, especially a printed CV and certificates.",
+          "Is it acceptable to negotiate salary at the interview stage? Usually better to wait until an offer is extended, though it may come up earlier.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "Interview preparation", pay: "No salary; this article focuses on interview expectations and sample answer strategy" }],
+    applySteps: [
+      "Prepare concise, evidence-based answers with concrete examples.",
+      "Research the company in detail before the interview.",
+      "Be ready to discuss visa status, language level, and relocation timing clearly.",
+      "Bring printed documents such as your CV and certificates if appropriate.",
+    ],
+    editorialNote:
+      "This guide reflects general interview norms observed across German employers as of 2026. Specific practices vary by industry, company size, and region.",
+    keyTakeaways: [
+      "German interviews reward directness, detail, and modesty",
+      "Specific examples and measurable achievements are more persuasive than broad claims",
+      "Visa and relocation timing questions are common for international applicants",
+      "A thoughtful set of questions for the employer is expected",
+    ],
+  },
+  {
+    slug: "delivery-driver-jobs-germany-2026-pay-requirements-and-how-to-apply",
+    title: "Delivery Driver Jobs in Germany 2026: Pay, Requirements, and How to Apply",
+    category: "Career Advice",
+    excerpt:
+      "What delivery driving actually pays in Germany, what license you need, and how foreigners can apply — from food delivery to parcel logistics.",
+    coverImage: "/Delivery Driver Jobs in Germany.png",
+    coverImageAlt: "Illustration of delivery workers on bicycle and van routes in Germany",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "5 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "Delivery work is one of the more accessible entry points into Germany's job market, especially for people still working on their German or waiting on other qualifications to clear.",
+    ctaButtons: [
+      { label: "Browse Germany jobs", href: "/#jobs" },
+      { label: "Read visa guide", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+      { label: "See warehouse guide", href: "/jobs/warehouse-jobs-in-germany-2026-pay-requirements-and-how-to-apply" },
+    ],
+    sections: [
+      {
+        heading: "The Main Categories of Delivery Work",
+        paragraphs: [
+          "Delivery work covers everything from bicycle courier app jobs to parcel logistics routes with company vans. Food delivery platforms are the lowest barrier to entry, parcel and courier delivery pays more but usually requires a valid driving license recognized in Germany, and grocery and retail delivery sits somewhere in between with slightly more formal employment."
+        ],
+        list: [
+          "Food delivery platforms: low barrier, flexible hours",
+          "Parcel and courier delivery: higher pay, more formal requirements",
+          "Grocery and retail delivery: structured routes and company vehicles",
+        ],
+      },
+      {
+        heading: "Pay Expectations",
+        paragraphs: [
+          "Bicycle and scooter-based food delivery through gig platforms typically pays per delivery or per hour at rates close to Germany's minimum wage of €13.90/hour as of 2026, sometimes supplemented by tips and delivery-volume bonuses during peak hours. Van-based parcel delivery generally pays somewhat higher, often in the €14–€18/hour range depending on company and region, with full-time contracts sometimes including benefits that gig work does not."
+        ],
+      },
+      {
+        heading: "What You Actually Need",
+        paragraphs: [
+          "For bike or scooter platform work, you usually need your own bike or scooter, a smartphone, and in most cities no formal license is required for bicycle delivery. For van-based delivery, a valid driving license recognized in Germany is usually required, and basic German helps with reading addresses, communicating briefly with recipients, and following route instructions."
+        ],
+        list: [
+          "Bike or scooter delivery: bike or scooter, smartphone, no driving license needed",
+          "Van-based delivery: valid recognized driving license",
+          "Basic German helps for van routes and recipient communication",
+        ],
+      },
+      {
+        heading: "Converting a Foreign Driving License",
+        paragraphs: [
+          "If you are not from an EU/EEA country, your existing license may or may not transfer directly, depending on bilateral agreements between Germany and your home country. Some licenses convert with minimal paperwork; others require a full German driving test. This is worth checking early because it directly determines whether you can take van-based roles."
+        ],
+      },
+      {
+        heading: "The Application Process",
+        paragraphs: [
+          "Gig-platform delivery work is typically the fastest to start — sign-up is largely digital, with an ID check and a short onboarding process. Employed courier and logistics roles go through a more standard hiring process: an application, sometimes a short interview, and a check of your license and any required background clearance."
+        ],
+      },
+      {
+        heading: "Visa Considerations",
+        paragraphs: [
+          "For non-EU/EEA nationals, delivery work — particularly gig-platform food delivery — is a practical way to use the Chancenkarte's 20-hour part-time work allowance while searching for a role that matches your longer-term qualifications, since it requires minimal upfront language ability and has fast onboarding."
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "The short answer is that bike and scooter delivery is usually easier to start quickly, while van-based delivery pays more but requires a recognized license and sometimes more formal paperwork."
+        ],
+        list: [
+          "Do I need a German driving license to work as a delivery driver? Only for van-based or car-based delivery — bicycle and scooter courier work generally does not require one.",
+          "How much do delivery drivers earn in Germany in 2026? Bike-based gig delivery typically starts near minimum wage plus tips, while van-based parcel delivery often pays €14–€18/hour.",
+          "Can I start delivery work without speaking German? Yes for most gig-platform roles; van-based delivery benefits from at least basic German.",
+          "Is delivery work a good option while on a Chancenkarte? Yes — it is one of the more practical ways to meet the visa's financial self-sufficiency requirement while job hunting.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "Delivery driver", pay: "About €13.90/hour for gig delivery; €14–€18/hour for van-based parcel roles" }],
+    applySteps: [
+      "Choose between gig-platform delivery and employed courier roles based on your license and flexibility needs.",
+      "Check whether your current driving license is recognized in Germany or needs conversion.",
+      "Prepare basic documents such as ID, proof of address, and any relevant driving paperwork.",
+      "Apply through digital platforms for gig roles or standard company portals for employed courier jobs.",
+    ],
+    editorialNote:
+      "Pay figures reflect general market conditions in 2026 and vary by platform, employer, region, and vehicle type used.",
+    keyTakeaways: [
+      "Food delivery is easier to start quickly but usually pays less",
+      "Van-based delivery pays more but needs a recognized driving license",
+      "Basic German helps a lot for van routes and recipient communication",
+      "Delivery work can be a practical temporary option while on a Chancenkarte",
+    ],
+  },
+  {
+    slug: "germany-minimum-wage-2026-what-it-means-for-your-job-search",
+    title: "Germany Minimum Wage 2026: What It Is and What It Means for Your Job Search",
+    category: "Career Advice",
+    excerpt:
+      "Germany's minimum wage rose to €13.90/hour in 2026. Here's what that means in monthly terms, who it applies to, and how it affects visa applications.",
+    coverImage: "/Germany Minimum Wage.png",
+    coverImageAlt: "Illustration representing Germany's minimum wage as a income baseline",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "5 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "If you're weighing whether a job offer in Germany is actually worth relocating for, the minimum wage is a useful floor to measure against.",
+    ctaButtons: [
+      { label: "Browse Germany jobs", href: "/#jobs" },
+      { label: "Read visa guide", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+      { label: "Compare Blue Card thresholds", href: "/jobs/eu-blue-card-germany-2026-new-salary-thresholds-explained" },
+    ],
+    sections: [
+      {
+        heading: "The 2026 Figure",
+        paragraphs: [
+          "Germany's statutory minimum wage is €13.90 per hour as of January 1, 2026. That applies nationwide across nearly all sectors and employment types, with only narrow exceptions such as certain internships, some apprenticeships, and a few other specific categories.",
+        ],
+      },
+      {
+        heading: "What That Looks Like Monthly and Annually",
+        paragraphs: [
+          "At a standard 40-hour work week, €13.90/hour works out to roughly €2,410 gross per month and about €28,900 gross per year.",
+          "At a part-time 20-hour week — relevant if you're on a Chancenkarte, which caps part-time work at 20 hours weekly — that's roughly €1,112 a month, which conveniently clears the Chancenkarte's financial self-sufficiency requirement of about €1,091/month on its own.",
+        ],
+        list: [
+          "40-hour week: about €2,410 gross per month",
+          "20-hour week: about €1,112 gross per month",
+        ],
+      },
+      {
+        heading: "Who Actually Gets Paid Minimum Wage",
+        paragraphs: [
+          "In practice, minimum wage is most common in entry-level retail, hospitality, cleaning, warehouse, and basic service roles. Most skilled trades, professional, technical, and office roles pay meaningfully above this floor.",
+        ],
+        list: [
+          "Entry-level service and retail roles commonly sit at or near the floor",
+          "Skilled professional roles often pay above the minimum wage",
+        ],
+      },
+      {
+        heading: "Why This Matters Beyond Just Your Paycheck",
+        paragraphs: [
+          "The minimum wage feeds into several things that matter for foreign workers and job seekers specifically, including financial proof for visa applications, baseline expectations in salary negotiations, and cost-of-living comparisons between cities.",
+        ],
+        list: [
+          "Chancenkarte financial proof becomes easier to meet with a 20-hour minimum wage role",
+          "Knowing the floor helps you judge whether an offer is actually low or simply entry-level",
+          "A minimum wage job stretches very differently in Munich than in a smaller city",
+        ],
+      },
+      {
+        heading: "Minimum Wage vs. a Living Wage",
+        paragraphs: [
+          "It is worth being clear-eyed here: minimum wage covers basic living costs in lower-cost German cities, particularly with shared housing, but it is genuinely tight in expensive cities like Munich or Frankfurt without either a second income, subsidized housing, or a role that pays meaningfully above the floor.",
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "The short answer is that Germany's 2026 minimum wage is €13.90 per hour, and it matters for both job offers and visa planning.",
+        ],
+        list: [
+          "What is Germany's minimum wage in 2026? €13.90 per hour nationwide.",
+          "How much is minimum wage in Germany per month? Roughly €2,410 gross per month for a full-time 40-hour week, or about €1,112 for a 20-hour part-time week.",
+          "Does minimum wage apply to foreign workers? Yes, provided you have a valid work permit for the role.",
+          "Is minimum wage enough to meet Chancenkarte financial requirements? Yes, a 20-hour-a-week minimum wage job comfortably clears the roughly €1,091/month financial self-sufficiency requirement.",
+        ],
+      },
+    ],
+    salaryTable: [
+      { role: "40-hour week", pay: "About €2,410 gross per month" },
+      { role: "20-hour week", pay: "About €1,112 gross per month" },
+    ],
+    applySteps: [
+      "Use the minimum wage as a baseline when comparing job offers in Germany.",
+      "Check whether the role is full-time or part-time and how that affects your take-home pay.",
+      "If you are applying through the Chancenkarte route, confirm that your planned income meets the financial proof requirement.",
+      "Compare the offer against local living costs, especially in expensive cities.",
+    ],
+    editorialNote:
+      "Figures reflect Germany's statutory minimum wage effective January 1, 2026. Always confirm the current rate through official German government sources, as it is subject to periodic revision.",
+    keyTakeaways: [
+      "Germany's 2026 minimum wage is €13.90/hour",
+      "A full-time minimum wage job is about €2,410 gross per month",
+      "A 20-hour week at minimum wage is enough to meet the Chancenkarte's financial proof requirement",
+      "Minimum wage is a useful baseline but not a full living wage in expensive cities",
+    ],
+  },
   {
     slug: "grafana-labs-careers-2026-staff-ai-engineer-remote-germany",
     title: "Grafana Labs Careers 2026: What It's Actually Like to Get Hired as a Staff AI Engineer (Remote, Germany)",
@@ -261,6 +1289,104 @@ export const jobs: Job[] = [
     ],
     careersPageLink:
       "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Germany-Munich/Relational-Foundation-Model-Engineer--Modern-Data-Stack_JR2020224",
+  },
+  {
+    slug: "celonis-careers-germany-jobs-2026-how-to-get-hired",
+    title: "How to Get Hired at Celonis in Germany (2026): Roles, Process, and What to Expect",
+    category: "Job Guide",
+    excerpt:
+      "Celonis, the Munich-founded process mining giant, is hiring across Germany. Here's what the company does, what roles are open, and how the application process actually works.",
+    coverImage: "/Get Hired at Celonis.png",
+    coverImageAlt: "Illustration representing a career in enterprise process intelligence software",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "6 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    intro:
+      "If you've spent any time researching tech employers based in Germany rather than just German offices of American companies, Celonis probably came up.",
+    ctaButtons: [
+      { label: "How the Chancenkarte can help you move to Germany", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+      { label: "Browse More Roles", href: "/#jobs" },
+      { label: "Apply Now", href: "https://careers.celonis.com/join-us/open-positions" },
+    ],
+    careersPageLabel: "Apply Now",
+    relatedArticle: {
+      href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained",
+      text: "How the Chancenkarte can help you move to Germany",
+    },
+    sections: [
+      {
+        heading: "What Celonis Does in Plain Terms",
+        paragraphs: [
+          "Celonis was founded in 2011 by three students at the Technical University of Munich and built a software category around process mining and process intelligence. The company helps large organizations compare how their business processes are supposed to work with how they actually run, using data from ERP, CRM, and other operational systems.",
+          "Its customer base includes major multinational companies, and that enterprise focus is a big part of what shapes the hiring profile.",
+        ],
+      },
+      {
+        heading: "What Kind of Roles Are Typically Open",
+        paragraphs: [
+          "Celonis hires across the usual range of functions you'd expect from a scaling enterprise software company. The categories that consistently show up include engineering, sales, account management, value engineering, customer success, product management, and early-career programs.",
+        ],
+        list: [
+          "Engineering and platform roles",
+          "Sales and enterprise account management",
+          "Value engineering and customer success",
+          "Product management",
+          "Early-career and graduate programs",
+        ],
+      },
+      {
+        heading: "Visa Sponsorship: What to Actually Expect",
+        paragraphs: [
+          "Publicly available information suggests internships and working-student positions generally do not include visa sponsorship, while full-time professional roles vary by position, location, and seniority. If visa sponsorship matters for you, it is worth checking the individual listing rather than assuming the company policy across the board.",
+        ],
+      },
+      {
+        heading: "What the Application Process Usually Looks Like",
+        paragraphs: [
+          "The process is generally a standard scaling-tech-company flow: recruiter screening, role-specific interviews, and usually a final round with a more senior stakeholder or cross-functional panel. For engineering roles, technical interviews are common; for sales and customer-facing roles, case-style or role-play rounds are often part of the process.",
+        ],
+      },
+      {
+        heading: "Should You Apply?",
+        paragraphs: [
+          "If you are specifically looking for a Germany-founded company with global scale, Celonis is one of the stronger options in the market, particularly if enterprise software, data, or process-focused work interests you. It is still a competitive employer, so it helps to go in with realistic expectations and confirm the visa sponsorship detail early.",
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        paragraphs: [
+          "Celonis is best understood as a high-growth enterprise software company with a strong Germany story rather than a conventional local employer.",
+        ],
+        list: [
+          "Does Celonis sponsor work visas for international candidates? It varies by role and posting, especially for internships versus full-time positions.",
+          "Where is Celonis headquartered? Munich and New York City, with more than 20 offices worldwide.",
+          "What does Celonis actually do? It builds process mining and process intelligence software that analyzes operational data to show how business processes really run.",
+          "Is Celonis a German company or an American one? It was founded in Munich and remains dual-headquartered in Munich and New York.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "Typical professional roles", pay: "Compensation varies by role, seniority, and location" }],
+    applySteps: [
+      "Open the Celonis careers site and review current openings by team and location.",
+      "Choose the role that best matches your background and confirm whether sponsorship is listed for that posting.",
+      "Prepare a tailored CV and a short explanation of why you want to work at Celonis.",
+      "Apply through the careers portal and prepare for recruiter and role-specific interviews.",
+    ],
+    careersPageLink: "https://careers.celonis.com/join-us/open-positions",
+    editorialNote:
+      "Information reflects publicly available company data as of 2026. Hiring needs, open roles, and visa sponsorship policies change, so always confirm current details on the official Celonis careers site before applying.",
+    keyTakeaways: [
+      "Celonis is a Germany-founded global enterprise software company",
+      "Roles span engineering, sales, customer success, product, and early-career programs",
+      "Visa sponsorship is not guaranteed across all roles and should be confirmed per posting",
+      "The application process is generally a standard recruiter-plus-role-specific-interview flow",
+    ],
   },
   {
     slug: "google-data-center-technician-germany",

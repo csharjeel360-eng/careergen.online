@@ -21,6 +21,7 @@ export function buildPageMetadata({
   path = "/",
   keywords = [],
   image = "/careergen-logo.svg",
+  imageAlt,
   type = "website",
 }: {
   title: string;
@@ -28,6 +29,7 @@ export function buildPageMetadata({
   path?: string;
   keywords?: string[];
   image?: string;
+  imageAlt?: string;
   type?: "website" | "article";
 }): Metadata {
   const pageTitle = title.includes("careergen") ? title : `${title} | ${siteName}`;
@@ -53,7 +55,7 @@ export function buildPageMetadata({
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: pageTitle,
+          alt: imageAlt ?? pageTitle,
         },
       ],
     },

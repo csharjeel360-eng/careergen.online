@@ -44,6 +44,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     path: `/jobs/${job.slug}`,
     keywords: [job.category, job.title, "job guide", "career advice"],
     image: job.coverImage,
+    imageAlt: job.coverImageAlt,
     type: "article",
   });
 }
@@ -335,8 +336,18 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                 rel="nofollow noopener noreferrer"
                 className="inline-block rounded-md bg-gold-500 px-6 py-3 font-semibold text-navy-900 transition hover:bg-gold-400"
               >
-                Apply Now →
+                {job.careersPageLabel ?? "Apply Now →"}
               </a>
+              {job.relatedArticle ? (
+                <div className="mt-3">
+                  <a
+                    href={job.relatedArticle.href}
+                    className="text-sm font-medium text-navy-800 underline decoration-gold-500 underline-offset-2"
+                  >
+                    {job.relatedArticle.text}
+                  </a>
+                </div>
+              ) : null}
             </div>
           )}
 
