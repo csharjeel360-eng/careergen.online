@@ -42,7 +42,17 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: job.title,
     description: job.excerpt,
     path: `/jobs/${job.slug}`,
-    keywords: [job.category, job.title, "job guide", "career advice"],
+    keywords: [
+      job.category,
+      job.title,
+      "caregiver jobs Germany",
+      "care assistant Germany",
+      "Pflegehelfer",
+      "Pflegeassistenz",
+      "German care work",
+      "visa for care jobs",
+      "career advice",
+    ],
     image: job.coverImage,
     imageAlt: job.coverImageAlt,
     type: "article",
@@ -228,14 +238,52 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
               {job.sections.map((section) => (
                 <div key={section.heading}>
                   <h2>{section.heading}</h2>
-                  {section.paragraphs.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
+                  {section.paragraphs.map((p, i) => {
+                    if (typeof p === "string") {
+                      return <p key={i}>{p}</p>;
+                    }
+
+                    return (
+                      <p key={i}>
+                        {p.href ? (
+                          <a
+                            href={p.href}
+                            target="_blank"
+                            rel="nofollow noopener noreferrer"
+                            className="font-medium text-navy-900 underline decoration-gold-500 underline-offset-4"
+                          >
+                            {p.text}
+                          </a>
+                        ) : (
+                          p.text
+                        )}
+                      </p>
+                    );
+                  })}
                   {section.list && (
                     <ul>
-                      {section.list.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
+                      {section.list.map((item, i) => {
+                        if (typeof item === "string") {
+                          return <li key={i}>{item}</li>;
+                        }
+
+                        return (
+                          <li key={i}>
+                            {item.href ? (
+                              <a
+                                href={item.href}
+                                target="_blank"
+                                rel="nofollow noopener noreferrer"
+                                className="font-medium text-navy-900 underline decoration-gold-500 underline-offset-4"
+                              >
+                                {item.text}
+                              </a>
+                            ) : (
+                              item.text
+                            )}
+                          </li>
+                        );
+                      })}
                     </ul>
                   )}
                   {section.image && (
