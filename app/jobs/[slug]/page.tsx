@@ -210,7 +210,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
   };
 
   return (
-    <div className="mx-auto w-full max-w-content px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
+    <div className="mx-auto w-full max-w-content px-3 py-4 sm:px-6 lg:px-8 lg:py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {faqSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /> : null}
@@ -218,10 +218,10 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
       {sourceUrl ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
       ) : null}
-      <div className="grid gap-8 md:grid-cols-3 md:gap-10">
+      <div className="grid gap-6 md:grid-cols-[minmax(0,2fr)_320px] md:gap-8 lg:gap-10">
         {/* Main article */}
         <article className="w-full md:col-span-2">
-          <nav className="mb-4 flex flex-wrap items-center gap-1 text-xs text-navy-800/50">
+          <nav className="mb-4 flex flex-wrap items-center gap-1 text-[11px] text-navy-800/50 sm:text-xs">
             <Link href="/" className="hover:text-gold-500">
               Home
             </Link>{" "}
@@ -236,13 +236,13 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
             {job.title}
           </h1>
 
-          <p className="mb-6 text-xs leading-6 text-navy-800/50 sm:text-sm">
+          <p className="mb-6 text-[11px] leading-6 text-navy-800/50 sm:text-sm">
             Published {job.publishedDate} • Updated {job.lastUpdated ?? job.updatedDate} • by{" "}
             <span className="font-medium text-navy-800/70">{job.author.name}</span> ・{" "}
             {articleReadTime} read
           </p>
 
-          <p className="mb-6 text-[15px] font-medium leading-8 text-gray-700">{job.intro}</p>
+          <p className="mb-6 text-[15px] font-medium leading-7 text-gray-700 sm:leading-8">{job.intro}</p>
 
           {contentModules.showEditorialNote && (job.editorialNote || job.keyTakeaways?.length) ? (
             <div className="mb-8 rounded-md border border-navy-800/10 bg-white p-5 shadow-sm">
@@ -275,7 +275,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
             </div>
           ) : null}
 
-          <div className="relative mb-6 h-64 w-full overflow-hidden rounded-lg md:h-80">
+          <div className="relative mb-6 h-56 w-full overflow-hidden rounded-lg sm:h-72 md:h-80">
             <Image
               src={job.coverImage}
               alt={`Cover image for ${job.title}`}
@@ -414,8 +414,8 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
 
           {/* Author bio */}
           {contentModules.showAuthorBio ? (
-            <div className="mt-10 flex flex-col gap-4 rounded-md border border-navy-800/10 bg-white p-5 sm:flex-row">
-              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
+            <div className="mt-10 flex flex-col gap-4 rounded-md border border-navy-800/10 bg-white p-4 sm:flex-row sm:p-5">
+              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full sm:h-16 sm:w-16">
                 <Image
                   src={authorAvatar}
                   alt={`Portrait for ${job.author.name}`}
@@ -452,7 +452,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
 
           {/* Apply Now CTA */}
           {contentModules.showApplyCta && job.careersPageLink && (
-            <div className="mt-10 rounded-lg border-2 border-gold-500 bg-gradient-to-r from-gold-50 to-white p-8">
+            <div className="mt-10 rounded-lg border-2 border-gold-500 bg-gradient-to-r from-gold-50 to-white p-5 sm:p-6 md:p-8">
               <h3 className="mb-2 font-serif text-xl font-bold text-navy-900">Ready to apply?</h3>
               <p className="mb-4 text-gray-700">
                 Visit the official careers page to explore current openings and submit your application.
@@ -461,7 +461,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                 href={job.careersPageLink}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-block rounded-md bg-gold-500 px-6 py-3 font-semibold text-navy-900 transition hover:bg-gold-400"
+                className="inline-flex w-full items-center justify-center rounded-md bg-gold-500 px-6 py-3 text-center font-semibold text-navy-900 transition hover:bg-gold-400 sm:w-auto"
               >
                 {job.careersPageLabel ?? "Apply Now →"}
               </a>
@@ -481,7 +481,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
           {/* Related posts */}
           <div className="mt-10">
             <h3 className="mb-4 font-serif text-lg font-bold text-navy-900">Related job openings</h3>
-            <div className={`grid gap-4 ${isLandingTemplate ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2"}`}>
+            <div className={`grid gap-3 sm:gap-4 ${isLandingTemplate ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-1 sm:grid-cols-2"}`}>
               {suggestedLinks.length
                 ? suggestedLinks.map((link) => (
                     <Link
@@ -530,7 +530,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
         </article>
 
         {/* Sidebar */}
-        <div className="w-full">
+        <div className="w-full lg:sticky lg:top-6">
           <Sidebar excludeSlug={job.slug} />
         </div>
       </div>

@@ -21,7 +21,7 @@ export default function LandingHero({
   featuredCta,
 }: LandingHeroProps) {
   return (
-    <section className="mb-8 rounded-md border border-navy-800/10 bg-white p-6 shadow-sm md:p-8">
+    <section className="mb-8 rounded-md border border-navy-800/10 bg-white p-4 shadow-sm sm:p-6 md:p-8">
       <div className="flex flex-wrap items-center gap-3">
         <span className="inline-flex rounded-full border border-navy-800/10 bg-cream px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-navy-800/70">
           Advertisement
@@ -47,7 +47,7 @@ export default function LandingHero({
         ))}
       </div>
 
-      <div className="mt-6 rounded-md border border-gold-500/30 bg-cream p-5 md:p-6">
+      <div className="mt-6 rounded-md border border-gold-500/30 bg-cream p-4 sm:p-5 md:p-6">
         <h3 className="font-serif text-xl font-bold text-navy-900">{featuredCta.title}</h3>
         <p className="mt-2 text-sm leading-7 text-gray-700">{featuredCta.description}</p>
         <Link

@@ -48,10 +48,10 @@ export default function FaqAccordion({ items, title = "Frequently asked question
             <div key={`${item.question}-${index}`} className="rounded-md border border-navy-800/10 bg-gray-50">
               <button
                 type="button"
-                className="flex w-full items-center justify-between px-4 py-4 text-left text-sm font-semibold text-navy-900"
+                className="flex w-full items-center justify-between gap-3 px-4 py-4 text-left text-sm font-semibold text-navy-900"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
               >
-                <span>{item.question}</span>
+                <span className="break-words">{item.question}</span>
                 <span className="ml-4 text-lg text-gold-500">{isOpen ? "−" : "+"}</span>
               </button>
               {isOpen ? <p className="px-4 pb-4 text-sm leading-7 text-gray-700">{item.answer}</p> : null}

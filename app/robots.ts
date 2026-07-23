@@ -16,4 +16,4 @@ export default function robots(): MetadataRoute.Robots {
     sitemap: "https://careergen.online/sitemap.xml",
     host: "https://careergen.online",
   };
-}
+} 

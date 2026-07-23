@@ -54,13 +54,13 @@ export default function ArticleSection({
       ) : null}
 
       {section.paragraphs.map((paragraph, paragraphIndex) => (
-        <p key={`${anchorId}-paragraph-${paragraphIndex}`} className="mb-4 text-[15px] leading-8 text-gray-700">
+        <p key={`${anchorId}-paragraph-${paragraphIndex}`} className="mb-4 text-[15px] leading-7 text-gray-700 sm:leading-8">
           {renderInlineText(paragraph)}
         </p>
       ))}
 
       {section.list && section.list.length > 0 ? (
-        <ul className="mb-6 list-disc space-y-2 pl-5 text-[15px] leading-8 text-gray-700">
+        <ul className="mb-6 list-disc space-y-2 pl-5 text-[15px] leading-7 text-gray-700 sm:leading-8">
           {section.list.map((item, itemIndex) => (
             <li key={`${anchorId}-list-${itemIndex}`}>{renderInlineText(item)}</li>
           ))}

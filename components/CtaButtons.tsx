@@ -28,7 +28,7 @@ export default function CtaButtons({ buttons }: CtaButtonsProps) {
           <Link
             key={`${button.href}-${index}`}
             href={button.href}
-            className="flex min-h-[44px] items-center justify-center rounded-sm bg-green-600 px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-green-700 sm:text-base"
+            className="flex min-h-[44px] w-full items-center justify-center rounded-sm bg-green-600 px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-green-700 sm:text-base"
           >
             {label}
           </Link>

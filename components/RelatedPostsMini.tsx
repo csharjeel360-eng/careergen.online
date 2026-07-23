@@ -9,7 +9,7 @@ type RelatedPostsMiniProps = {
 
 export default function RelatedPostsMini({ jobs }: RelatedPostsMiniProps) {
   return (
-    <div className="mb-8 rounded-sm border border-navy-800/10 bg-gray-50 p-4">
+    <div className="mb-8 rounded-sm border border-navy-800/10 bg-gray-50 p-4 sm:p-5">
       <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-navy-800/70">
         RELATED POSTS
       </p>
@@ -20,7 +20,7 @@ export default function RelatedPostsMini({ jobs }: RelatedPostsMiniProps) {
           <Link
             key={job.slug}
             href={`/jobs/${job.slug}`}
-            className="flex items-center justify-between gap-3 rounded-sm border border-navy-800/10 bg-white px-3 py-3 transition hover:border-gold-500 hover:bg-cream"
+            className="flex flex-col gap-3 rounded-sm border border-navy-800/10 bg-white px-3 py-3 transition hover:border-gold-500 hover:bg-cream sm:flex-row sm:items-center sm:justify-between"
           >
             <div className="flex min-w-0 items-center gap-3">
               <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm">
