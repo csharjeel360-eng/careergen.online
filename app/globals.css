@@ -10,15 +10,22 @@ body {
   background-color: #faf9f5;
   color: #1c1c1c;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-img {
+img, svg, video {
+  display: block;
   max-width: 100%;
   height: auto;
+}
+
+p, li, h1, h2, h3, h4, a, button, span {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .prose-content h2 {

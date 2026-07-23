@@ -220,7 +220,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
       ) : null}
       <div className="grid gap-6 md:grid-cols-[minmax(0,2fr)_320px] md:gap-8 lg:gap-10">
         {/* Main article */}
-        <article className="w-full md:col-span-2">
+        <article className="w-full min-w-0 md:col-span-2">
           <nav className="mb-4 flex flex-wrap items-center gap-1 text-[11px] text-navy-800/50 sm:text-xs">
             <Link href="/" className="hover:text-gold-500">
               Home
@@ -530,7 +530,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
         </article>
 
         {/* Sidebar */}
-        <div className="w-full lg:sticky lg:top-6">
+        <div className="w-full min-w-0 lg:sticky lg:top-6">
           <Sidebar excludeSlug={job.slug} />
         </div>
       </div>
