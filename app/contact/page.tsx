@@ -7,7 +7,15 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Contact careergen for questions, feedback, or collaboration about Germany job resources, career guides, and job listings.",
   path: "/contact",
-  keywords: ["contact careergen", "career website contact"],
+  keywords: [
+    "contact careergen",
+    "Germany job help",
+    "career support",
+    "international job questions",
+  ],
+  geoRegion: "DE",
+  geoPlacename: "Germany",
+  geoPosition: "51.1657;10.4515",
 });
 
 export default function ContactPage() {

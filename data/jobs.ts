@@ -1,7 +1,14 @@
-﻿export interface JobSection {
+﻿export type JobInline = string | { text: string; href?: string; isExternal?: boolean; bold?: boolean };
+
+export interface JobSection {
   heading: string;
-  paragraphs: Array<string | { text: string; href?: string; isExternal?: boolean }>;
-  list?: Array<string | { text: string; href?: string; isExternal?: boolean }>;
+  subheading?: string;
+  paragraphs: JobInline[];
+  list?: JobInline[];
+  table?: {
+    headers: JobInline[];
+    rows: Array<JobInline[]>;
+  };
   image?: string;
 }
 
@@ -40,6 +47,16 @@ export interface Job {
   title: string;
   category: string;
   excerpt: string;
+  contentModules?: {
+    showEditorialNote?: boolean;
+    showSourceBox?: boolean;
+    showCtaButtons?: boolean;
+    showRelatedPosts?: boolean;
+    showSalaryTable?: boolean;
+    showApplySteps?: boolean;
+    showAuthorBio?: boolean;
+    showApplyCta?: boolean;
+  };
   coverImage: string;
   publishedDate: string;
   updatedDate: string;
@@ -48,15 +65,18 @@ export interface Job {
     role: string;
     avatar: string;
     bio: string;
+    credentials?: string;
   };
-  readTime: string;
+  readTime?: string;
   intro: string;
   ctaButtons?: { label: string; href: string }[];
   sections: JobSection[];
   template?: "article" | "landing";
   landing?: LandingContent;
-  salaryTable: { role: string; pay: string }[];
-  applySteps: string[];
+  salaryTable?: { role: string; pay: string }[];
+  comparisonTable?: { role: string; pay: string }[];
+  applySteps?: string[];
+  howToSteps?: string[];
   careersPageLink?: string;
   sourceUrl?: string;
   lastVerified?: string;
@@ -66,9 +86,341 @@ export interface Job {
   coverImageAlt?: string;
   editorialNote?: string;
   keyTakeaways?: string[];
+  seoTitle?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  primaryKeyword?: string;
+  secondaryKeywords?: string[];
+  entityKeywords?: string[];
+  searchIntent?: "informational" | "commercial" | "transactional" | "navigational";
+  wordCount?: number;
+  readingTime?: string;
+  lastUpdated?: string;
+  faqs?: Array<{ question: string; answer: string }>;
+}
+
+function getTextContent(value: string | { text: string; href?: string; isExternal?: boolean }) {
+  return typeof value === "string" ? value : value.text;
+}
+
+export function getArticleMetrics(job: Job) {
+  const textBlocks = [
+    job.title,
+    job.excerpt,
+    job.intro,
+    job.editorialNote ?? "",
+    ...(job.sections?.flatMap((section) => [section.heading, ...section.paragraphs.map(getTextContent), ...(section.list ?? []).map(getTextContent)]) ?? []),
+    ...(job.applySteps ?? []),
+    ...(job.howToSteps ?? []),
+    ...(job.keyTakeaways ?? []),
+  ];
+
+  const words = textBlocks
+    .join(" ")
+    .split(/\s+/)
+    .filter(Boolean).length;
+
+  const readingTime = Math.max(1, Math.round(words / 200));
+
+  return {
+    wordCount: words,
+    readingTime: `${readingTime} min read`,
+  };
 }
 
 export const jobs: Job[] = [
+  {
+    slug: "it-jobs-in-germany-2026-which-cities-actually-hire-foreign-developers",
+    title: "IT Jobs in Germany 2026: Which Cities Actually Hire Foreign Developers",
+    category: "Career Advice",
+    excerpt:
+      "Where tech hiring for foreigners is actually concentrated in Germany in 2026, what it pays by city, and how the lower IT visa threshold works.",
+    coverImage: "/IT Jobs in Germany 2026.png",
+    coverImageAlt: "Illustration of major German tech hiring hubs for international developers",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "8 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    ctaButtons: [
+      { label: "Explore Germany visa & salary guides", href: "/jobs/eu-blue-card-germany-2026-new-salary-thresholds-explained" },
+      { label: "See the best English-friendly jobs in Germany", href: "/jobs/jobs-in-germany-without-speaking-german-2026" },
+      { label: "Compare Germany visa routes for foreign workers", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+    ],
+    intro:
+      "Germany doesn't hire foreign developers evenly across the country. A handful of cities absorb most of the international tech hiring, and knowing which ones — and why — saves months of applying into markets that were never going to respond.",
+    sections: [
+      {
+        heading: "Why IT is genuinely one of the easier entry points",
+        paragraphs: [
+          "Unlike most skilled professions, Germany treats IT as a recognized shortage occupation. That single classification changes the entire visa math: instead of needing to clear the standard EU Blue Card salary bar, IT specialists qualify at a meaningfully lower threshold, and experienced professionals can apply without a university degree at all, provided they can show several years of relevant hands-on experience.",
+          "Combined with the fact that most tech teams in Germany's larger hubs already operate in English day to day, this makes software roles one of the more realistic international career paths into the country — degree or no degree.",
+        ],
+      },
+      {
+        heading: "Where the hiring actually happens",
+        paragraphs: [
+          "Berlin carries the country's largest concentration of startups, scale-ups, and regional offices for US tech companies. If you want exposure to product-led startups or global tech firms with EU offices, Berlin is the default starting point.",
+          "Munich leans industrial and enterprise. Automotive, engineering, and large established corporations dominate hiring here, alongside a smaller but well-paid cluster of global tech firms that chose Munich as their DACH engineering base.",
+          "Frankfurt is the financial-sector hub — banks, fintech, and trading firms hire developers here at a premium, particularly for backend, data, and security-focused roles.",
+          "Hamburg has a strong media, logistics, and e-commerce presence, with steady but less headline-grabbing demand than Berlin or Munich.",
+        ],
+        image: "/German cities and their industries.png",
+      },
+      {
+        heading: "What the roles actually pay",
+        paragraphs: [
+          "Pay varies more by company type than by city alone, but city sets the baseline. Berlin and Munich sit above the national average, and larger international employers often pay well above what traditional German enterprises pay at the same seniority.",
+        ],
+      },
+      {
+        heading: "How the visa side actually works",
+        paragraphs: [
+          "Germany's IT shortage-occupation classification means the EU Blue Card salary threshold for tech roles sits noticeably below the standard bar — and specialists with several years of relevant professional experience can qualify without a completed university degree.",
+          "Any employer offering a genuine IT role in Germany should already be familiar with this pathway; if a company seems unsure how to sponsor a Blue Card for a developer, that's worth treating as a red flag about their hiring maturity.",
+        ],
+      },
+      {
+        heading: "What employers actually screen for",
+        paragraphs: [
+          "Formal credentials matter less here than in most regulated professions. A working GitHub portfolio, a clear account of what you actually built and shipped, and comfort working in English are usually worth more to a hiring manager than the university a candidate attended.",
+          "Take-home tests or live coding rounds are standard at mid-size and large employers; smaller startups often skip formal interviews in favor of a paid trial project.",
+        ],
+      },
+      {
+        heading: "Where to actually look",
+        paragraphs: [],
+        list: [
+          { text: "Make it in Germany — the federal government's official portal for foreign professionals, including IT-specific admission and recognition guidance.", href: "https://www.make-it-in-germany.com/en/" },
+          { text: "LinkedIn and Xing — widely used by German employers, especially for internationally oriented companies.", href: "https://www.linkedin.com/" },
+          { text: "Company career pages directly — often surface international roles before they appear on aggregator boards.", href: "https://www.glassdoor.com/" },
+          { text: "levels.fyi and Glassdoor — useful for benchmarking salary expectations before you negotiate.", href: "https://www.levels.fyi/" },
+        ],
+      },
+      {
+        heading: "Getting started",
+        paragraphs: [
+          "Confirm whether your experience level and background clear the IT shortage-occupation Blue Card threshold, build a portfolio that shows real, shipped work, and target Berlin or Munich first if you want the broadest range of English-speaking, visa-sponsoring employers.",
+        ],
+      },
+    ],
+    salaryTable: [
+      { role: "Junior / entry-level", pay: "€45,000 – €55,000" },
+      { role: "Mid-level", pay: "€60,000 – €75,000" },
+      { role: "Senior", pay: "€80,000 – €100,000+" },
+      { role: "Staff / principal", pay: "€100,000 – €140,000+" },
+    ],
+    applySteps: [
+      "Confirm whether your experience level and background clear the IT shortage-occupation Blue Card threshold.",
+      "Build or clean up a portfolio that shows real, finished work rather than course exercises.",
+      "Target Berlin or Munich first if you're optimizing for the widest set of English-speaking, visa-sponsoring employers.",
+      "Apply directly through company career pages for firms with existing international hiring pipelines, not just through job boards.",
+      "Benchmark any offer against current city-level compensation data before signing.",
+    ],
+    editorialNote:
+      "Salary and threshold figures below reflect Germany's 2026 EU Blue Card rules and city-level pay data published mid-2026. Confirm current figures with the employer and official sources before signing a contract.",
+    keyTakeaways: [
+      "Berlin, Munich, Frankfurt, and Hamburg each attract a different kind of international tech employer",
+      "IT is one of the easier entry points into Germany because of the lower Blue Card threshold and English-friendly hiring",
+      "The best city depends on your target employer type, work style, and cost-of-living tolerance",
+    ],
+    seoTitle: "IT Jobs in Germany 2026: Which Cities Actually Hire Foreign Developers",
+    metaTitle: "IT Jobs in Germany 2026: Best Cities for Foreign Developers",
+    metaDescription:
+      "See where foreign developers are actually hired in Germany in 2026, what the roles pay by city, and how the IT visa threshold changes the odds.",
+    ogTitle: "Which German Cities Hire Foreign Developers in 2026?",
+    ogDescription:
+      "A practical guide to Berlin, Munich, Frankfurt, and Hamburg for international developers looking to work in Germany.",
+    twitterTitle: "Germany IT Jobs 2026: Best Cities for Foreign Developers",
+    twitterDescription: "Compare Berlin, Munich, Frankfurt, and Hamburg for international developer hiring in Germany in 2026.",
+    primaryKeyword: "IT jobs in Germany",
+    secondaryKeywords: ["Germany tech jobs", "foreign developers Germany", "Berlin Munich Frankfurt Hamburg"],
+    entityKeywords: ["Berlin", "Munich", "Frankfurt", "Hamburg", "Germany"],
+    searchIntent: "informational",
+    lastUpdated: "July 2026",
+    faqs: [
+      { question: "Which German city is best for foreign developers?", answer: "Berlin is the broadest starting point for startups and international companies, while Munich is stronger for enterprise and engineering roles, Frankfurt for finance, and Hamburg for media and logistics." },
+      { question: "Do international developers need German to get hired?", answer: "Many employers in major hubs hire in English, especially for software roles, though German can still help with long-term integration and some companies." },
+    ],
+  },
+  {
+    slug: "teaching-jobs-germany-foreigners-2026",
+    title: "Teaching Jobs in Germany for Foreigners 2026 — Recognition, Pay, and Where the Shortage Is Worst",
+    category: "Career Advice",
+    excerpt:
+      "Germany needs tens of thousands of teachers. Here's how foreign-trained teachers get their qualifications recognized, what the job pays by state, and where hiring is fastest.",
+    coverImage: "/Teaching Jobs in Germany.png",
+    coverImageAlt: "Teaching Jobs in Germany illustration",
+    publishedDate: "July 2026",
+    updatedDate: "July 2026",
+    readTime: "9 min",
+    author: {
+      name: "Emma Fischer",
+      role: "Senior Career Writer",
+      avatar: "/g%20picture.jpeg",
+      bio: "Emma Fischer is a senior career writer focused on helping international professionals navigate Germany and Europe job markets with practical, research-backed guidance.",
+    },
+    ctaButtons: [
+      { label: "Explore German teacher recognition resources", href: "/jobs/chancenkarte-2026-germany-opportunity-card-points-explained" },
+      { label: "Review jobs in Germany without German", href: "/jobs/jobs-in-germany-without-speaking-german-2026" },
+      { label: "Read about EU Blue Card salary rules", href: "/jobs/eu-blue-card-germany-2026-new-salary-thresholds-explained" },
+    ],
+    intro:
+      "Germany is short an estimated 40,000 teachers in 2026, with some longer-range projections putting the gap far higher through the 2030s. For foreign-trained teachers, that shortage is opening a real, if bureaucratically specific, path into German classrooms — provided you understand how the recognition process actually works.",
+    sections: [
+      {
+        heading: "Key takeaways",
+        paragraphs: [
+          "Germany's teacher shortage is real and severe, but it is not evenly distributed — eastern states and STEM/vocational subjects face the sharpest gaps.",
+          "Recognition of your degree is handled by individual federal states through the Kultusministerkonferenz (KMK) framework, not by a single national authority.",
+          "A qualification to teach only one subject is a common blocker — German teacher training normally requires two subjects, which has specifically kept many Ukrainian and other foreign-trained teachers out of classrooms despite the shortage.",
+          '"Lateral entry" (Quereinstieg) programs let career-changers and some foreign-trained professionals teach without a full German teaching degree, especially in shortage subjects.',
+        ],
+      },
+      {
+        heading: "Why Germany actually needs foreign teachers right now",
+        paragraphs: [
+          "The shortage isn't a talking point — it's documented from multiple directions. Germany's teacher shortage is being described as the country's worst in fifty years, with estimates ranging from roughly 49,000 to as high as 177,500 vacant positions projected through 2035 depending on the study and assumptions used.",
+          "School principals report staffing gaps as their single biggest operational challenge, and the pressure is set to intensify further as a legal right to full-day childcare and supervision for elementary-age children phases in.",
+          "The gap isn't uniform. It concentrates in primary schools, STEM subjects, vocational school teaching (Berufsschullehrer), and special education — and it's worse in eastern German states than in the west. Some western states, like Saarland and Rhineland-Palatinate, report little to no shortage at all, which matters enormously when you're deciding where to target your job search.",
+        ],
+      },
+      {
+        heading: "How teacher qualification recognition actually works",
+        paragraphs: [
+          "This is the part almost every general 'jobs in Germany' guide skips, and it's the single biggest factor determining whether your foreign teaching credential leads anywhere.",
+          "Education policy in Germany is a state responsibility, not a federal one. There is no single national body that recognizes a foreign teaching degree and grants you the right to teach anywhere in the country. Instead, each of the 16 federal states runs its own recognition process through its state education ministry (Landesschulbehörde), operating within a shared framework set by the Kultusministerkonferenz — the standing conference of state education ministers, commonly abbreviated KMK.",
+          "In practice, this means:",
+        ],
+        list: [
+          "You apply to the state where you intend to work, not to a central German authority.",
+          "Requirements and processing speed vary meaningfully between states — a credential accepted quickly in one Bundesland may face more scrutiny in another.",
+          "Once your qualification is formally recognized by a state, it typically allows you to teach anywhere in Germany, which creates real competition between states trying to attract and retain qualified teachers.",
+        ],
+      },
+      {
+        heading: "The single-subject problem",
+        paragraphs: [
+          "German teacher training almost always qualifies graduates to teach two subjects, and public schools are generally structured around that expectation. Many foreign-trained teachers — a pattern documented clearly among Ukrainian teachers seeking work in Germany, for example — are qualified in only one subject. That mismatch has been a specific, named barrier keeping otherwise qualified foreign teachers out of German classrooms even during an acute shortage, and some states are actively examining whether to relax the two-subject requirement.",
+          "Degree level matters too. German public school teachers typically hold a Master's-level qualification (a Staatsexamen or M.Ed.). A bachelor's-level foreign teaching qualification alone will often require an additional adaptation or bridging program before full recognition.",
+        ],
+      },
+      {
+        heading: "The lateral-entry route (Quereinstieg)",
+        paragraphs: [
+          "Separately from full credential recognition, most German states run lateral-entry programs — Quereinstieg — that let people with a relevant university degree (often in a shortage subject like math, physics, or a vocational trade) train to become a teacher without having gone through a traditional German teaching degree. This route has expanded specifically because states can't fill positions through traditionally certified teachers alone, and it's increasingly relevant for foreign professionals whose academic background is strong but doesn't map cleanly onto Germany's two-subject teaching credential structure.",
+        ],
+      },
+      {
+        heading: "Where the shortage is worst",
+        paragraphs: [
+          "If your subject area or degree background is flexible, targeting an eastern state or a STEM/vocational subject meaningfully improves your odds over applying broadly.",
+        ],
+        table: {
+          headers: ["Region type", "Shortage severity", "Notes"],
+          rows: [
+            [
+              "Eastern German states (e.g., Saxony-Anhalt)",
+              "Severe",
+              "Some states report teaching supply as low as ~92% of need",
+            ],
+            [
+              "Primary schools nationally",
+              "High",
+              "Compounded by the incoming full-day childcare right",
+            ],
+            [
+              "STEM and vocational subjects",
+              "High",
+              "Berufsschullehrer (vocational teachers) especially short-staffed",
+            ],
+            [
+              "Saarland, Rhineland-Palatinate",
+              "Low to none",
+              "Reported as largely without shortages in official state data",
+            ],
+          ],
+        },
+      },
+      {
+        heading: "What it pays",
+        paragraphs: [
+          "Reported starting salaries for teachers entering through shortage-driven or lateral-entry pathways sit roughly in the €3,400–€4,500 per month range before tax, with variation by state, school type, and subject. State (public) school pay scales are set by the Bundesland and tend to be more standardized and unionized than pay at private or international schools, where compensation is negotiated individually and can vary widely.",
+        ],
+      },
+      {
+        heading: "Two paths into the classroom",
+        paragraphs: [
+          "State (public) school route. Requires formal KMK-aligned recognition of your degree through the relevant state education ministry, or entry via a state's Quereinstieg program. More bureaucratic, but leads to standard civil-servant-adjacent pay scales and job security.",
+          "International or private school route. Recruits English-speaking teachers directly, generally with less rigid credential-recognition requirements than the state system, though the sector is considerably smaller in Germany than in hubs like the UAE or Singapore. Often the faster route to a first teaching job in Germany while a state-recognition application is still pending.",
+        ],
+      },
+      {
+        heading: "Official resources",
+        paragraphs: [],
+        list: [
+          { text: "Kultusministerkonferenz (KMK) — the standing conference of state education ministers; the framework all state recognition decisions sit under.", href: "https://www.kmk.org/" },
+          { text: "Your target state's Landesschulbehörde — the actual body that processes your recognition application; search by the specific Bundesland you're targeting.", href: "https://www.make-it-in-germany.com/en/" },
+          { text: "Anerkennung in Deutschland — the federal government's general portal for foreign qualification recognition, useful as a starting orientation point before contacting a state ministry directly.", href: "https://www.anerkennung-in-deutschland.de/html/en/index.php" },
+          { text: "Make it in Germany — for visa and Opportunity Card pathway questions alongside the teaching-specific recognition process.", href: "https://www.make-it-in-germany.com/en/" },
+        ],
+      },
+      {
+        heading: "Getting started",
+        paragraphs: [
+          "1. Identify which German state you want to work in before starting anything else — recognition is state-specific, and shortage severity varies sharply by region.",
+          "2. Contact that state's Landesschulbehörde directly to find out what your specific degree and subject combination requires for recognition.",
+          "3. If your qualification covers only one subject, ask explicitly whether that state has any flexibility or lateral-entry option — don't assume the two-subject rule rules you out.",
+          "4. If your degree is bachelor's-level, expect to ask about an adaptation or bridging program rather than assuming direct recognition.",
+          "5. Consider the international/private school route as a faster first step if a state-recognition application is likely to take time.",
+        ],
+      },
+    ],
+    salaryTable: [{ role: "Teacher entry-level pay", pay: "€3,400–€4,500/month before tax" }],
+    applySteps: [
+      "Identify which German state you want to work in before starting anything else — recognition is state-specific, and shortage severity varies sharply by region.",
+      "Contact that state's Landesschulbehörde directly to find out what your specific degree and subject combination requires for recognition.",
+      "If your qualification covers only one subject, ask explicitly whether that state has any flexibility or lateral-entry option — don't assume the two-subject rule rules you out.",
+      "If your degree is bachelor's-level, expect to ask about an adaptation or bridging program rather than assuming direct recognition.",
+      "Consider the international/private school route as a faster first step if a state-recognition application is likely to take time.",
+    ],
+    editorialNote:
+      "Teaching qualifications in Germany are regulated at the state (Bundesland) level, not nationally. Figures and process details below reflect 2026 information; recognition rules and vacancy pressure vary by state and should be confirmed with the relevant Landesschulbehörde before you apply.",
+    keyTakeaways: [
+      "Germany's teacher shortage is real and severe, but it is not evenly distributed — eastern states and STEM/vocational subjects face the sharpest gaps.",
+      "Recognition of your degree is handled by individual federal states through the Kultusministerkonferenz (KMK) framework, not by a single national authority.",
+      "A qualification to teach only one subject is a common blocker — German teacher training normally requires two subjects, which has specifically kept many Ukrainian and other foreign-trained teachers out of classrooms despite the shortage.",
+      '"Lateral entry" (Quereinstieg) programs let career-changers and some foreign-trained professionals teach without a full German teaching degree, especially in shortage subjects.',
+    ],
+    seoTitle: "Teaching Jobs in Germany 2026: Recognition, Salary & Shortage Regions",
+    metaTitle: "Teaching Jobs in Germany 2026: Recognition, Salary & Shortage Regions",
+    metaDescription:
+      "Germany needs tens of thousands of teachers. Here's how foreign-trained teachers get their qualifications recognized, what the job pays by state, and where hiring is fastest.",
+    ogTitle: "Teaching Jobs in Germany 2026 — A Real Path for Foreign-Trained Teachers",
+    ogDescription:
+      "How the state-by-state recognition process actually works, and which German regions are hiring foreign teachers fastest in 2026.",
+    primaryKeyword: "teaching jobs in Germany for foreigners",
+    secondaryKeywords: ["teacher qualification recognition Germany", "Quereinstieg teaching Germany", "KMK recognition teachers", "teacher shortage Germany 2026"],
+    entityKeywords: ["Germany", "KMK", "Landesschulbehörde", "Quereinstieg"],
+    searchIntent: "informational",
+    lastUpdated: "2026-07-23",
+    faqs: [
+      { question: "Do I need to speak German to teach in Germany?", answer: "For state (public) schools, yes — German-language instruction is standard and fluency is expected. International and private schools recruiting English-speaking teachers are the main exception, though this sector is smaller in Germany than in some other countries." },
+      { question: "Can I teach in Germany with only one subject qualification?", answer: "It's a documented barrier — German teacher training normally covers two subjects, and this has specifically excluded some foreign-trained teachers, including many from Ukraine. Some states are examining whether to relax this, so it's worth asking directly rather than assuming disqualification." },
+      { question: "Is the teacher shortage the same in every German state?", answer: "No. Eastern states generally report more severe shortages than western ones, and some states like Saarland and Rhineland-Palatinate report little to no shortage in official data." },
+      { question: "What is Quereinstieg?", answer: "It's Germany's lateral-entry pathway, letting people with a relevant university degree train to teach without a traditional German teaching qualification — mainly used to fill shortage subjects like math, physics, and vocational trades." },
+      { question: "Does a bachelor's degree qualify me to teach in a German public school?", answer: "Usually not on its own. German public school teachers typically need a Master's-level qualification, so a bachelor's-only foreign credential will often require an additional bridging program." },
+      { question: "Who actually recognizes my foreign teaching degree?", answer: "The state (Bundesland) education ministry where you intend to work, operating within the shared KMK framework — not a single national authority." },
+    ],
+  },
   {
     slug: "caregiver-jobs-in-germany-2026-overlooked-career-path",
     title: "Caregiver Jobs in Germany 2026: How to Find Pflegehelfer and Care Assistant Roles",
@@ -264,6 +616,31 @@ export const jobs: Job[] = [
       "You need at least 6 points under the points system or a recognized qualification",
       "The permit allows part-time work while you search",
       "You should budget for proof-of-funds, insurance, and eventual permit conversion costs",
+    ],
+    seoTitle: "Chancenkarte 2026: Germany Opportunity Card Rules, Points, and Eligibility",
+    metaTitle: "Germany Opportunity Card 2026: How the Chancenkarte Works",
+    metaDescription: "Understand the Germany Opportunity Card points system, eligibility rules, costs, and what it means for moving to Germany without a job offer first.",
+    ogTitle: "Germany Opportunity Card 2026: What the Chancenkarte Means for Your Move",
+    ogDescription: "A practical guide to the Germany Opportunity Card, including the points system, visa flexibility, and what you need to prepare before applying.",
+    twitterTitle: "Germany Opportunity Card Explained in 2026",
+    twitterDescription: "Learn how the Chancenkarte works, what the points system requires, and how the permit compares to the old job seeker visa.",
+    primaryKeyword: "Germany Opportunity Card",
+    secondaryKeywords: ["Chancenkarte", "Germany visa without job offer", "move to Germany"],
+    entityKeywords: ["Germany", "Make it in Germany", "Opportunity Card"],
+    searchIntent: "informational",
+    lastUpdated: "July 2026",
+    faqs: [
+      { question: "Do I need a job offer to apply for the Chancenkarte?", answer: "No. The main advantage of the Opportunity Card is that it lets you move to Germany first and look for work once you arrive." },
+      { question: "How many points do I need to qualify?", answer: "Most applicants need at least 6 points under the official scoring system, or a recognized qualification that meets the alternative route." },
+    ],
+    comparisonTable: [
+      { role: "Chancenkarte", pay: "No salary threshold; you need proof of funds and permit eligibility" },
+      { role: "Job seeker visa (legacy model)", pay: "More restrictive and did not allow the same search-and-work flexibility" },
+    ],
+    howToSteps: [
+      "Check whether your qualification is recognized or whether you need to use the points system.",
+      "Prepare proof of your education, language ability, experience, and finances.",
+      "Apply for the permit and plan your arrival and job search in Germany.",
     ],
   },
   {

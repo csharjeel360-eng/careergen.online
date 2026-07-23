@@ -5,7 +5,7 @@ import "./globals.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { buildPageMetadata, siteUrl } from "@/lib/seo";
+import { buildPageMetadata, siteName, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
@@ -13,7 +13,15 @@ export const metadata: Metadata = {
     description:
       "careergen.online provides clear explanations of job listings, application tips, and salary ranges across Germany.",
     path: "/",
-    keywords: ["Germany career resources", "job application tips"],
+    keywords: [
+      "Germany career resources",
+      "job application tips",
+      "international jobs Germany",
+      "German employment guides",
+    ],
+    geoRegion: "DE",
+    geoPlacename: "Germany",
+    geoPosition: "51.1657;10.4515",
   }),
   metadataBase: new URL(siteUrl),
   icons: {
@@ -49,6 +57,32 @@ export default function RootLayout({
               "https://www.threads.com/@sharjeelcoder82",
               "https://www.instagram.com/sharjeelcoder82/?hl=en",
             ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "DE",
+              "addressRegion": "Berlin",
+              "addressLocality": "Berlin",
+              "postalCode": "10115",
+              "streetAddress": "Potsdamer Platz 1",
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 52.52,
+              "longitude": 13.405,
+            },
+          })}
+        </Script>
+        <Script id="website-ld+json" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": siteUrl,
+            "name": siteName,
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": `${siteUrl}/?query={search_term_string}`,
+              "query-input": "required name=search_term_string",
+            },
           })}
         </Script>
         <Script id="gtm-script" strategy="beforeInteractive">

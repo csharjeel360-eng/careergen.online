@@ -5,16 +5,6 @@ export const siteName = "careergen.online";
 export const defaultDescription =
   "Discover trusted Germany job listings, career guides, salary insights, and application advice for international job seekers.";
 
-export const defaultKeywords = [
-  "Germany jobs",
-  "career guides",
-  "job listings",
-  "international jobs",
-  "remote jobs Germany",
-  "career advice",
-  "salary insights",
-];
-
 export function buildPageMetadata({
   title,
   description = defaultDescription,
@@ -23,6 +13,14 @@ export function buildPageMetadata({
   image = "/careergen-logo.svg",
   imageAlt,
   type = "website",
+  ogTitle,
+  ogDescription,
+  twitterTitle,
+  twitterDescription,
+  locale = "en_US",
+  geoRegion = "DE",
+  geoPlacename = "Germany",
+  geoPosition = "51.1657;10.4515",
 }: {
   title: string;
   description?: string;
@@ -31,25 +29,42 @@ export function buildPageMetadata({
   image?: string;
   imageAlt?: string;
   type?: "website" | "article";
+  ogTitle?: string;
+  ogDescription?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  locale?: string;
+  geoRegion?: string;
+  geoPlacename?: string;
+  geoPosition?: string;
 }): Metadata {
   const pageTitle = title.includes("careergen") ? title : `${title} | ${siteName}`;
   const canonicalUrl = new URL(path, siteUrl).toString();
   const imageUrl = new URL(image, siteUrl).toString();
+  const metaDescription = description || defaultDescription;
 
   return {
     title: pageTitle,
-    description,
-    keywords: [...defaultKeywords, ...keywords].filter((value, index, self) => self.indexOf(value) === index),
+    description: metaDescription,
+    keywords: keywords.filter(Boolean),
     alternates: {
       canonical: canonicalUrl,
     },
+    other: {
+      generator: siteName,
+      "application-name": siteName,
+      "geo.region": geoRegion,
+      "geo.placename": geoPlacename,
+      "geo.position": geoPosition,
+      ICBM: geoPosition,
+    },
     openGraph: {
-      title: pageTitle,
-      description,
+      title: ogTitle ?? pageTitle,
+      description: ogDescription ?? metaDescription,
       url: canonicalUrl,
       siteName,
       type,
-      locale: "en_US",
+      locale,
       images: [
         {
           url: imageUrl,
@@ -61,8 +76,8 @@ export function buildPageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: pageTitle,
-      description,
+      title: twitterTitle ?? pageTitle,
+      description: twitterDescription ?? metaDescription,
       images: [imageUrl],
     },
     robots: {

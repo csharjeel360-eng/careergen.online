@@ -7,7 +7,15 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Read careergen's privacy policy to learn how we handle data, analytics, advertising, and email communication responsibly.",
   path: "/privacy-policy",
-  keywords: ["privacy policy", "career website privacy", "cookie policy"],
+  keywords: [
+    "privacy policy",
+    "Germany career website privacy",
+    "data protection",
+    "cookie policy",
+  ],
+  geoRegion: "DE",
+  geoPlacename: "Germany",
+  geoPosition: "51.1657;10.4515",
 });
 
 export default function PrivacyPolicyPage() {

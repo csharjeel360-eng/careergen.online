@@ -7,7 +7,15 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Review careergen's terms of use, including site access, content usage, and advertising disclosures for visitors and partners.",
   path: "/terms-of-use",
-  keywords: ["terms of use", "website terms", "advertising disclosure"],
+  keywords: [
+    "terms of use",
+    "Germany career site terms",
+    "website terms",
+    "advertising disclosure",
+  ],
+  geoRegion: "DE",
+  geoPlacename: "Germany",
+  geoPosition: "51.1657;10.4515",
 });
 
 export default function TermsOfUsePage() {

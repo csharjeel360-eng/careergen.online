@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { jobs, getJobBySlug } from "@/data/jobs";
+import { jobs, getJobBySlug, getArticleMetrics, type Job } from "@/data/jobs";
 import Sidebar from "@/components/Sidebar";
 import LandingHero from "@/components/LandingHero";
 import BulletSection from "@/components/BulletSection";
@@ -10,7 +10,10 @@ import StepsSection from "@/components/StepsSection";
 import FeatureGrid from "@/components/FeatureGrid";
 import CtaButtons from "@/components/CtaButtons";
 import RelatedPostsMini from "@/components/RelatedPostsMini";
+import ArticleSection from "@/components/ArticleSection";
+import FaqAccordion from "@/components/FaqAccordion";
 import { buildPageMetadata, siteUrl } from "@/lib/seo";
+import { buildSuggestedRelatedLinks } from "@/lib/relatedLinks";
 
 const socialLinks = [
   {
@@ -39,24 +42,34 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!job) return {};
 
   return buildPageMetadata({
-    title: job.title,
-    description: job.excerpt,
+    title: job.seoTitle ?? job.metaTitle ?? job.title,
+    description: job.metaDescription ?? job.excerpt,
     path: `/jobs/${job.slug}`,
-    keywords: [
-      job.category,
-      job.title,
-      "caregiver jobs Germany",
-      "care assistant Germany",
-      "Pflegehelfer",
-      "Pflegeassistenz",
-      "German care work",
-      "visa for care jobs",
-      "career advice",
-    ],
     image: job.coverImage,
     imageAlt: job.coverImageAlt,
     type: "article",
+    ogTitle: job.ogTitle ?? job.seoTitle ?? job.title,
+    ogDescription: job.ogDescription ?? job.metaDescription ?? job.excerpt,
+    twitterTitle: job.twitterTitle ?? job.seoTitle ?? job.title,
+    twitterDescription: job.twitterDescription ?? job.metaDescription ?? job.excerpt,
+    keywords: [job.primaryKeyword, ...(job.secondaryKeywords ?? []), ...(job.entityKeywords ?? [])].filter(Boolean) as string[],
   });
+}
+
+function getEditorialNote(job: Job) {
+  if (job.editorialNote) {
+    return job.editorialNote;
+  }
+
+  if (job.slug.includes("chancenkarte") || job.slug.includes("blue-card")) {
+    return "This guide summarizes public guidance and the main decision points you should review before acting on a visa or salary move. Immigration outcomes still depend on your exact qualification, local authority, and paperwork.";
+  }
+
+  if (job.category === "Immigration Guide") {
+    return "This guide is meant to give you a practical overview of the process and current public guidance; verify the latest requirements with the official source before acting on a visa or salary decision.";
+  }
+
+  return "This article is written from a practical editorial perspective and should be treated as a starting point rather than a substitute for employer-specific or official guidance.";
 }
 
 export default function JobDetailPage({ params }: { params: { slug: string } }) {
@@ -67,8 +80,26 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
   const related = jobs.filter((j) => j.slug !== job.slug);
   const relatedTopThree = related.slice(0, 3);
   const relatedJobs = related.slice(0, 8);
+  const suggestedLinks = buildSuggestedRelatedLinks(job, jobs, 3);
   const sourceUrl = job.sourceUrl ?? job.careersPageLink;
   const lastVerified = job.lastVerified ?? job.updatedDate;
+  const articleMetrics = getArticleMetrics(job);
+  const articleReadTime = job.readingTime ?? job.readTime ?? articleMetrics.readingTime;
+  const articleWordCount = job.wordCount ?? articleMetrics.wordCount;
+  const hasFaqs = Boolean(job.faqs?.length);
+  const hasHowTo = Boolean(job.howToSteps?.length || job.applySteps?.length);
+  const hasComparisonTable = Boolean(job.comparisonTable?.length);
+  const hasSectionList = Boolean(job.sections?.length);
+  const contentModules = {
+    showEditorialNote: job.contentModules?.showEditorialNote ?? Boolean(job.editorialNote),
+    showSourceBox: job.contentModules?.showSourceBox ?? Boolean(sourceUrl),
+    showCtaButtons: job.contentModules?.showCtaButtons ?? Boolean(job.ctaButtons?.length),
+    showRelatedPosts: job.contentModules?.showRelatedPosts ?? true,
+    showSalaryTable: job.contentModules?.showSalaryTable ?? Boolean(job.salaryTable?.length),
+    showApplySteps: job.contentModules?.showApplySteps ?? Boolean(job.applySteps?.length),
+    showAuthorBio: job.contentModules?.showAuthorBio ?? true,
+    showApplyCta: job.contentModules?.showApplyCta ?? Boolean(job.careersPageLink),
+  };
   const companyName =
     job.companyName ||
     job.title
@@ -82,16 +113,28 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
       ? "Germany"
       : "Remote / Germany";
 
+  const authorAvatar = job.author.avatar?.includes("g%20picture.jpeg") || job.author.avatar?.includes("g picture.jpeg")
+    ? "/g%20picture.jpeg"
+    : job.author.avatar ?? "/g%20picture.jpeg";
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: job.title,
-    description: job.excerpt,
+    headline: job.seoTitle ?? job.metaTitle ?? job.title,
+    description: job.metaDescription ?? job.excerpt,
     image: new URL(job.coverImage, siteUrl).toString(),
+    url: `${siteUrl}/jobs/${job.slug}`,
+    inLanguage: "en-US",
+    genre: job.category,
+    about: [job.primaryKeyword, ...(job.secondaryKeywords ?? []), ...(job.entityKeywords ?? [])].filter(Boolean),
     author: {
       "@type": "Person",
       name: job.author.name,
       jobTitle: job.author.role,
+      description: job.author.bio,
+      image: new URL(authorAvatar, siteUrl).toString(),
+      sameAs: ["https://web.facebook.com/profile.php?id=61591903173398", "https://www.instagram.com/sharjeelcoder82/?hl=en"],
+      knowsAbout: [job.category, "Germany career guidance", "international job search"],
+      additionalName: job.author.credentials,
     },
     publisher: {
       "@type": "Organization",
@@ -99,10 +142,53 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
       logo: `${siteUrl}/careergen-logo.svg`,
     },
     datePublished: job.publishedDate,
-    dateModified: job.updatedDate,
+    dateModified: job.lastUpdated ?? job.updatedDate,
     mainEntityOfPage: `${siteUrl}/jobs/${job.slug}`,
     articleSection: job.category,
+    keywords: [job.primaryKeyword, ...(job.secondaryKeywords ?? []), ...(job.entityKeywords ?? [])].filter(Boolean),
+    wordCount: articleWordCount,
+    timeRequired: `PT${articleMetrics.readingTime.replace(/\s|min read/gi, "")}M`,
+    isAccessibleForFree: true,
   };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: job.category, item: `${siteUrl}/jobs/${job.slug}` },
+    ],
+  };
+
+  const faqSchema = hasFaqs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: job.faqs?.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
+  const howToSchema = hasHowTo && job.howToSteps?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: job.title,
+        description: job.metaDescription ?? job.excerpt,
+        step: job.howToSteps.map((step, index) => ({
+          "@type": "HowToStep",
+          position: index + 1,
+          name: step,
+          text: step,
+        })),
+      }
+    : null;
 
   const jobPostingSchema = {
     "@context": "https://schema.org",
@@ -126,6 +212,9 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
   return (
     <div className="mx-auto w-full max-w-content px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /> : null}
+      {howToSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} /> : null}
       {sourceUrl ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
       ) : null}
@@ -148,17 +237,17 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
           </h1>
 
           <p className="mb-6 text-xs leading-6 text-navy-800/50 sm:text-sm">
-            Published {job.publishedDate} • Updated {job.updatedDate} • by{" "}
+            Published {job.publishedDate} • Updated {job.lastUpdated ?? job.updatedDate} • by{" "}
             <span className="font-medium text-navy-800/70">{job.author.name}</span> ・{" "}
-            {job.readTime} read
+            {articleReadTime} read
           </p>
 
           <p className="mb-6 text-[15px] font-medium leading-8 text-gray-700">{job.intro}</p>
 
-          {job.editorialNote ? (
+          {contentModules.showEditorialNote && (job.editorialNote || job.keyTakeaways?.length) ? (
             <div className="mb-8 rounded-md border border-navy-800/10 bg-white p-5 shadow-sm">
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold-500">Editorial note</p>
-              <p className="mt-2 text-sm leading-7 text-gray-700">{job.editorialNote}</p>
+              <p className="mt-2 text-sm leading-7 text-gray-700">{getEditorialNote(job)}</p>
               {job.keyTakeaways?.length ? (
                 <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
                   {job.keyTakeaways.map((item) => (
@@ -169,7 +258,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
             </div>
           ) : null}
 
-          {sourceUrl ? (
+          {contentModules.showSourceBox && sourceUrl ? (
             <div className="mb-8 rounded-md border border-gold-500/20 bg-gold-50 p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold-600">Source & verification</p>
               <p className="mt-2 text-sm leading-7 text-gray-700">
@@ -198,8 +287,8 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
             />
           </div>
 
-          <CtaButtons buttons={job.ctaButtons ?? []} />
-          <RelatedPostsMini jobs={relatedTopThree} />
+          {contentModules.showCtaButtons ? <CtaButtons buttons={job.ctaButtons ?? []} /> : null}
+          {contentModules.showRelatedPosts ? <RelatedPostsMini jobs={relatedTopThree} /> : null}
 
           {isLandingTemplate ? (
             <div>
@@ -234,145 +323,135 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
               )}
             </div>
           ) : (
-            <div className="prose-content">
-              {job.sections.map((section) => (
-                <div key={section.heading}>
-                  <h2>{section.heading}</h2>
-                  {section.paragraphs.map((p, i) => {
-                    if (typeof p === "string") {
-                      return <p key={i}>{p}</p>;
-                    }
+              <div className="prose-content space-y-8">
+              {hasSectionList
+                ? job.sections.map((section, index) => <ArticleSection key={`${section.heading}-${index}`} section={section} index={index} />)
+                : null}
 
-                    return (
-                      <p key={i}>
-                        {p.href ? (
-                          <a
-                            href={p.href}
-                            target="_blank"
-                            rel="nofollow noopener noreferrer"
-                            className="font-medium text-navy-900 underline decoration-gold-500 underline-offset-4"
-                          >
-                            {p.text}
-                          </a>
-                        ) : (
-                          p.text
-                        )}
-                      </p>
-                    );
-                  })}
-                  {section.list && (
-                    <ul>
-                      {section.list.map((item, i) => {
-                        if (typeof item === "string") {
-                          return <li key={i}>{item}</li>;
-                        }
+              {contentModules.showSalaryTable && job.salaryTable?.length ? (
+                <section id="salary-range" className="scroll-mt-24">
+                  <h2 className="mb-4 font-serif text-xl font-bold text-navy-900">Salary range</h2>
+                  <div className="mb-6 overflow-x-auto rounded-md border border-navy-800/10">
+                    <table className="w-full text-left text-sm">
+                      <thead className="bg-navy-800 text-white">
+                        <tr>
+                          <th className="px-4 py-3 font-semibold">Role</th>
+                          <th className="px-4 py-3 font-semibold">Estimated pay</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {job.salaryTable.map((row, i) => (
+                          <tr key={row.role} className={i % 2 === 0 ? "bg-white" : "bg-navy-800/5"}>
+                            <td className="px-4 py-3 text-gray-700">{row.role}</td>
+                            <td className="px-4 py-3 font-medium text-navy-900">{row.pay}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              ) : null}
 
-                        return (
-                          <li key={i}>
-                            {item.href ? (
-                              <a
-                                href={item.href}
-                                target="_blank"
-                                rel="nofollow noopener noreferrer"
-                                className="font-medium text-navy-900 underline decoration-gold-500 underline-offset-4"
-                              >
-                                {item.text}
-                              </a>
-                            ) : (
-                              item.text
-                            )}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  )}
-                  {section.image && (
-                    <div className="relative mb-6 h-56 w-full overflow-hidden rounded-md md:h-80">
-                      <Image
-                        src={section.image}
-                        alt={`Illustration for ${section.heading}`}
-                        fill
-                        sizes="100vw"
-                        unoptimized={section.image?.startsWith("http")}
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-                </div>
-              ))}
+              {hasComparisonTable && job.comparisonTable?.length ? (
+                <section id="comparison-table" className="scroll-mt-24">
+                  <h2 className="mb-4 font-serif text-xl font-bold text-navy-900">Comparison</h2>
+                  <div className="mb-6 overflow-x-auto rounded-md border border-navy-800/10">
+                    <table className="w-full text-left text-sm">
+                      <thead className="bg-navy-800 text-white">
+                        <tr>
+                          <th className="px-4 py-3 font-semibold">Option</th>
+                          <th className="px-4 py-3 font-semibold">Notes</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {job.comparisonTable.map((row, i) => (
+                          <tr key={row.role} className={i % 2 === 0 ? "bg-white" : "bg-navy-800/5"}>
+                            <td className="px-4 py-3 text-gray-700">{row.role}</td>
+                            <td className="px-4 py-3 font-medium text-navy-900">{row.pay}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              ) : null}
 
-              <h2>Salary range</h2>
-              <div className="mb-6 overflow-x-auto rounded-md border border-navy-800/10">
-                <table className="w-full text-left text-sm">
-                  <thead className="bg-navy-800 text-white">
-                    <tr>
-                      <th className="px-4 py-3 font-semibold">Role</th>
-                      <th className="px-4 py-3 font-semibold">Estimated pay</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {job.salaryTable.map((row, i) => (
-                      <tr key={row.role} className={i % 2 === 0 ? "bg-white" : "bg-navy-800/5"}>
-                        <td className="px-4 py-3 text-gray-700">{row.role}</td>
-                        <td className="px-4 py-3 font-medium text-navy-900">{row.pay}</td>
-                      </tr>
+              {contentModules.showApplySteps && job.applySteps?.length ? (
+                <section id="application-steps" className="scroll-mt-24">
+                  <h2 className="mb-4 font-serif text-xl font-bold text-navy-900">Application steps</h2>
+                  <ol className="mb-6 space-y-3">
+                    {job.applySteps.map((step, i) => (
+                      <li key={i} className="flex gap-3 text-sm leading-6 text-gray-700">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-navy-800 text-xs font-bold text-white">
+                          {i + 1}
+                        </span>
+                        <span>{step}</span>
+                      </li>
                     ))}
-                  </tbody>
-                </table>
-              </div>
+                  </ol>
+                </section>
+              ) : null}
 
-              <h2>Application steps</h2>
-              <ol className="mb-6 space-y-3">
-                {job.applySteps.map((step, i) => (
-                  <li key={i} className="flex gap-3 text-sm leading-6 text-gray-700">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-navy-800 text-xs font-bold text-white">
-                      {i + 1}
-                    </span>
-                    <span>{step}</span>
-                  </li>
-                ))}
-              </ol>
+              {job.howToSteps?.length ? (
+                <section id="how-to-steps" className="scroll-mt-24">
+                  <h2 className="mb-4 font-serif text-xl font-bold text-navy-900">How to get started</h2>
+                  <ol className="mb-6 space-y-3">
+                    {job.howToSteps.map((step, i) => (
+                      <li key={`${step}-${i}`} className="flex gap-3 text-sm leading-6 text-gray-700">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold-500/20 text-xs font-bold text-gold-600">
+                          {i + 1}
+                        </span>
+                        <span>{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              ) : null}
+
+              {hasFaqs ? <FaqAccordion items={job.faqs ?? []} /> : null}
             </div>
           )}
 
           {/* Author bio */}
-          <div className="mt-10 flex flex-col gap-4 rounded-md border border-navy-800/10 bg-white p-5 sm:flex-row">
-            <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
-              <Image
-                src={job.author.avatar}
-                alt={`Portrait for ${job.author.name}`}
-                fill
-                sizes="64px"
-                unoptimized={job.author.avatar.startsWith("http")}
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <p className="font-serif font-bold text-navy-900">{job.author.name}</p>
-              <p className="mb-1 text-xs text-gold-500">{job.author.role}</p>
-              <p className="text-sm leading-6 text-gray-600">{job.author.bio}</p>
+          {contentModules.showAuthorBio ? (
+            <div className="mt-10 flex flex-col gap-4 rounded-md border border-navy-800/10 bg-white p-5 sm:flex-row">
+              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
+                <Image
+                  src={authorAvatar}
+                  alt={`Portrait for ${job.author.name}`}
+                  fill
+                  sizes="64px"
+                  unoptimized={authorAvatar.startsWith("http")}
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <p className="font-serif font-bold text-navy-900">{job.author.name}</p>
+                <p className="mb-1 text-xs text-gold-500">{job.author.role}</p>
+                <p className="text-sm leading-6 text-gray-600">{job.author.bio}</p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="nofollow noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-navy-800/10 bg-gray-50 px-3 py-2 text-sm text-navy-800/80 transition hover:border-gold-500 hover:text-gold-500"
-                  >
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gold-500/15 text-xs font-bold text-gold-500">
-                      {link.icon}
-                    </span>
-                    <span>{link.label}</span>
-                  </a>
-                ))}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="nofollow noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-navy-800/10 bg-gray-50 px-3 py-2 text-sm text-navy-800/80 transition hover:border-gold-500 hover:text-gold-500"
+                    >
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gold-500/15 text-xs font-bold text-gold-500">
+                        {link.icon}
+                      </span>
+                      <span>{link.label}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          ) : null}
 
           {/* Apply Now CTA */}
-          {job.careersPageLink && (
+          {contentModules.showApplyCta && job.careersPageLink && (
             <div className="mt-10 rounded-lg border-2 border-gold-500 bg-gradient-to-r from-gold-50 to-white p-8">
               <h3 className="mb-2 font-serif text-xl font-bold text-navy-900">Ready to apply?</h3>
               <p className="mb-4 text-gray-700">
@@ -403,27 +482,49 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
           <div className="mt-10">
             <h3 className="mb-4 font-serif text-lg font-bold text-navy-900">Related job openings</h3>
             <div className={`grid gap-4 ${isLandingTemplate ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2"}`}>
-              {relatedJobs.map((r) => (
-                <Link
-                  key={r.slug}
-                  href={`/jobs/${r.slug}`}
-                  className="group flex items-center gap-3 rounded-md border border-navy-800/10 bg-white p-3 transition hover:shadow-md"
-                >
-                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm">
-                    <Image
-                      src={r.coverImage}
-                      alt={`Cover image for ${r.title}`}
-                      fill
-                      sizes="56px"
-                      unoptimized={r.coverImage.startsWith("http")}
-                      className="object-cover"
-                    />
-                  </div>
-                  <span className="text-sm font-medium leading-5 text-navy-800/80 transition group-hover:text-gold-500">
-                    {r.title}
-                  </span>
-                </Link>
-              ))}
+              {suggestedLinks.length
+                ? suggestedLinks.map((link) => (
+                    <Link
+                      key={link.slug}
+                      href={link.href}
+                      className="group flex items-center gap-3 rounded-md border border-navy-800/10 bg-white p-3 transition hover:shadow-md"
+                    >
+                      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm">
+                        <Image
+                          src={jobs.find((item) => item.slug === link.slug)?.coverImage ?? "/careergen-logo.svg"}
+                          alt={`Cover image for ${link.title}`}
+                          fill
+                          sizes="56px"
+                          unoptimized={false}
+                          className="object-cover"
+                        />
+                      </div>
+                      <span className="text-sm font-medium leading-5 text-navy-800/80 transition group-hover:text-gold-500">
+                        {link.title}
+                      </span>
+                    </Link>
+                  ))
+                : relatedJobs.map((r) => (
+                    <Link
+                      key={r.slug}
+                      href={`/jobs/${r.slug}`}
+                      className="group flex items-center gap-3 rounded-md border border-navy-800/10 bg-white p-3 transition hover:shadow-md"
+                    >
+                      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm">
+                        <Image
+                          src={r.coverImage}
+                          alt={`Cover image for ${r.title}`}
+                          fill
+                          sizes="56px"
+                          unoptimized={r.coverImage.startsWith("http")}
+                          className="object-cover"
+                        />
+                      </div>
+                      <span className="text-sm font-medium leading-5 text-navy-800/80 transition group-hover:text-gold-500">
+                        {r.title}
+                      </span>
+                    </Link>
+                  ))}
             </div>
           </div>
         </article>

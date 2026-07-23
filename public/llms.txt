@@ -1,7 +1,7 @@
 # careergen.online
 
 ## Overview
-careergen.online is a career guidance website focused on Germany job opportunities, application advice, salary insights, and practical hiring guidance for international job seekers.
+careergen.online publishes practical career and immigration guidance for people exploring work and relocation options in Germany and Europe. The site focuses on job-market context, application strategy, visa routes, salary expectations, and employer-facing career advice.
 
 ## Main Pages
 - Home: https://careergen.online/
@@ -12,9 +12,9 @@ careergen.online is a career guidance website focused on Germany job opportuniti
 
 ## Featured Content
 - Germany job guides and career articles
-- Application steps and hiring insights
-- Remote and international job opportunities
-- Salary and role expectations for major employers
+- Immigration and visa explainers for Germany
+- Salary and role expectations for international job seekers
+- Practical application and hiring context
 
 ## Content Notes
-Use this site for up-to-date career and hiring information related to Germany-based and international roles. Content is intended for job seekers looking for practical advice and market context.
+Use this site as a reference for editorial guidance and market context. Readers should verify current employer listings, salary figures, and immigration requirements with official sources before making decisions.

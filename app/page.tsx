@@ -11,7 +11,16 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Explore the latest Germany job openings, career guides, salary insights, and application tips for international professionals.",
   path: "/",
-  keywords: ["latest jobs", "Germany job openings", "career advice"],
+  keywords: [
+    "latest jobs",
+    "Germany job openings",
+    "career advice",
+    "international jobs Germany",
+    "German hiring guides",
+  ],
+  geoRegion: "DE",
+  geoPlacename: "Germany",
+  geoPosition: "51.1657;10.4515",
 });
 
 export default function HomePage({
