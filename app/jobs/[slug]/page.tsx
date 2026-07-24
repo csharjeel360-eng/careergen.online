@@ -218,9 +218,9 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
       {sourceUrl ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
       ) : null}
-      <div className="grid gap-6 md:grid-cols-[minmax(0,2fr)_320px] md:gap-8 lg:gap-10">
+      <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_300px] md:gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10 xl:gap-12">
         {/* Main article */}
-        <article className="w-full min-w-0 md:col-span-2">
+        <article className="w-full min-w-0">
           <nav className="mb-4 flex flex-wrap items-center gap-1 text-[11px] text-navy-800/50 sm:text-xs">
             <Link href="/" className="hover:text-gold-500">
               Home
